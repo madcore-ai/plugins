@@ -1,2 +1,2 @@
-# charts
- Madcore Plugins/Agents Charts for Kubernetes Helm 
+# plugins
+ Madcore Plugins/Agents Charts for Kubernetes Helm and Docker Compose

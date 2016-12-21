@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: slack-service
+  name: slack-service
+  namespace: slack-plugin
+spec:
+  ports:
+  - port: 1234
+    targetPort: 1234
+  selector:
+    name: slack

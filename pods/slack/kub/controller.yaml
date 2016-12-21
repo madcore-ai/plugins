@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: slack
+  name: slack
+  namespace: slack-plugin
+spec:
+  replicas: 1
+  selector:
+    name: slack
+  template:
+    metadata:
+      labels:
+        name: slack
+    spec:
+      hostNetwork: true
+      containers:
+      - name: slack
+        image: localhost:5000/slack:image
+        volumeMounts:
+        - name: slack
+          mountPath: /opt/s3
+        - name: slack-secret-volume
+          readOnly: true
+          mountPath: /opt/secrets/slack
+      volumes:
+      - name: slack
+        hostPath:
+          path: /opt/s3
+      - name: slack-secret-volume
+        secret:
+          secretName: slack-secret
+      imagePullSecrets:
+      - name: myregistrykey

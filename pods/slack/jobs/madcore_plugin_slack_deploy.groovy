@@ -17,9 +17,9 @@ pipelineJob('madcore.plugin.slack.deploy') {
                 stage 'Docker: registry status'
                 build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 stage 'Kubernetes: create'
-                build 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', 'slack/kub')]
+                build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'slack/kub')]
                 stage 'Kubernetes: create secret'
-                build 'madcore.kubectl.create.secret', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SECRET', value: params.SECRET)]
+                build job: 'madcore.kubectl.create.secret', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SECRET', value: params.SECRET)]
                 }
             """.stripIndent())
 	    }

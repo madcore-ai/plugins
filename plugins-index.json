@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": "madcore_small",
+      "type": "internal",
+      "image": "mcsm",
+      "description": "starter madcode package",
+      "bullet_1": "jenkins",
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequesite missing",
+      "frame_color": "gold"
+    },
+    {
+      "id": "bitbucket_oauth",
+      "type": "internal",
+      "image": "bitbucket",
+      "description": "bitbucket oauth process",
+      "bullet_1": "bitbucket oauth 2.0",
+      "text_active": "Active",
+      "text_buy": "Build",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequesite missing",
+      "frame_color": "blue"
+    },
+    {
+      "id": "mesoesphere_cluster",
+      "type": "cloudformation",
+      "image": "dcos",
+      "description": "cloudformation data",
+      "bullet_1": "cluster",
+      "text_active": "Active",
+      "text_buy": "Build",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequesite missing",
+      "frame_color": "blue"
+    }
+  ]
+}

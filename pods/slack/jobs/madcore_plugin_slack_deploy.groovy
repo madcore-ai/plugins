@@ -2,7 +2,7 @@ pipelineJob('madcore.plugin.slack.deploy') {
     parameters {
         stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
 	    stringParam('APP_NAME', 'slack', '')
-	    stringParam('SECRET', 'slack-token=xoxp-102271888193-108964168741-116823616578-24874f6421c8051ac92247b017277533;slack-test=test', '')
+	    stringParam('SECRET', 'slack-token=NOTOKENHERE;slack-test=test', '')
     }
 
     definition {

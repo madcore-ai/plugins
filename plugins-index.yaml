@@ -1,4 +1,29 @@
 products:
+  - id: madcore.core
+    type: internal
+    image: http://images.madcore.ai/coreicon01.png
+    description: Starter madcode cluster
+    bullets:
+      - Core
+    text_active: Active
+    text_buy: Build
+    text_invactive: Inactive
+    text_prerequesite: "Prerequisite missing"
+    frame_color: blue
+
+  - id: madcore.cluster.spark
+    type: internal
+    image: http://images.madcore.ai/sparkclustericon01.png
+    description: Madcoe spark cluster
+    bullets:
+      - Cluster
+      - Spark
+    text_active: Active
+    text_buy: Build
+    text_invactive: Inactive
+    text_prerequesite: "Prerequisite missing"
+    frame_color: blue
+
   - id: madcore.plugin.spark
     type: plugin
     image: http://images.madcore.ai/sparkicon01.png
@@ -12,20 +37,11 @@ products:
     text_invactive: Inactive
     text_prerequesite: "Prerequisite missing"
     frame_color: gold
-    setup:
-      cluster_asg_desired: 0
-      cluster_asg_min: 0
-      cluster_asg_max: 4
     jobs:
-      - name: deploy
+      - name: submit
         parameters:
-          app_name: spark
-      - name: status
-        parameters:
-          app_name: spark
-      - name: delete
-        parameters:
-          app_name: spark
+          app_args:
+          class:
 
   - id: madcore.plugin.slack
     type: plugin
@@ -39,23 +55,7 @@ products:
     text_invactive: Inactive
     text_prerequesite: "Prerequisite missing"
     frame_color: gold
-    setup:
-       cluster_asg_desired: 0
-       cluster_asg_min: 0
-       cluster_asg_max: 4
     jobs:
-      - name: deploy
-        parameters:
-          repo_url: https://github.com/madcore-ai/containers
-          app_name: slack
-          slack_token:
-          dockerfile_path: slack
-      - name: status
-        parameters:
-          app_name: slack
-      - name: delete
-        parameters:
-          app_name: slack
       - name: pull
         parameters:
           app_name: slack

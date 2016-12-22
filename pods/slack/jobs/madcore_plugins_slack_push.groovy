@@ -11,7 +11,7 @@ echo "CHANNEL: '\$CHANNEL'"
 echo "MESSAGE: '\$MESSAGE'"
 
     pushd /opt/madcore/bin
-        python run_cmd_in_container.py "\$APP_NAME" "madcore_slack -a post_message -p '{\\"channel\\": \\"\$CHANNEL\\", \\"text\\":\\"\$MESSAGE\\"}'"
+        python run_cmd_in_container.py "\$APP_NAME" "\$APP_NAME-plugin" "madcore_slack -a post_message -p '{\\"channel\\": \\"\$CHANNEL\\", \\"text\\":\\"\$MESSAGE\\"}'"
     popd
 """
         shell(command)

@@ -1,40 +1,105 @@
 {
   "products": [
     {
-      "id": "madcore_small",
-      "type": "internal",
-      "image": "mcsm",
-      "description": "starter madcode package",
-      "bullet_1": "jenkins",
+      "id": "madcore.plugin.spark",
+      "type": "plugin",
+      "image": "http://images.madcore.ai/sparkicon01.png",
+      "description": "Apache Spark",
+      "bullets": [
+        "Machine Learning",
+        "Data Mining",
+        "Apache Foundation"
+      ],
       "text_active": "Active",
       "text_buy": "$2.99",
       "text_invactive": "Inactive",
-      "text_prerequesite": "Prerequesite missing",
-      "frame_color": "gold"
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "setup": {
+        "cluster_asg_desired": 0,
+        "cluster_asg_min": 0,
+        "cluster_asg_max": 4
+      },
+      "jobs": [
+        {
+          "name": "deploy",
+          "parameters": {
+            "app_name": "spark"
+          }
+        },
+        {
+          "name": "status",
+          "parameters": {
+            "app_name": "spark"
+          }
+        },
+        {
+          "name": "delete",
+          "parameters": {
+            "app_name": "spark"
+          }
+        }
+      ]
     },
     {
-      "id": "bitbucket_oauth",
-      "type": "internal",
-      "image": "bitbucket",
-      "description": "bitbucket oauth process",
-      "bullet_1": "bitbucket oauth 2.0",
+      "id": "madcore.plugin.slack",
+      "type": "plugin",
+      "image": "http://images.madcore.ai/slackicon01.png",
+      "description": "Slack API",
+      "bullets": [
+        "Sycn channels to S3",
+        "Post messsage"
+      ],
       "text_active": "Active",
-      "text_buy": "Build",
+      "text_buy": "$2.99",
       "text_invactive": "Inactive",
-      "text_prerequesite": "Prerequesite missing",
-      "frame_color": "blue"
-    },
-    {
-      "id": "mesoesphere_cluster",
-      "type": "cloudformation",
-      "image": "dcos",
-      "description": "cloudformation data",
-      "bullet_1": "cluster",
-      "text_active": "Active",
-      "text_buy": "Build",
-      "text_invactive": "Inactive",
-      "text_prerequesite": "Prerequesite missing",
-      "frame_color": "blue"
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "setup": {
+        "cluster_asg_desired": 0,
+        "cluster_asg_min": 0,
+        "cluster_asg_max": 4
+      },
+      "jobs": [
+        {
+          "name": "deploy",
+          "parameters": {
+            "repo_url": "https://github.com/madcore-ai/containers",
+            "app_name": "slack",
+            "slack_token": null,
+            "dockerfile_path": "slack"
+          }
+        },
+        {
+          "name": "status",
+          "parameters": {
+            "app_name": "slack"
+          }
+        },
+        {
+          "name": "delete",
+          "parameters": {
+            "app_name": "slack"
+          }
+        },
+        {
+          "name": "pull",
+          "parameters": {
+            "app_name": "slack",
+            "channels": null,
+            "s3_bucket": null,
+            "all_channels": null
+          }
+        },
+        {
+          "name": "push",
+          "parameters": {
+            "app_name": "slack",
+            "channel": null,
+            "message": null
+          }
+        }
+      ]
     }
   ]
 }

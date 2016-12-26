@@ -13,7 +13,7 @@ echo "S3_BUCKET: '\$S3_BUCKET'"
 echo "ALL_CHANNELS: '\$ALL_CHANNELS'"
 
     pushd /opt/madcore/bin
-        python run_cmd_in_container.py "\$APP_NAME" "madcore_slack -a pull_messages -p '{\\"channels\\": \\"\$CHANNELS\\", \\"s3_bucket\\":\\"\$S3_BUCKET\\", \\"all_channels\\":\$ALL_CHANNELS}'"
+        python run_cmd_in_container.py "\$APP_NAME" "\$APP_NAME-plugin" "madcore_slack -a pull_messages -p '{\\"channels\\": \\"\$CHANNELS\\", \\"s3_bucket\\":\\"\$S3_BUCKET\\", \\"all_channels\\":\$ALL_CHANNELS}'"
     popd
 """
         shell(command)

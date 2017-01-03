@@ -1,0 +1,128 @@
+{
+  "coreSoundFiles": [
+    {
+      "id": "click",
+      "isbg": 0,
+      "loop": false,
+      "md5": "test",
+      "format": ".wav",
+      "url": "https://wiki.madcore.ai/_media/app/click.wav",
+      "text": "hello world"
+    },
+    {
+      "id": "instanceselect",
+      "isbg": 0,
+      "loop": false,
+      "md5": "test",
+      "format": ".wav",
+      "url": "https://wiki.madcore.ai/_media/app/instanceselect.wav",
+      "text": "hello world"
+    },
+    {
+      "id": "log",
+      "isbg": 0,
+      "loop": false,
+      "md5": "test",
+      "format": ".wav",
+      "url": "https://wiki.madcore.ai/_media/app/log.wav",
+      "text": "hello world"
+    }    
+    ,
+    {
+      "id": "sf-ck-ambience-drone-low-01.mp3",
+      "isbg": 1,
+      "loop": false,
+      "md5": "test",
+      "format": ".mp3",
+      "url": "https://wiki.madcore.ai/_media/app/sf-ck-ambience-drone-low-01.mp3",
+      "text": "hello world"
+    }   
+  ],
+  "logMessages": [
+    {
+      "AWS": {
+        "ConnectingToAws": "Connecting to Aws",
+        "StandardMessage": "AWS :",
+        "CallCreateProduct": "CreateStack on ",
+        "CallDescribeProduct": "DescribeStack on / secs",
+        "CallCheckDelete": "Checking if / is Delete #",
+        "CallDeleteProduct": "DeleteStack on ",       
+        "ProductLoaded": " Created and Loaded ",
+        "ProductNotLoaded": "Not Created or Loaded",
+        "StartCheckandLoad": " Loaded ",
+        "StartCheckandNotLoad": " Not Purchased Yet ",
+        "ProductChecked": "Checked",
+        "ConfirmProductDeleted": "Deleted",
+        "NoKey": "No Key, Selected a Key in Preferences or Create One in AWS",
+        "ProductPurchased": "Product Purchased, Thank You.",
+        "LoginStart": "Logging you, wait a moment",
+        "AbortMadcore": "Aborting Full Deploy, Please Try Again.",
+        "StartDNS": "Starting DNS Checkup Procedure, this can take a while"
+      },
+      "ControlBox": {
+        "UpdateSchedule": "Core Job: Update Schedule: ",
+        "DeleteSchedule": "Core Job: Delete Schedule: ",
+        "UpdateInstance": "Core Job: Update Instance: ",
+        "TurnOnInstance": "Turning On Instance",
+        "TurnOffInstance": "Turning Off Instance",
+        "CreatingDNS": "DNS Start Process",
+        "JenkinsReady": "ControlBox - Jenkins Ready"
+      },
+      "Login": {
+        "ConfirmEmail": "Please Check your email to verify your account.",
+        "ConfirmAccount": "Confirming if a account with this email exists",
+        "StartLogin": "Starting Login Procedure, this can take a while",
+        "CompleteLogin": "Login Complete, changing scene.",
+        "UserNotVerified": "User not verified, code sent to your email",
+        "InvalidLogin": "Invalid Login, Try Again",
+        "SuccessVerify": "Success, Please Login",
+        "FailedVerify": "Invalid Token, Try Again",
+        "ChooseTeam": "Please choose your team and desired domain",
+        "ShortPassword": "Password must have at least 6 characters",
+        "ConfirmScreen": "Confirmation Screen. Press verify to proceed",
+        "AccountDetected": "Account detected, insert your password",
+        "NewAccount": "New Account, create your password",
+        "InvalidCode": "Invalid Code, Try Again",
+        "BitbucketInfo": "Input your bitbucket info to proceed"
+        
+      },
+      "Game": {
+        "WelcomeMessage": "Hello, Preferences Loaded and Ready",
+        "ReadyToUse": "Ready to Use Now",
+        "LoginCompleted": "Login Completed",
+        "HelpAwsKey": "You have to fill the Aws Key field",
+        "HelpConnectionName": "You have to fill the Name field",
+        "HelpSecretKey": "You have to fill the Secret Key field",
+        "ControlBoxNotReady": "Control Box is not Ready",
+        "ConnectionAdded": "New Connection Added",
+        "UIClick": "UI Click: ",       
+        "InstanceDeselected": "Deselected",
+        "ThemeUpdated": "Theme Updated!",
+        "ThemeUpdating": "Theme Update in Progress",
+        "InvalidPath": "The Path is Invalid",
+        "AutoUpdateSecurity": "Updating Follow Me Ip",
+        "InvalidPasswrod": "Your password is too short or invalid",
+        "WrongPasswrod": "Your password is wrong, please retry"
+      },
+      "Internet": {
+        "NoConnection": "Couldn't connect to Internet, try again",
+        "PostCompleted": "Post Sent",
+        "GettingConnection": "Trying to Connect",
+        "PostFailed": "Post Failed",
+        "PostCompletedCustom": "Post Sent",
+        "PostFailedCustom": "Post Failed",        
+        "GettingIp": "Getting your IP",
+        "ShowIp": "Your IP -/- Sent",        
+        "PostTimeout": "Post Time Out, Cancelling",
+        "getSoundFile": "Retrieving Sound File"
+      },
+      "Schedule": {
+        "Added": "Added To Schedule",
+        "AlreadyAdded": "This Instance already have a Schedule",
+        "InvalidName": " Schedule name can't be NULL or New Schedule! ",
+        "SameName": "There is a Schedule with this name already. "
+      }
+    }
+  ]
+}
+             

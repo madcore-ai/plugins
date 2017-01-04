@@ -54,6 +54,24 @@
         ]
     },
     {
+        "id": "click2",
+        "isbg": 0,
+        "loop": false,
+        "text": "hello world",
+        "assets": [
+            {
+                "format": "wav",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
         "id": "sf-ck-ambience-drone-low-01",
         "isbg": 1,
         "loop": true,

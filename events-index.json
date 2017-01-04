@@ -55,9 +55,9 @@
     },
     {
         "id": "sf-ck-ambience-drone-low-01",
-        "isbg": 0,
-        "loop": false,
-        "text": "hello world",
+        "isbg": 1,
+        "loop": true,
+        "text": "BG Playing",
         "assets": [
             {
                 "format": "ogg",

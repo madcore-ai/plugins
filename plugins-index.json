@@ -3,7 +3,7 @@
 		{
 			"id": "madcore.core",
 			"type": "internal",
-			"image": "http://images.madcore.ai/coreicon01.png",
+			"image": "https://wiki.madcore.ai/_media/app/iconproductcore001.png",
 			"description": "Starter madcode cluster",
 			"bullets": [
 				"Core"
@@ -17,7 +17,7 @@
 		{
 			"id": "madcore.cluster.spark",
 			"type": "internal",
-			"image": "http://images.madcore.ai/sparkclustericon01.png",
+			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginkubernetes001.png",
 			"description": "Madcoe spark cluster",
 			"bullets": [
 				"Cluster",
@@ -32,7 +32,7 @@
 		{
 			"id": "madcore.plugin.spark",
 			"type": "plugin",
-			"image": "http://images.madcore.ai/sparkicon01.png",
+			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
 			"description": "Apache Spark",
 			"bullets": [
 				"Machine Learning",
@@ -57,7 +57,7 @@
 		{
 			"id": "madcore.plugin.slack",
 			"type": "plugin",
-			"image": "http://images.madcore.ai/slackicon01.png",
+			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
 			"description": "Slack API",
 			"bullets": [
 				"Sycn channels to S3",

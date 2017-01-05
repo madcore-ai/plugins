@@ -684,7 +684,7 @@
         ]
     },
     {
-        "id": "Instance Deselected",
+        "id": "instance_deselected",
         "isbg": 0,
         "loop": false,
         "text": "Deselected",
@@ -940,6 +940,24 @@
         "isbg": 0,
         "loop": false,
         "text": "Added To Schedule",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "already_added_schedule",
+        "isbg": 0,
+        "loop": false,
+        "text": "Instance already has a Schedule",
         "assets": [
             {
                 "format": "ogg",

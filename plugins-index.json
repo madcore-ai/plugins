@@ -32,7 +32,7 @@
 		{
 			"id": "madcore.plugin.spark",
 			"type": "plugin",
-			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
+			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginspark001.png",
 			"description": "Apache Spark",
 			"bullets": [
 				"Machine Learning",

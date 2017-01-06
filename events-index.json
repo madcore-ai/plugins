@@ -252,6 +252,24 @@
         ]
     },
     {
+        "id": "registration_login_bitbucket_fail",
+        "isbg": 0,
+        "loop": false,
+        "text": "Bitbucket username or password wrong",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
         "id": "short_password",
         "isbg": 0,
         "loop": false,

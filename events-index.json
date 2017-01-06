@@ -90,7 +90,7 @@
         ]
     },
     {
-        "id": "confirm_email",
+        "id": "registration_confirm_email",
         "isbg": 0,
         "loop": true,
         "text": "Please Check your email to verify your account.",
@@ -108,7 +108,7 @@
         ]
     },
     {
-        "id": "confirm_account",
+        "id": "registration_confirm_account",
         "isbg": 1,
         "loop": true,
         "text": "Confirming if a account with this email exists",
@@ -126,7 +126,7 @@
         ]
     },
     {
-        "id": "start_login",
+        "id": "registration_start_login",
         "isbg": 0,
         "loop": false,
         "text": "Starting Login Procedure, this can take a while",
@@ -144,7 +144,7 @@
         ]
     },
     {
-        "id": "complete_login",
+        "id": "registration_complete_login",
         "isbg": 0,
         "loop": false,
         "text": "Login Complete, changing scene.",
@@ -162,7 +162,7 @@
         ]
     },
     {
-        "id": "user_not_verified",
+        "id": "registration_user_not_verified",
         "isbg": 0,
         "loop": false,
         "text": "User not verified, code sent to your email",
@@ -180,7 +180,7 @@
         ]
     },
     {
-        "id": "invalid_login",
+        "id": "registration_invalid_login",
         "isbg": 0,
         "loop": false,
         "text": "Invalid Login, Try Again",
@@ -198,7 +198,7 @@
         ]
     },
     {
-        "id": "sucess_verify",
+        "id": "registration_sucess_verify",
         "isbg": 0,
         "loop": false,
         "text": "Success, Please Login",
@@ -216,7 +216,7 @@
         ]
     },
     {
-        "id": "failed_verify",
+        "id": "registration_failed_verify",
         "isbg": 0,
         "loop": false,
         "text": "Invalid Token, Try Again",
@@ -234,7 +234,7 @@
         ]
     },
     {
-        "id": "choose_team",
+        "id": "registration_choose_team",
         "isbg": 0,
         "loop": false,
         "text": "Please choose your team and desired domain",
@@ -270,7 +270,7 @@
         ]
     },
     {
-        "id": "short_password",
+        "id": "registration_short_password",
         "isbg": 0,
         "loop": false,
         "text": "Password must have at least 6 characters",
@@ -288,7 +288,7 @@
         ]
     },
     {
-        "id": "confirm_screen",
+        "id": "registration_confirm_screen",
         "isbg": 0,
         "loop": false,
         "text": "Confirmation Screen. Press verify to proceed",
@@ -306,7 +306,7 @@
         ]
     },
     {
-        "id": "account_detected",
+        "id": "registration_account_detected",
         "isbg": 0,
         "loop": false,
         "text": "Account detected, insert your password",
@@ -324,7 +324,7 @@
         ]
     },
     {
-        "id": "new_account",
+        "id": "registration_new_account",
         "isbg": 0,
         "loop": false,
         "text": "New Account, create your password",
@@ -342,7 +342,7 @@
         ]
     },
     {
-        "id": "invalid_code",
+        "id": "registration_invalid_code",
         "isbg": 0,
         "loop": false,
         "text": "Invalid Code, Try Again",
@@ -360,7 +360,7 @@
         ]
     },
     {
-        "id": "bitbucket_info",
+        "id": "registration_bitbucket_info",
         "isbg": 0,
         "loop": false,
         "text": "Input your bitbucket info to proceed",
@@ -378,7 +378,7 @@
         ]
     },
     {
-        "id": "no_connection",
+        "id": "internet_no_connection",
         "isbg": 0,
         "loop": false,
         "text": "Input your bitbucket info to proceed",
@@ -396,7 +396,7 @@
         ]
     },
     {
-        "id": "post_completed",
+        "id": "internet_post_completed",
         "isbg": 0,
         "loop": false,
         "text": "Post Sent",
@@ -414,7 +414,7 @@
         ]
     },
     {
-        "id": "getting_connection",
+        "id": "internet_getting_connection",
         "isbg": 0,
         "loop": false,
         "text": "Trying to Connect",
@@ -432,7 +432,7 @@
         ]
     },
     {
-        "id": "post_failed",
+        "id": "internet_post_failed",
         "isbg": 0,
         "loop": false,
         "text": "Post Failed",
@@ -450,7 +450,7 @@
         ]
     },
     {
-        "id": "post_complete_custom",
+        "id": "internet_post_complete_custom",
         "isbg": 0,
         "loop": false,
         "text": "Post Sent ",
@@ -468,7 +468,7 @@
         ]
     },
     {
-        "id": "post_failed_custom",
+        "id": "internet_post_failed_custom",
         "isbg": 0,
         "loop": false,
         "text": "Post Failed ",
@@ -486,7 +486,7 @@
         ]
     },
     {
-        "id": "getting_ip",
+        "id": "internet_getting_ip",
         "isbg": 0,
         "loop": false,
         "text": "Getting your IP",
@@ -504,7 +504,7 @@
         ]
     },
     {
-        "id": "show_ip",
+        "id": "internet_show_ip",
         "isbg": 0,
         "loop": false,
         "text": "Your IP - ",
@@ -522,7 +522,7 @@
         ]
     },
     {
-        "id": "post_timeout",
+        "id": "internet_post_timeout",
         "isbg": 0,
         "loop": false,
         "text": "Post Time Out, Cancelling",
@@ -540,7 +540,7 @@
         ]
     },
     {
-        "id": "get_sound_file",
+        "id": "internet_get_sound_file",
         "isbg": 0,
         "loop": false,
         "text": "Retrieving Sound File",
@@ -558,7 +558,7 @@
         ]
     },
     {
-        "id": "welcome_message",
+        "id": "game_welcome_message",
         "isbg": 0,
         "loop": false,
         "text": "Hello, Preferences Loaded and Ready",
@@ -576,7 +576,7 @@
         ]
     },
     {
-        "id": "ready_to_use",
+        "id": "game_ready_to_use",
         "isbg": 0,
         "loop": false,
         "text": "Ready to Use Now",
@@ -594,7 +594,7 @@
         ]
     },
     {
-        "id": "login_completed",
+        "id": "game_login_completed",
         "isbg": 0,
         "loop": false,
         "text": "Login Completed",
@@ -612,7 +612,7 @@
         ]
     },
     {
-        "id": "help_aws_key",
+        "id": "game_help_aws_key",
         "isbg": 0,
         "loop": false,
         "text": "You have to fill the Aws Key field",
@@ -630,7 +630,7 @@
         ]
     },
     {
-        "id": "help_connection_name",
+        "id": "game_help_connection_name",
         "isbg": 0,
         "loop": false,
         "text": "You have to fill the Name field",
@@ -648,7 +648,7 @@
         ]
     },
     {
-        "id": "help_secret_key",
+        "id": "game_help_secret_key",
         "isbg": 0,
         "loop": false,
         "text": "You have to fill the Secret Key field",
@@ -666,7 +666,7 @@
         ]
     },
     {
-        "id": "core_not_ready",
+        "id": "game_core_not_ready",
         "isbg": 0,
         "loop": false,
         "text": "Core is not Ready",
@@ -684,7 +684,7 @@
         ]
     },
     {
-        "id": "connection_added",
+        "id": "game_connection_added",
         "isbg": 0,
         "loop": false,
         "text": "New Connection Added",
@@ -702,7 +702,7 @@
         ]
     },
     {
-        "id": "instance_deselected",
+        "id": "game_instance_deselected",
         "isbg": 0,
         "loop": false,
         "text": "Deselected",
@@ -720,7 +720,7 @@
         ]
     },
     {
-        "id": "theme_updated",
+        "id": "game_theme_updated",
         "isbg": 0,
         "loop": false,
         "text": "Theme Updated!",
@@ -738,7 +738,7 @@
         ]
     },
     {
-        "id": "theme_updating",
+        "id": "game_theme_updating",
         "isbg": 0,
         "loop": false,
         "text": "Theme Update in Progress",
@@ -756,7 +756,7 @@
         ]
     },
     {
-        "id": "invalid_path",
+        "id": "game_invalid_path",
         "isbg": 0,
         "loop": false,
         "text": "The Path is Invalid",
@@ -774,7 +774,7 @@
         ]
     },
     {
-        "id": "auto_update_security",
+        "id": "game_auto_update_security",
         "isbg": 0,
         "loop": false,
         "text": "Updating Follow Me Ip",
@@ -792,7 +792,7 @@
         ]
     },
     {
-        "id": "invalid_password",
+        "id": "game_invalid_password",
         "isbg": 0,
         "loop": false,
         "text": "Your password is too short or invalid",
@@ -810,7 +810,7 @@
         ]
     },
     {
-        "id": "wrong_password",
+        "id": "game_wrong_password",
         "isbg": 0,
         "loop": false,
         "text": "Your password is wrong, please retry",
@@ -828,7 +828,7 @@
         ]
     },
     {
-        "id": "update_schedule",
+        "id": "core_update_schedule",
         "isbg": 0,
         "loop": false,
         "text": "Core Job: Update Schedule: ",
@@ -846,7 +846,7 @@
         ]
     },
     {
-        "id": "delete_schedule",
+        "id": "core_delete_schedule",
         "isbg": 0,
         "loop": false,
         "text": "Core Job: Delete Schedule: ",
@@ -864,7 +864,7 @@
         ]
     },
     {
-        "id": "update_instance",
+        "id": "core_update_instance",
         "isbg": 0,
         "loop": false,
         "text": "Core Job: Update Instance: ",
@@ -882,7 +882,7 @@
         ]
     },
     {
-        "id": "turn_on_instance",
+        "id": "core_turn_on_instance",
         "isbg": 0,
         "loop": false,
         "text": "Turning On Instance",
@@ -900,7 +900,7 @@
         ]
     },
     {
-        "id": "turn_off_instance",
+        "id": "core_turn_off_instance",
         "isbg": 0,
         "loop": false,
         "text": "Turning Off Instance",
@@ -918,7 +918,7 @@
         ]
     },
     {
-        "id": "creating_dns",
+        "id": "core_creating_dns",
         "isbg": 0,
         "loop": false,
         "text": "DNS Start Process",
@@ -936,7 +936,7 @@
         ]
     },
     {
-        "id": "jenkins_ready",
+        "id": "core_jenkins_ready",
         "isbg": 0,
         "loop": false,
         "text": "Core - Jenkins Ready",
@@ -954,7 +954,7 @@
         ]
     },
     {
-        "id": "added_schedule",
+        "id": "schedule_added_schedule",
         "isbg": 0,
         "loop": false,
         "text": "Added To Schedule",
@@ -972,7 +972,7 @@
         ]
     },
     {
-        "id": "already_added_schedule",
+        "id": "schedule_already_added_schedule",
         "isbg": 0,
         "loop": false,
         "text": "Instance already has a Schedule",
@@ -990,7 +990,7 @@
         ]
     },
     {
-        "id": "invalid_schedule_name",
+        "id": "schedule_invalid_schedule_name",
         "isbg": 0,
         "loop": false,
         "text": "Schedule name can't be NULL or New Schedule!",
@@ -1008,7 +1008,7 @@
         ]
     },
     {
-        "id": "same_schedule_name",
+        "id": "schedule_same_schedule_name",
         "isbg": 0,
         "loop": false,
         "text": "There is a Schedule with this name already.",
@@ -1026,7 +1026,7 @@
         ]
     },
     {
-        "id": "connecting_to_aws",
+        "id": "aws_connecting_to_aws",
         "isbg": 0,
         "loop": false,
         "text": "Connecting to Aws",
@@ -1062,7 +1062,7 @@
         ]
     },
     {
-        "id": "create_stack",
+        "id": "aws_create_stack",
         "isbg": 0,
         "loop": false,
         "text": "Create Stack on  ",
@@ -1080,7 +1080,7 @@
         ]
     },
     {
-        "id": "describe_stack",
+        "id": "aws_describe_stack",
         "isbg": 0,
         "loop": false,
         "text": "Describe Stack on / secs",
@@ -1098,7 +1098,7 @@
         ]
     },
     {
-        "id": "check_delete_stack",
+        "id": "aws_check_delete_stack",
         "isbg": 0,
         "loop": false,
         "text": "Checkinf if Stack / is Deleted",
@@ -1116,7 +1116,7 @@
         ]
     },
     {
-        "id": "delete_stack",
+        "id": "aws_delete_stack",
         "isbg": 0,
         "loop": false,
         "text": "Delete Stack on ",
@@ -1134,7 +1134,7 @@
         ]
     },
     {
-        "id": "product_loaded",
+        "id": "aws_product_loaded",
         "isbg": 0,
         "loop": false,
         "text": "Created and Loaded ",
@@ -1152,7 +1152,7 @@
         ]
     },
     {
-        "id": "product_not_loaded",
+        "id": "aws_product_not_loaded",
         "isbg": 0,
         "loop": false,
         "text": "Not Created and Loaded ",
@@ -1170,7 +1170,7 @@
         ]
     },
     {
-        "id": "initial_check_and_load",
+        "id": "aws_initial_check_and_load",
         "isbg": 0,
         "loop": false,
         "text": "Loaded ",
@@ -1188,7 +1188,7 @@
         ]
     },
     {
-        "id": "initial_check_and_not_load",
+        "id": "aws_initial_check_and_not_load",
         "isbg": 0,
         "loop": false,
         "text": "Unavailiable ",
@@ -1206,7 +1206,7 @@
         ]
     },
     {
-        "id": "product_checked",
+        "id": "aws_product_checked",
         "isbg": 0,
         "loop": false,
         "text": "Checked ",
@@ -1224,7 +1224,7 @@
         ]
     },
     {
-        "id": "confirm_product_deleted",
+        "id": "aws_confirm_product_deleted",
         "isbg": 0,
         "loop": false,
         "text": "Deleted",
@@ -1242,7 +1242,7 @@
         ]
     },
     {
-        "id": "no_keypair",
+        "id": "aws_no_keypair",
         "isbg": 0,
         "loop": false,
         "text": "No Key, Selected a Key in Preferences or Create One in AWS",
@@ -1260,7 +1260,7 @@
         ]
     },
     {
-        "id": "product_purchased",
+        "id": "aws_product_purchased",
         "isbg": 0,
         "loop": false,
         "text": "Product Purchased, Thank You.",
@@ -1278,7 +1278,7 @@
         ]
     },
     {
-        "id": "login_start",
+        "id": "aws_login_start",
         "isbg": 0,
         "loop": false,
         "text": "Logging you, wait a moment",
@@ -1296,7 +1296,7 @@
         ]
     },
     {
-        "id": "abort_madcore",
+        "id": "aws_abort_madcore",
         "isbg": 0,
         "loop": false,
         "text": "Aborting Core Deploy, Please Try Again.",
@@ -1314,7 +1314,7 @@
         ]
     },
     {
-        "id": "start_dns",
+        "id": "aws_start_dns",
         "isbg": 0,
         "loop": false,
         "text": "Starting DNS Checkup Procedure, this can take a while",

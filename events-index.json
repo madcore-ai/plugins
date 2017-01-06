@@ -3,6 +3,7 @@
         "id": "instanceselect",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "hello world",
         "assets": [
             {
@@ -21,6 +22,7 @@
         "id": "log",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "hello world",
         "assets": [
             {
@@ -39,6 +41,7 @@
         "id": "click",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "hello world",
         "assets": [
             {
@@ -57,6 +60,7 @@
         "id": "click2",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "hello world",
         "assets": [
             {
@@ -75,6 +79,7 @@
         "id": "sf-ck-ambience-drone-low-01",
         "isbg": 1,
         "loop": true,
+        "volume": 1,
         "text": "BG Playing",
         "assets": [
             {
@@ -93,6 +98,7 @@
         "id": "registration_confirm_email",
         "isbg": 0,
         "loop": true,
+        "volume": 1,
         "text": "Please Check your email to verify your account.",
         "assets": [
             {
@@ -111,6 +117,7 @@
         "id": "registration_confirm_account",
         "isbg": 1,
         "loop": true,
+        "volume": 1,
         "text": "Confirming if a account with this email exists",
         "assets": [
             {
@@ -129,6 +136,7 @@
         "id": "registration_start_login",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Starting Login Procedure, this can take a while",
         "assets": [
             {
@@ -147,6 +155,7 @@
         "id": "registration_complete_login",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Login Complete, changing scene.",
         "assets": [
             {
@@ -165,6 +174,7 @@
         "id": "registration_user_not_verified",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "User not verified, code sent to your email",
         "assets": [
             {
@@ -183,6 +193,7 @@
         "id": "registration_invalid_login",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Invalid Login, Try Again",
         "assets": [
             {
@@ -201,6 +212,7 @@
         "id": "registration_sucess_verify",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Success, Please Login",
         "assets": [
             {
@@ -219,6 +231,7 @@
         "id": "registration_failed_verify",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Invalid Token, Try Again",
         "assets": [
             {
@@ -237,6 +250,7 @@
         "id": "registration_choose_team",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Please choose your team and desired domain",
         "assets": [
             {
@@ -255,6 +269,7 @@
         "id": "registration_login_bitbucket_fail",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Bitbucket username or password wrong",
         "assets": [
             {
@@ -273,6 +288,7 @@
         "id": "registration_short_password",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Password must have at least 6 characters",
         "assets": [
             {
@@ -291,6 +307,7 @@
         "id": "registration_confirm_screen",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Confirmation Screen. Press verify to proceed",
         "assets": [
             {
@@ -309,6 +326,7 @@
         "id": "registration_account_detected",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Account detected, insert your password",
         "assets": [
             {
@@ -327,6 +345,7 @@
         "id": "registration_new_account",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "New Account, create your password",
         "assets": [
             {
@@ -345,6 +364,7 @@
         "id": "registration_invalid_code",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Invalid Code, Try Again",
         "assets": [
             {
@@ -363,6 +383,7 @@
         "id": "registration_bitbucket_info",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Input your bitbucket info to proceed",
         "assets": [
             {
@@ -381,6 +402,7 @@
         "id": "internet_no_connection",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Input your bitbucket info to proceed",
         "assets": [
             {
@@ -399,6 +421,7 @@
         "id": "internet_post_completed",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Post Sent",
         "assets": [
             {
@@ -417,6 +440,7 @@
         "id": "internet_getting_connection",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Trying to Connect",
         "assets": [
             {
@@ -435,6 +459,7 @@
         "id": "internet_post_failed",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Post Failed",
         "assets": [
             {
@@ -453,6 +478,7 @@
         "id": "internet_post_complete_custom",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Post Sent ",
         "assets": [
             {
@@ -471,6 +497,7 @@
         "id": "internet_post_failed_custom",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Post Failed ",
         "assets": [
             {
@@ -489,6 +516,7 @@
         "id": "internet_getting_ip",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Getting your IP",
         "assets": [
             {
@@ -507,6 +535,7 @@
         "id": "internet_show_ip",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Your IP - ",
         "assets": [
             {
@@ -525,6 +554,7 @@
         "id": "internet_post_timeout",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Post Time Out, Cancelling",
         "assets": [
             {
@@ -543,6 +573,7 @@
         "id": "internet_get_sound_file",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Retrieving Sound File",
         "assets": [
             {
@@ -561,6 +592,7 @@
         "id": "game_welcome_message",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Hello, Preferences Loaded and Ready",
         "assets": [
             {
@@ -579,6 +611,7 @@
         "id": "game_ready_to_use",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Ready to Use Now",
         "assets": [
             {
@@ -597,6 +630,7 @@
         "id": "game_login_completed",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Login Completed",
         "assets": [
             {
@@ -615,6 +649,7 @@
         "id": "game_help_aws_key",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "You have to fill the Aws Key field",
         "assets": [
             {
@@ -633,6 +668,7 @@
         "id": "game_help_connection_name",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "You have to fill the Name field",
         "assets": [
             {
@@ -651,6 +687,7 @@
         "id": "game_help_secret_key",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "You have to fill the Secret Key field",
         "assets": [
             {
@@ -669,6 +706,7 @@
         "id": "game_core_not_ready",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Core is not Ready",
         "assets": [
             {
@@ -687,6 +725,7 @@
         "id": "game_connection_added",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "New Connection Added",
         "assets": [
             {
@@ -705,6 +744,7 @@
         "id": "game_instance_deselected",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Deselected",
         "assets": [
             {
@@ -723,6 +763,7 @@
         "id": "game_theme_updated",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Theme Updated!",
         "assets": [
             {
@@ -741,6 +782,7 @@
         "id": "game_theme_updating",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Theme Update in Progress",
         "assets": [
             {
@@ -759,6 +801,7 @@
         "id": "game_invalid_path",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "The Path is Invalid",
         "assets": [
             {
@@ -777,6 +820,7 @@
         "id": "game_auto_update_security",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Updating Follow Me Ip",
         "assets": [
             {
@@ -795,6 +839,7 @@
         "id": "game_invalid_password",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Your password is too short or invalid",
         "assets": [
             {
@@ -813,6 +858,7 @@
         "id": "game_wrong_password",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Your password is wrong, please retry",
         "assets": [
             {
@@ -831,6 +877,7 @@
         "id": "core_update_schedule",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Core Job: Update Schedule: ",
         "assets": [
             {
@@ -849,6 +896,7 @@
         "id": "core_delete_schedule",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Core Job: Delete Schedule: ",
         "assets": [
             {
@@ -867,6 +915,7 @@
         "id": "core_update_instance",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Core Job: Update Instance: ",
         "assets": [
             {
@@ -885,6 +934,7 @@
         "id": "core_turn_on_instance",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Turning On Instance",
         "assets": [
             {
@@ -903,6 +953,7 @@
         "id": "core_turn_off_instance",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Turning Off Instance",
         "assets": [
             {
@@ -921,6 +972,7 @@
         "id": "core_creating_dns",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "DNS Start Process",
         "assets": [
             {
@@ -939,6 +991,7 @@
         "id": "core_jenkins_ready",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Core - Jenkins Ready",
         "assets": [
             {
@@ -957,6 +1010,7 @@
         "id": "schedule_added_schedule",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Added To Schedule",
         "assets": [
             {
@@ -975,6 +1029,7 @@
         "id": "schedule_already_added_schedule",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Instance already has a Schedule",
         "assets": [
             {
@@ -993,6 +1048,7 @@
         "id": "schedule_invalid_schedule_name",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Schedule name can't be NULL or New Schedule!",
         "assets": [
             {
@@ -1011,6 +1067,7 @@
         "id": "schedule_same_schedule_name",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "There is a Schedule with this name already.",
         "assets": [
             {
@@ -1029,6 +1086,7 @@
         "id": "aws_connecting_to_aws",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Connecting to Aws",
         "assets": [
             {
@@ -1047,6 +1105,7 @@
         "id": "aws_standard_message",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "AWS: ",
         "assets": [
             {
@@ -1065,6 +1124,7 @@
         "id": "aws_create_stack",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Create Stack on  ",
         "assets": [
             {
@@ -1083,6 +1143,7 @@
         "id": "aws_describe_stack",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Describe Stack on / secs",
         "assets": [
             {
@@ -1101,6 +1162,7 @@
         "id": "aws_check_delete_stack",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Checkinf if Stack / is Deleted",
         "assets": [
             {
@@ -1119,6 +1181,7 @@
         "id": "aws_delete_stack",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Delete Stack on ",
         "assets": [
             {
@@ -1137,6 +1200,7 @@
         "id": "aws_product_loaded",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Created and Loaded ",
         "assets": [
             {
@@ -1155,6 +1219,7 @@
         "id": "aws_product_not_loaded",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Not Created and Loaded ",
         "assets": [
             {
@@ -1173,6 +1238,7 @@
         "id": "aws_initial_check_and_load",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Loaded ",
         "assets": [
             {
@@ -1191,6 +1257,7 @@
         "id": "aws_initial_check_and_not_load",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Unavailiable ",
         "assets": [
             {
@@ -1209,6 +1276,7 @@
         "id": "aws_product_checked",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Checked ",
         "assets": [
             {
@@ -1227,6 +1295,7 @@
         "id": "aws_confirm_product_deleted",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Deleted",
         "assets": [
             {
@@ -1245,6 +1314,7 @@
         "id": "aws_no_keypair",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "No Key, Selected a Key in Preferences or Create One in AWS",
         "assets": [
             {
@@ -1263,6 +1333,7 @@
         "id": "aws_product_purchased",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Product Purchased, Thank You.",
         "assets": [
             {
@@ -1281,6 +1352,7 @@
         "id": "aws_login_start",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Logging you, wait a moment",
         "assets": [
             {
@@ -1299,6 +1371,7 @@
         "id": "aws_abort_madcore",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Aborting Core Deploy, Please Try Again.",
         "assets": [
             {
@@ -1317,6 +1390,7 @@
         "id": "aws_start_dns",
         "isbg": 0,
         "loop": false,
+        "volume": 1,
         "text": "Starting DNS Checkup Procedure, this can take a while",
         "assets": [
             {

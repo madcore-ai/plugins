@@ -646,6 +646,63 @@
         ]
     },
     {
+        "id": "game_button_slide_in",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "button opened",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "game_button_slide_out",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "button closed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "game_login_completed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Login Completed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
         "id": "game_help_aws_key",
         "isbg": 0,
         "loop": false,

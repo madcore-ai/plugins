@@ -684,6 +684,44 @@
         ]
     },
     {
+        "id": "game_menu_slide_in",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "menu opened",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "game_menu_slide_out",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "menu closed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
         "id": "game_login_completed",
         "isbg": 0,
         "loop": false,

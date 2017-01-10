@@ -1296,7 +1296,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Created and Loaded ",
+        "text": " Product Loaded",
         "assets": [
             {
                 "format": "ogg",
@@ -1315,7 +1315,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Not Created and Loaded ",
+        "text": "Product Not Loaded ",
         "assets": [
             {
                 "format": "ogg",

@@ -1,9 +1,9 @@
 pipelineJob('madcore.plugin.flasker.deploy') {
     parameters {
-      stringParam('REPO_URL', '', '')
+      stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
       stringParam('REPO_BRANCH', 'master', '')
       stringParam('APP_NAME', 'flasker', '')
-      stringParam('PORT', '', '')
+      stringParam('PORT', '9019', '')
       stringParam('DOCKERFILE_PATH', 'flasker', 'Specify path to docker file relative to root repo.')
     }
 

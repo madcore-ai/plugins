@@ -1216,11 +1216,11 @@
         ]
     },
     {
-        "id": "aws_create_stack",
+        "id": "aws_stack_network_create",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Create Stack on  ",
+        "text": "Create Stack on Network",
         "assets": [
             {
                 "format": "ogg",
@@ -1235,11 +1235,11 @@
         ]
     },
     {
-        "id": "aws_describe_stack",
+        "id": "aws_stack_network_describe",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Describe Stack on / secs",
+        "text": "Describe Stack on Network / secs",
         "assets": [
             {
                 "format": "ogg",
@@ -1254,11 +1254,11 @@
         ]
     },
     {
-        "id": "aws_check_delete_stack",
+        "id": "aws_stack_network_checkdelete",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Checkinf if Stack / is Deleted",
+        "text": "Checking if Stack Network is Deleted",
         "assets": [
             {
                 "format": "ogg",
@@ -1273,11 +1273,391 @@
         ]
     },
     {
-        "id": "aws_delete_stack",
+        "id": "aws_stack_network_delete",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Delete Stack on ",
+        "text": "Delete Stack on Network",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on FollowMe",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on FollowMe / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack FollowMe is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on FollowMe",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on Core",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on Core / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack Core is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on Core",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on S3",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on S3 / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack S3 is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on S3",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on DNS",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on DNS / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack DNS is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on DNS",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on Cluster",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on Cluster / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack Cluster is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on Cluster",
         "assets": [
             {
                 "format": "ogg",

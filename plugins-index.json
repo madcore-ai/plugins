@@ -1,92 +1,102 @@
 {
-	"products": [
-		{
-			"id": "madcore.core",
-			"type": "internal",
-			"image": "https://wiki.madcore.ai/_media/app/iconproductcore001.png",
-			"description": "Starter madcode cluster",
-			"bullets": [
-				"Core"
-			],
-			"text_active": "Active",
-			"text_buy": "Build",
-			"text_invactive": "Inactive",
-			"text_prerequesite": "Prerequisite missing",
-			"frame_color": "blue"
-		},
-		{
-			"id": "madcore.cluster.spark",
-			"type": "internal",
-			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginkubernetes001.png",
-			"description": "Madcoe spark cluster",
-			"bullets": [
-				"Cluster",
-				"Spark"
-			],
-			"text_active": "Active",
-			"text_buy": "Build",
-			"text_invactive": "Inactive",
-			"text_prerequesite": "Prerequisite missing",
-			"frame_color": "blue"
-		},
-		{
-			"id": "madcore.plugin.spark",
-			"type": "plugin",
-			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginspark001.png",
-			"description": "Apache Spark",
-			"bullets": [
-				"Machine Learning",
-				"Data Mining",
-				"Apache Foundation"
-			],
-			"text_active": "Active",
-			"text_buy": "$2.99",
-			"text_invactive": "Inactive",
-			"text_prerequesite": "Prerequisite missing",
-			"frame_color": "gold",
-			"jobs": [
-				{
-					"name": "submit",
-					"parameters": {
-						"app_args": null,
-						"class": null
-					}
-				}
-			]
-		},
-		{
-			"id": "madcore.plugin.slack",
-			"type": "plugin",
-			"image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
-			"description": "Slack API",
-			"bullets": [
-				"Sycn channels to S3",
-				"Post messsage"
-			],
-			"text_active": "Active",
-			"text_buy": "$2.99",
-			"text_invactive": "Inactive",
-			"text_prerequesite": "Prerequisite missing",
-			"frame_color": "gold",
-			"jobs": [
-				{
-					"name": "pull",
-					"parameters": {
-						"app_name": "slack",
-						"channels": null,
-						"s3_bucket": null,
-						"all_channels": null
-					}
-				},
-				{
-					"name": "push",
-					"parameters": {
-						"app_name": "slack",
-						"channel": null,
-						"message": null
-					}
-				}
-			]
-		}
-	]
+  "products": [
+    {
+      "id": "madcore.core",
+      "type": "internal",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductcore001.png",
+      "description": "Starter madcore cluster",
+      "bullets": [
+        "Core"
+      ],
+      "text_active": "Active",
+      "text_buy": "Build",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "blue"
+    },
+    {
+      "id": "madcore.cluster.spark",
+      "type": "internal",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginkubernetes001.png",
+      "description": "Madcore spark cluster",
+      "bullets": [
+        "Cluster",
+        "Spark"
+      ],
+      "text_active": "Active",
+      "text_buy": "Build",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "blue"
+    },
+    {
+      "id": "spark",
+      "type": "plugin",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginspark001.png",
+      "description": "Apache Spark",
+      "bullets": [
+        "Machine Learning",
+        "Data Mining",
+        "Apache Foundation"
+      ],
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "jobs": [
+        {
+          "name": "submit",
+          "parameters": {
+            "app_args": null,
+            "class": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "slack",
+      "type": "plugin",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
+      "description": "Slack API",
+      "bullets": [
+        "Slack API",
+        "Sync channels to S3",
+        "Post messages to Slack"
+      ],
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "parameters": {
+        "app_name": "slack"
+      },
+      "jobs": [
+        {
+          "name": "deploy",
+          "parameters": {
+            "slack_token": null
+          }
+        },
+        {
+          "name": "pull",
+          "parameters": {
+            "app_name": "slack",
+            "channels": null,
+            "s3_bucket": null,
+            "all_channels": null
+          }
+        },
+        {
+          "name": "push",
+          "parameters": {
+            "app_name": "slack",
+            "channel": null,
+            "message": null
+          }
+        }
+      ]
+    }
+  ]
 }

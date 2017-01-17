@@ -1615,11 +1615,11 @@
         ]
     },
     {
-        "id": "aws_info_product_loaded",
+        "id": "aws_info_core_loaded",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": " Product Loaded",
+        "text": "Core Loaded",
         "assets": [
             {
                 "format": "ogg",
@@ -1634,11 +1634,11 @@
         ]
     },
     {
-        "id": "aws_info_product_notloaded",
+        "id": "aws_info_core_notloaded",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Product Not Loaded ",
+        "text": "Core Not Loaded ",
         "assets": [
             {
                 "format": "ogg",
@@ -1657,7 +1657,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Loaded ",
+        "text": "Core Loaded ",
         "assets": [
             {
                 "format": "ogg",
@@ -1676,7 +1676,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Unavailiable ",
+        "text": "Core Unavailiable ",
         "assets": [
             {
                 "format": "ogg",
@@ -1695,7 +1695,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Checked ",
+        "text": "Stack Checked ",
         "assets": [
             {
                 "format": "ogg",
@@ -1714,7 +1714,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Deleted",
+        "text": "Stack Deleted",
         "assets": [
             {
                 "format": "ogg",

@@ -93,47 +93,9 @@
                 "md5": "bleble"
             }
         ]
-    },
+    },    
     {
-        "id": "registration_confirm_email",
-        "isbg": 0,
-        "loop": true,
-        "volume": 1,
-        "text": "Please Check your email to verify your account.",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "registration_confirm_account",
-        "isbg": 1,
-        "loop": true,
-        "volume": 1,
-        "text": "Confirming if a account with this email exists",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "registration_start_login",
+        "id": "account_login_access_start",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -152,7 +114,7 @@
         ]
     },
     {
-        "id": "registration_complete_login",
+        "id": "account_login_access_complete",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -171,7 +133,7 @@
         ]
     },
     {
-        "id": "registration_user_not_verified",
+        "id": "account_login_access_usernotverified",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -190,7 +152,7 @@
         ]
     },
     {
-        "id": "registration_invalid_login",
+        "id": "account_login_access_invalidlogin",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -207,13 +169,13 @@
                 "md5": "bleble"
             }
         ]
-    },
+    },   
     {
-        "id": "registration_sucess_verify",
+        "id": "account_registration_email_confirm",
         "isbg": 0,
-        "loop": false,
+        "loop": true,
         "volume": 1,
-        "text": "Success, Please Login",
+        "text": "Please Check your email to verify your account.",
         "assets": [
             {
                 "format": "ogg",
@@ -228,11 +190,11 @@
         ]
     },
     {
-        "id": "registration_failed_verify",
-        "isbg": 0,
-        "loop": false,
+        "id": "account_registration_email_accountconfirm",
+        "isbg": 1,
+        "loop": true,
         "volume": 1,
-        "text": "Invalid Token, Try Again",
+        "text": "Confirming if a account with this email exists",
         "assets": [
             {
                 "format": "ogg",
@@ -247,7 +209,7 @@
         ]
     },
     {
-        "id": "registration_choose_team",
+        "id": "account_registration_team_choose",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -266,7 +228,7 @@
         ]
     },
     {
-        "id": "registration_login_bitbucket_fail",
+        "id": "account_registration_login_bitbucketfail",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -284,12 +246,12 @@
             }
         ]
     },
-    {
-        "id": "registration_short_password",
+     {
+        "id": "account_registration_verify_success",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Password must have at least 6 characters",
+        "text": "Success, Please Login",
         "assets": [
             {
                 "format": "ogg",
@@ -304,7 +266,26 @@
         ]
     },
     {
-        "id": "registration_confirm_screen",
+        "id": "account_registration_verify_failed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Invalid Token, Try Again",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_verify_confirmscreen",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -323,7 +304,7 @@
         ]
     },
     {
-        "id": "registration_account_detected",
+        "id": "account_registration_account_detected",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -342,7 +323,7 @@
         ]
     },
     {
-        "id": "registration_new_account",
+        "id": "account_registration_account_new",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -361,7 +342,45 @@
         ]
     },
     {
-        "id": "registration_invalid_code",
+        "id": "account_registration_bitbucket_info",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Input your bitbucket info to proceed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_error_shortpassword",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Password must have at least 6 characters",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_error_invalidcode",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -378,13 +397,13 @@
                 "md5": "bleble"
             }
         ]
-    },
+    },    
     {
-        "id": "registration_bitbucket_info",
+        "id": "internet_info_connection_no",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Input your bitbucket info to proceed",
+        "text": "No Internet Connection",
         "assets": [
             {
                 "format": "ogg",
@@ -399,26 +418,7 @@
         ]
     },
     {
-        "id": "internet_no_connection",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Input your bitbucket info to proceed",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "internet_post_completed",
+        "id": "internet_info_post_completed",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -437,7 +437,7 @@
         ]
     },
     {
-        "id": "internet_getting_connection",
+        "id": "internet_info_connection_getting",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -456,7 +456,7 @@
         ]
     },
     {
-        "id": "internet_post_failed",
+        "id": "internet_info_post_failed",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -475,7 +475,7 @@
         ]
     },
     {
-        "id": "internet_post_complete_custom",
+        "id": "internet_info_post_complete",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -494,7 +494,7 @@
         ]
     },
     {
-        "id": "internet_post_failed_custom",
+        "id": "internet_info_post_failed",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -513,7 +513,7 @@
         ]
     },
     {
-        "id": "internet_getting_ip",
+        "id": "internet_info_ip_getting",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -532,7 +532,7 @@
         ]
     },
     {
-        "id": "internet_show_ip",
+        "id": "internet_info_ip_show",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -551,7 +551,7 @@
         ]
     },
     {
-        "id": "internet_post_timeout",
+        "id": "internet_info_post_timeout",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -570,7 +570,7 @@
         ]
     },
     {
-        "id": "internet_get_sound_file",
+        "id": "internet_info_get_soundfile",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -589,7 +589,7 @@
         ]
     },
     {
-        "id": "game_welcome_message",
+        "id": "game_login_message_welcome",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -608,7 +608,7 @@
         ]
     },
     {
-        "id": "game_ready_to_use",
+        "id": "game_login_files_readytouse",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -627,7 +627,7 @@
         ]
     },
     {
-        "id": "game_login_completed",
+        "id": "game_login_action_completed",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -722,26 +722,7 @@
         ]
     },
     {
-        "id": "game_login_completed",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Login Completed",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "game_help_aws_key",
+        "id": "game_info_aws_key",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -760,7 +741,7 @@
         ]
     },
     {
-        "id": "game_help_connection_name",
+        "id": "game_info_connection_name",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -779,7 +760,7 @@
         ]
     },
     {
-        "id": "game_help_secret_key",
+        "id": "game_info_set_secretkey",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -798,26 +779,7 @@
         ]
     },
     {
-        "id": "game_core_not_ready",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Core is not Ready",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "game_connection_added",
+        "id": "game_info_connection_added",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -836,11 +798,11 @@
         ]
     },
     {
-        "id": "game_instance_deselected",
+        "id": "game_info_core_notready",
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Deselected",
+        "text": "Core is not Ready",
         "assets": [
             {
                 "format": "ogg",
@@ -855,45 +817,7 @@
         ]
     },
     {
-        "id": "game_theme_updated",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Theme Updated!",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "game_theme_updating",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Theme Update in Progress",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "game_invalid_path",
+        "id": "game_info_invalid_path",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -912,7 +836,7 @@
         ]
     },
     {
-        "id": "game_auto_update_security",
+        "id": "game_info_autoupdate_security",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -931,7 +855,7 @@
         ]
     },
     {
-        "id": "game_invalid_password",
+        "id": "game_info_invalid_password",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -950,7 +874,7 @@
         ]
     },
     {
-        "id": "game_wrong_password",
+        "id": "game_info_wrong_password",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -969,7 +893,64 @@
         ]
     },
     {
-        "id": "core_update_schedule",
+        "id": "game_object_instance_deselected",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Deselected",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "game_object_theme_updated",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Theme Updated!",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "game_object_theme_updating",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Theme Update in Progress",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },    
+    {
+        "id": "core_info_schedule_update",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -988,7 +969,7 @@
         ]
     },
     {
-        "id": "core_delete_schedule",
+        "id": "core_info_schedule_delete",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1007,7 +988,7 @@
         ]
     },
     {
-        "id": "core_update_instance",
+        "id": "core_info_instance_update",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1026,7 +1007,7 @@
         ]
     },
     {
-        "id": "core_turn_on_instance",
+        "id": "core_info_instance_turnon",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1045,7 +1026,7 @@
         ]
     },
     {
-        "id": "core_turn_off_instance",
+        "id": "core_info_instance_turnoff",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1064,7 +1045,7 @@
         ]
     },
     {
-        "id": "core_creating_dns",
+        "id": "core_info_dns_creating",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1083,7 +1064,7 @@
         ]
     },
     {
-        "id": "core_jenkins_ready",
+        "id": "core_info_jenkins_ready",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1102,7 +1083,7 @@
         ]
     },
     {
-        "id": "schedule_added_schedule",
+        "id": "schedule_info_schedule_added",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1121,7 +1102,7 @@
         ]
     },
     {
-        "id": "schedule_already_added_schedule",
+        "id": "schedule_info_schedule_alreadyadded",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1140,7 +1121,7 @@
         ]
     },
     {
-        "id": "schedule_invalid_schedule_name",
+        "id": "schedule_info_schedule_nameinvalid",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1159,49 +1140,11 @@
         ]
     },
     {
-        "id": "schedule_same_schedule_name",
+        "id": "schedule_info_schedule_samename",
         "isbg": 0,
         "loop": false,
         "volume": 1,
         "text": "There is a Schedule with this name already.",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "aws_connecting_to_aws",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Connecting to Aws",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "aws_standard_message",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "AWS: ",
         "assets": [
             {
                 "format": "ogg",
@@ -1672,7 +1615,7 @@
         ]
     },
     {
-        "id": "aws_product_loaded",
+        "id": "aws_info_product_loaded",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1691,7 +1634,7 @@
         ]
     },
     {
-        "id": "aws_product_not_loaded",
+        "id": "aws_info_product_notloaded",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1710,7 +1653,7 @@
         ]
     },
     {
-        "id": "aws_initial_check_and_load",
+        "id": "aws_info_initial_checktrue",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1729,7 +1672,7 @@
         ]
     },
     {
-        "id": "aws_initial_check_and_not_load",
+        "id": "aws_info_initial_checkfalse",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1748,7 +1691,7 @@
         ]
     },
     {
-        "id": "aws_product_checked",
+        "id": "aws_info_product_checked",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1767,7 +1710,7 @@
         ]
     },
     {
-        "id": "aws_confirm_product_deleted",
+        "id": "aws_info_product_confirmdeleted",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1786,7 +1729,7 @@
         ]
     },
     {
-        "id": "aws_no_keypair",
+        "id": "aws_info_keypair_no",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1805,7 +1748,7 @@
         ]
     },
     {
-        "id": "aws_product_purchased",
+        "id": "aws_info_product_purchased",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1824,7 +1767,7 @@
         ]
     },
     {
-        "id": "aws_login_start",
+        "id": "aws_info_login_start",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1843,7 +1786,7 @@
         ]
     },
     {
-        "id": "aws_abort_madcore",
+        "id": "aws_info_madcore_abort",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -1862,7 +1805,7 @@
         ]
     },
     {
-        "id": "aws_start_dns",
+        "id": "aws_info_dns_start",
         "isbg": 0,
         "loop": false,
         "volume": 1,

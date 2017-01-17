@@ -475,44 +475,6 @@
         ]
     },
     {
-        "id": "internet_info_post_complete",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Post Sent ",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
-        "id": "internet_info_post_failed",
-        "isbg": 0,
-        "loop": false,
-        "volume": 1,
-        "text": "Post Failed ",
-        "assets": [
-            {
-                "format": "ogg",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "blabla"
-            },
-            {
-                "format": "mp3",
-                "url": "https://wiki.madcore.ai/_media/app/log.wav",
-                "md5": "bleble"
-            }
-        ]
-    },
-    {
         "id": "internet_info_ip_getting",
         "isbg": 0,
         "loop": false,
@@ -1615,6 +1577,44 @@
         ]
     },
     {
+        "id": "aws_info_standard_message",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "AWS :",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_connection_anim_message",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Connecting to Aws",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
         "id": "aws_info_core_loaded",
         "isbg": 0,
         "loop": false,
@@ -1676,7 +1676,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "Core Unavailiable ",
+        "text": "Core Unavailable",
         "assets": [
             {
                 "format": "ogg",

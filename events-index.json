@@ -551,7 +551,7 @@
         ]
     },
     {
-        "id": "game_login_message_welcome",
+        "id": "ui_login_message_welcome",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -570,7 +570,7 @@
         ]
     },
     {
-        "id": "game_login_files_readytouse",
+        "id": "ui_login_files_readytouse",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -589,7 +589,7 @@
         ]
     },
     {
-        "id": "game_login_action_completed",
+        "id": "ui_login_action_completed",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -608,7 +608,7 @@
         ]
     },
     {
-        "id": "game_button_slide_in",
+        "id": "ui_button_slide_in",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -627,7 +627,7 @@
         ]
     },
     {
-        "id": "game_button_slide_out",
+        "id": "ui_button_slide_out",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -646,7 +646,7 @@
         ]
     },
     {
-        "id": "game_menu_slide_in",
+        "id": "ui_menu_slide_in",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -665,7 +665,7 @@
         ]
     },
     {
-        "id": "game_menu_slide_out",
+        "id": "ui_menu_slide_out",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -684,7 +684,7 @@
         ]
     },
     {
-        "id": "game_info_aws_key",
+        "id": "ui_info_aws_key",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -703,7 +703,7 @@
         ]
     },
     {
-        "id": "game_info_connection_name",
+        "id": "ui_info_connection_name",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -722,7 +722,7 @@
         ]
     },
     {
-        "id": "game_info_set_secretkey",
+        "id": "ui_info_set_secretkey",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -741,7 +741,7 @@
         ]
     },
     {
-        "id": "game_info_connection_added",
+        "id": "ui_info_connection_added",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -760,7 +760,7 @@
         ]
     },
     {
-        "id": "game_info_core_notready",
+        "id": "ui_info_core_notready",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -779,7 +779,7 @@
         ]
     },
     {
-        "id": "game_info_invalid_path",
+        "id": "ui_info_invalid_path",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -798,7 +798,7 @@
         ]
     },
     {
-        "id": "game_info_autoupdate_security",
+        "id": "ui_info_autoupdate_security",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -817,7 +817,7 @@
         ]
     },
     {
-        "id": "game_info_invalid_password",
+        "id": "ui_info_invalid_password",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -836,7 +836,7 @@
         ]
     },
     {
-        "id": "game_info_wrong_password",
+        "id": "ui_info_wrong_password",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -855,7 +855,7 @@
         ]
     },
     {
-        "id": "game_object_instance_deselected",
+        "id": "ui_object_instance_deselected",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -874,7 +874,7 @@
         ]
     },
     {
-        "id": "game_object_theme_updated",
+        "id": "ui_object_theme_updated",
         "isbg": 0,
         "loop": false,
         "volume": 1,
@@ -893,7 +893,7 @@
         ]
     },
     {
-        "id": "game_object_theme_updating",
+        "id": "ui_object_theme_updating",
         "isbg": 0,
         "loop": false,
         "volume": 1,

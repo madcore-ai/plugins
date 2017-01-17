@@ -688,7 +688,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "You have to fill the Aws Key field",
+        "text": "Please enter the Aws Key field",
         "assets": [
             {
                 "format": "ogg",
@@ -707,7 +707,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "You have to fill the Name field",
+        "text": "Please enter the Name field",
         "assets": [
             {
                 "format": "ogg",
@@ -726,7 +726,7 @@
         "isbg": 0,
         "loop": false,
         "volume": 1,
-        "text": "You have to fill the Secret Key field",
+        "text": "Please enter the Secret Key field",
         "assets": [
             {
                 "format": "ogg",

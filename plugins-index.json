@@ -44,13 +44,60 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
+      "parameters": [
+        {
+          "name": "app_name",
+          "value": "spark",
+          "description": "Plugin app name",
+          "type": "string"
+        }
+      ],
       "jobs": [
         {
-          "name": "submit",
-          "parameters": {
-            "app_args": null,
-            "class": null
-          }
+          "name": "submit.jar",
+          "parameters": [
+            {
+              "name": "class",
+              "value": "graphx.SynthBenchmark",
+              "description": "Define the class name to use from example. Class name should be relative to: org.apache.spark.examples",
+              "type": "string"
+            },
+            {
+              "name": "app_args",
+              "value": "-app=pagerank -niters=11",
+              "description": "Input parameters for the example",
+              "type": "string"
+            },
+            {
+              "name": "spark_args",
+              "value": "--executor-memory 1G",
+              "description": "Define extra args for spark",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "submit.py",
+          "parameters": [
+            {
+              "name": "py_file",
+              "value": "pi.py",
+              "description": "Define the py files from examples.",
+              "type": "string"
+            },
+            {
+              "name": "app_args",
+              "value": "10",
+              "description": "Input parameters for the example script.",
+              "type": "string"
+            },
+            {
+              "name": "spark_args",
+              "value": "--executor-memory 1G",
+              "description": "Define extra args for spark",
+              "type": "string"
+            }
+          ]
         }
       ]
     },
@@ -69,32 +116,65 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
-      "parameters": {
-        "app_name": "slack"
-      },
+      "parameters": [
+        {
+          "name": "app_name",
+          "value": "slack",
+          "description": "Plugin app name",
+          "type": "string"
+        }
+      ],
       "jobs": [
         {
           "name": "deploy",
-          "parameters": {
-            "slack_token": null
-          }
+          "parameters": [
+            {
+              "name": "slack_token",
+              "value": null,
+              "description": "Slack API token.",
+              "type": "string"
+            }
+          ]
         },
         {
           "name": "pull",
-          "parameters": {
-            "app_name": "slack",
-            "channels": null,
-            "s3_bucket": null,
-            "all_channels": null
-          }
+          "parameters": [
+            {
+              "name": "all_channels",
+              "value": null,
+              "description": "In case that you want to sync all the channels, set this.",
+              "type": "bool"
+            },
+            {
+              "name": "channels",
+              "value": null,
+              "description": "List of slack channels(comma separated) to pull from.",
+              "type": "string"
+            },
+            {
+              "name": "s3_bucket",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 bucket name to sync data to.",
+              "type": "string"
+            }
+          ]
         },
         {
           "name": "push",
-          "parameters": {
-            "app_name": "slack",
-            "channel": null,
-            "message": null
-          }
+          "parameters": [
+            {
+              "name": "channel",
+              "value": null,
+              "description": "Slack channel name to post message to.",
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "value": null,
+              "description": "Slack text message to post.",
+              "type": "string"
+            }
+          ]
         }
       ]
     }

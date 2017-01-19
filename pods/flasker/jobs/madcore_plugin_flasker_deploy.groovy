@@ -27,6 +27,9 @@ pipelineJob('madcore.plugin.flasker.deploy') {
                 stage ('Update app base') {
                   build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'APP_PORT', value: params.PORT)]
                 }
+                stage ('Update CSR') {
+                  build job: 'madcore.ssl.csr.generate'
+                }
                 stage ('Update certificate and haproxy') {
                   build job: 'madcore.ssl.letsencrypt.getandinstall'
                 }

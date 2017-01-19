@@ -8,8 +8,9 @@ pipelineJob('madcore.plugin.spark.delete') {
             sandbox()
             script("""
             node {
-                stage 'Helm: delete'
-                build job: 'madcore.helm.delete', parameters: [string(name: 'RELEASE_NAME', value: params.APP_NAME)]
+                stage('Kubernetes: delete') {
+                    build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'spark/kub')]
+                }
                 }
             """.stripIndent())
 	    }

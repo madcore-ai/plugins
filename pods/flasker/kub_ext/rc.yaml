@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: flasker
+  name: flasker
+  namespace: flasker-plugin
+spec:
+  replicas: 1
+  selector:
+    name: flasker
+  template:
+    metadata:
+      labels:
+        name: flasker
+    spec:
+      hostNetwork: true
+      containers:
+      - name: flasker
+        image: madcore/flasker:latest

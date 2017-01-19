@@ -8,8 +8,9 @@ pipelineJob('madcore.plugin.spark.status') {
             sandbox()
             script("""
             node {
-                stage 'Helm: status'
-                build job: 'madcore.helm.status', parameters: [string(name: 'RELEASE_NAME', value: params.APP_NAME)]
+                stage('Kubernetes: status') {
+                    build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'spark/kub')]
+                }
                 }
             """.stripIndent())
 	    }

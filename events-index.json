@@ -173,7 +173,7 @@
     {
         "id": "account_registration_email_confirm",
         "isbg": 0,
-        "loop": true,
+        "loop": false,
         "volume": 1,
         "text": "Please Check your email to verify your account.",
         "assets": [
@@ -192,7 +192,7 @@
     {
         "id": "account_registration_email_accountconfirm",
         "isbg": 1,
-        "loop": true,
+        "loop": false,
         "volume": 1,
         "text": "Confirming if a account with this email exists",
         "assets": [

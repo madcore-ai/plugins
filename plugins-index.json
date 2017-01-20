@@ -221,6 +221,159 @@
           "type": "string"
         }
       ]
+    },
+    {
+      "id": "k8s",
+      "type": "cluster",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
+      "description": "Kubernetes Cluster",
+      "bullets": [
+        "K8S Cluster"
+      ],
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "cloudformations": [
+        {
+          "name": "k8s_cluster",
+          "stack_name": "MADCORE-K8sCluster",
+          "template_file": "cf/cluster.json",
+          "capabilities": [
+            "CAPABILITY_IAM"
+          ],
+          "parameters": [
+            {
+              "name": "VpcId",
+              "value": "{{ MADCORE_VPC_ID }}",
+              "description": "VpcId",
+              "type": "string"
+            },
+            {
+              "name": "PublicNetZoneA",
+              "value": "{{ MADCORE_PUBLIC_NET_ZONE_A }}",
+              "description": "PublicNetZoneA",
+              "type": "string"
+            },
+            {
+              "name": "ClusterSubnetId",
+              "value": "{{ (MADCORE_PRIVATE_IP.split('.')[0:3] + ['0'])|join('.') + '/24' }}",
+              "description": "ClusterSubnetId",
+              "type": "string"
+            },
+            {
+              "name": "MasterIP",
+              "value": "{{ MADCORE_PRIVATE_IP }}",
+              "description": "MasterIP",
+              "type": "string"
+            },
+            {
+              "name": "S3BucketName",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "MasterIP",
+              "type": "string"
+            },
+            {
+              "name": "KeyName",
+              "value": "{{ MADCORE_KEY_NAME }}",
+              "description": "AWS KeyName",
+              "type": "string"
+            },
+            {
+              "name": "InstanceType",
+              "value": null,
+              "description": "AWS EC2 instance type.",
+              "type": "string",
+              "allowed": [
+                "m3.medium",
+                "m4.xlarge",
+                "r3.large"
+              ]
+            },
+            {
+              "name": "SpotPrice",
+              "value": null,
+              "description": "AWS EC2 instance spot price.",
+              "type": "string"
+            },
+            {
+              "name": "MinSize",
+              "value": 0,
+              "description": "Cluster MinSize.",
+              "type": "integer"
+            },
+            {
+              "name": "MaxSize",
+              "value": 0,
+              "description": "Cluster MaxSize.",
+              "type": "integer"
+            },
+            {
+              "name": "DesiredCapacity",
+              "value": 0,
+              "description": "Cluster DesiredCapacity.",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "jobs": [
+        {
+          "name": "deploy",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_deploy",
+              "description": "Deploy cluster using cloudformation",
+              "job_name": "k8s_cluster",
+              "action": "create"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_deploy",
+              "description": "Run jenkins deploy job",
+              "job_name": "deploy"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_remove",
+              "description": "Remove cloudformation cluster",
+              "job_name": "k8s_cluster",
+              "action": "delete"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_delete",
+              "description": "Run jenkins delete job",
+              "job_name": "delete"
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_status",
+              "description": "Check cloudformation cluster status",
+              "job_name": "k8s_cluster",
+              "action": "status"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_status",
+              "description": "Run jenkins status job",
+              "job_name": "status"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

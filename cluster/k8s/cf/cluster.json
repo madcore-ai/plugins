@@ -17,7 +17,7 @@
       "Type": "String",
       "Description": "Valid AWS KeyPair name."
     },
-    "ClusterSubnetId": {
+    "SecurityGroupCIRD": {
       "Type": "String",
       "Description": "IP address of cluster nodes.",
       "AllowedPattern": "\\d{1,3}+\\.\\d{1,3}+\\.\\d{1,3}+\\.\\d{1,3}/\\d{2}",
@@ -188,7 +188,7 @@
             "FromPort": "0",
             "ToPort": "65535",
             "CidrIp": {
-              "Ref": "ClusterSubnetId"
+              "Ref": "SecurityGroupCIRD"
             }
           }
         ]
@@ -273,6 +273,11 @@
           {
             "Key": "Name",
             "Value": "MADCORE-K8S-Node",
+            "PropagateAtLaunch": "true"
+          },
+          {
+            "Key": "Cluster",
+            "Value": "MADCORE-K8S",
             "PropagateAtLaunch": "true"
           }
         ]

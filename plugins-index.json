@@ -525,6 +525,14 @@
       "jobs": [
         {
           "name": "deploy",
+          "parameters": [
+            {
+              "name": "app_name",
+              "value": "spark",
+              "description": "Plugin app name",
+              "type": "string"
+            }
+          ],
           "sequence": [
             {
               "type": "job",

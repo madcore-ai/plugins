@@ -30,78 +30,6 @@
       "frame_color": "blue"
     },
     {
-      "id": "spark",
-      "type": "plugin",
-      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginspark001.png",
-      "description": "Apache Spark",
-      "bullets": [
-        "Machine Learning",
-        "Data Mining",
-        "Apache Foundation"
-      ],
-      "text_active": "Active",
-      "text_buy": "$2.99",
-      "text_invactive": "Inactive",
-      "text_prerequesite": "Prerequisite missing",
-      "frame_color": "gold",
-      "parameters": [
-        {
-          "name": "app_name",
-          "value": "spark",
-          "description": "Plugin app name",
-          "type": "string"
-        }
-      ],
-      "jobs": [
-        {
-          "name": "submit.jar",
-          "parameters": [
-            {
-              "name": "class",
-              "value": "graphx.SynthBenchmark",
-              "description": "Define the class name to use from example. Class name should be relative to: org.apache.spark.examples",
-              "type": "string"
-            },
-            {
-              "name": "app_args",
-              "value": "-app=pagerank -niters=11",
-              "description": "Input parameters for the example",
-              "type": "string"
-            },
-            {
-              "name": "spark_args",
-              "value": "--executor-memory 1G",
-              "description": "Define extra args for spark",
-              "type": "string"
-            }
-          ]
-        },
-        {
-          "name": "submit.py",
-          "parameters": [
-            {
-              "name": "py_file",
-              "value": "pi.py",
-              "description": "Define the py files from examples.",
-              "type": "string"
-            },
-            {
-              "name": "app_args",
-              "value": "10",
-              "description": "Input parameters for the example script.",
-              "type": "string"
-            },
-            {
-              "name": "spark_args",
-              "value": "--executor-memory 1G",
-              "description": "Define extra args for spark",
-              "type": "string"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "slack",
       "type": "plugin",
       "image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
@@ -475,6 +403,320 @@
                   "prompt": false
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spark",
+      "type": "cluster",
+      "image": "https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png",
+      "description": "Spark Cluster",
+      "bullets": [
+        "Machine Learning",
+        "Data Mining",
+        "Apache Foundation"
+      ],
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "parameters": [
+        {
+          "name": "app_name",
+          "value": "spark",
+          "description": "Plugin app name",
+          "type": "string"
+        }
+      ],
+      "cloudformations": [
+        {
+          "name": "spark_cluster",
+          "stack_name": "MADCORE-SparkCluster",
+          "template_file": "cf/cluster.json",
+          "capabilities": [
+            "CAPABILITY_IAM"
+          ],
+          "parameters": [
+            {
+              "name": "VpcId",
+              "value": "{{ MADCORE_VPC_ID }}",
+              "description": "VpcId",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "PublicNetZoneA",
+              "value": "{{ MADCORE_PUBLIC_NET_ZONE_A }}",
+              "description": "PublicNetZoneA",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "SecurityGroupCIRD",
+              "value": "{{ (MADCORE_PRIVATE_IP.split('.')[0:3] + ['0'])|join('.') + '/24' }}",
+              "description": "Security Group CIRD",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "MasterIP",
+              "value": "{{ MADCORE_PRIVATE_IP }}",
+              "description": "IP of the master cluster node",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "S3BucketName",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 bucket name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "KeyName",
+              "value": "{{ MADCORE_KEY_NAME }}",
+              "description": "AWS KeyName",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "InstanceType",
+              "value": "{{ MADCORE_INSTANCE_TYPE }}",
+              "description": "AWS EC2 instance type.",
+              "type": "string",
+              "allowed": [
+                "m3.medium",
+                "m4.xlarge",
+                "r3.large"
+              ]
+            },
+            {
+              "name": "SpotPrice",
+              "value": "{{ InstanceType|spot_price }}",
+              "default_label": "{{ InstanceType|spot_price(verbose=True) }}",
+              "description": "AWS EC2 instance spot price.",
+              "type": "string",
+              "cache": false
+            },
+            {
+              "name": "MinSize",
+              "value": 0,
+              "description": "Cluster MinSize.",
+              "type": "integer_positive"
+            },
+            {
+              "name": "MaxSize",
+              "value": 0,
+              "description": "Cluster MaxSize.",
+              "type": "integer_positive"
+            },
+            {
+              "name": "DesiredCapacity",
+              "value": 0,
+              "description": "Cluster DesiredCapacity.",
+              "type": "integer_positive"
+            }
+          ]
+        }
+      ],
+      "jobs": [
+        {
+          "name": "deploy",
+          "sequence": [
+            {
+              "type": "job",
+              "name": "spark_deploy",
+              "description": "Spark jenkins deploy job.",
+              "job_name": "deploy"
+            },
+            {
+              "type": "cloudformation",
+              "name": "cluster_deploy",
+              "description": "Deploy cluster using cloudformation",
+              "job_name": "spark_cluster",
+              "action": "create"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_remove",
+              "description": "Remove cloudformation cluster",
+              "job_name": "spark_cluster",
+              "action": "delete"
+            },
+            {
+              "type": "job",
+              "name": "spark_delete",
+              "description": "Run jenkins delete job",
+              "job_name": "delete"
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_status",
+              "description": "Check cloudformation cluster status",
+              "job_name": "spark_cluster",
+              "action": "status"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_status",
+              "description": "Run jenkins status job",
+              "job_name": "status"
+            }
+          ]
+        },
+        {
+          "name": "extend",
+          "parameters": [
+            {
+              "name": "nodes",
+              "value": null,
+              "description": "Extend cluster by X nodes.",
+              "type": "integer_gt_zero"
+            }
+          ],
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_status",
+              "description": "Update cloudformation cluster settings.",
+              "job_name": "spark_cluster",
+              "action": "update",
+              "parameters": [
+                {
+                  "name": "InstanceType",
+                  "value": "{{ MADCORE_INSTANCE_TYPE }}",
+                  "description": "AWS EC2 instance type.",
+                  "type": "string",
+                  "allowed": [
+                    "m3.medium",
+                    "m4.xlarge",
+                    "r3.large"
+                  ]
+                },
+                {
+                  "name": "SpotPrice",
+                  "value": "{{ InstanceType|spot_price }}",
+                  "default_label": "{{ InstanceType|spot_price(verbose=True) }}",
+                  "description": "AWS EC2 instance spot price.",
+                  "type": "string"
+                },
+                {
+                  "name": "DesiredCapacity",
+                  "value": "{{ SPARK_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}",
+                  "description": "Update Cluster DesiredCapacity.",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "contract",
+          "parameters": [
+            {
+              "name": "nodes",
+              "value": null,
+              "description": "Contract cluster by X nodes.",
+              "type": "integer_gt_zero"
+            }
+          ],
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_status",
+              "description": "Update cloudformation cluster settings",
+              "job_name": "spark_cluster",
+              "action": "update",
+              "parameters": [
+                {
+                  "name": "DesiredCapacity",
+                  "value": "{{ SPARK_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}",
+                  "description": "Update Cluster DesiredCapacity and remove X nodes.",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "zero",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "cluster_status",
+              "description": "Update cloudformation cluster settings",
+              "job_name": "spark_cluster",
+              "action": "update",
+              "parameters": [
+                {
+                  "name": "DesiredCapacity",
+                  "value": 0,
+                  "description": "Set Cluster DesiredCapacity to 0.",
+                  "type": "integer_positive",
+                  "prompt": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "submit.jar",
+          "parameters": [
+            {
+              "name": "class",
+              "value": "graphx.SynthBenchmark",
+              "description": "Define the class name to use from example. Class name should be relative to: org.apache.spark.examples",
+              "type": "string"
+            },
+            {
+              "name": "app_args",
+              "value": "-app=pagerank -niters=11",
+              "description": "Input parameters for the example",
+              "type": "string"
+            },
+            {
+              "name": "spark_args",
+              "value": "--executor-memory 1G",
+              "description": "Define extra args for spark",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "submit.py",
+          "parameters": [
+            {
+              "name": "py_file",
+              "value": "pi.py",
+              "description": "Define the py files from examples.",
+              "type": "string"
+            },
+            {
+              "name": "app_args",
+              "value": "10",
+              "description": "Input parameters for the example script.",
+              "type": "string"
+            },
+            {
+              "name": "spark_args",
+              "value": "--executor-memory 1G",
+              "description": "Define extra args for spark",
+              "type": "string"
             }
           ]
         }

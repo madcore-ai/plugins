@@ -351,6 +351,13 @@
                   "description": "Update Cluster DesiredCapacity.",
                   "type": "string",
                   "prompt": false
+                },
+                {
+                  "name": "MaxSize",
+                  "value": "{{ K8S_CLUSTER_MaxSize|int + EXTEND_NODES|int }}",
+                  "description": "Update Cluster MaxSize.",
+                  "type": "string",
+                  "prompt": false
                 }
               ]
             }
@@ -625,6 +632,13 @@
                   "name": "DesiredCapacity",
                   "value": "{{ SPARK_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}",
                   "description": "Update Cluster DesiredCapacity.",
+                  "type": "string",
+                  "prompt": false
+                },
+                {
+                  "name": "MaxSize",
+                  "value": "{{ SPARK_CLUSTER_MaxSize|int + EXTEND_NODES|int }}",
+                  "description": "Update Cluster MaxSize.",
                   "type": "string",
                   "prompt": false
                 }

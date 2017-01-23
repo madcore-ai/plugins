@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "K8S cluster",
+  "Description": "Spark cluster",
   "Parameters": {
     "VpcId": {
       "Type": "String",
@@ -272,12 +272,12 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "MADCORE-K8S-Node",
+            "Value": "MADCORE-Spark-Node",
             "PropagateAtLaunch": "true"
           },
           {
             "Key": "Cluster",
-            "Value": "MADCORE-K8S",
+            "Value": "MADCORE-Spark",
             "PropagateAtLaunch": "true"
           }
         ]

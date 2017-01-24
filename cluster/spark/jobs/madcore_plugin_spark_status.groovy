@@ -9,7 +9,7 @@ pipelineJob('madcore.plugin.spark.status') {
             script("""
             node {
                 stage('Kubernetes: status') {
-                    build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'spark/kub')]
+                    build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'cluster/spark/kub')]
                 }
                 }
             """.stripIndent())

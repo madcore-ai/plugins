@@ -299,6 +299,11 @@
       "Value": {
         "Ref": "DesiredCapacity"
       }
+    },
+    "AutoScalingGroupName": {
+      "Value": {
+        "Ref": "MadcoreClusterAutoScalingServerGroup"
+      }
     }
   }
 }

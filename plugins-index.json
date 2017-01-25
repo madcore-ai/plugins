@@ -256,6 +256,10 @@
       ],
       "jobs": [
         {
+          "name": "cleanup",
+          "private": true
+        },
+        {
           "name": "deploy",
           "sequence": [
             {
@@ -389,6 +393,12 @@
                   "prompt": false
                 }
               ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up cluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         },
@@ -410,6 +420,12 @@
                   "prompt": false
                 }
               ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up cluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         }
@@ -530,6 +546,10 @@
         }
       ],
       "jobs": [
+        {
+          "name": "cleanup",
+          "private": true
+        },
         {
           "name": "deploy",
           "parameters": [
@@ -672,6 +692,12 @@
                   "prompt": false
                 }
               ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up cluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         },
@@ -693,6 +719,12 @@
                   "prompt": false
                 }
               ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up cluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         },

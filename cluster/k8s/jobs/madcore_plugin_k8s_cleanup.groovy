@@ -1,4 +1,4 @@
-pipelineJob('madcore.plugin.k8s.delete') {
+pipelineJob('madcore.plugin.k8s.cleanup') {
     definition {
 	    cps {
             sandbox()

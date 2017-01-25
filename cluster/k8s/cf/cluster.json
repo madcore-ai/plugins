@@ -25,18 +25,21 @@
       "MaxLength": "15",
       "MinLength": "1"
     },
-    "MasterIP": {
-      "Type": "String",
-      "Description": "Master IP of the cluster",
-      "AllowedPattern": "\\d{1,3}+\\.\\d{1,3}+\\.\\d{1,3}+\\.\\d{1,3}",
-      "ConstraintDescription": "Must be a valid CIDR IP address xx.xx.xx.xx",
-      "MaxLength": "15",
-      "MinLength": "1"
-    },
     "SpotPrice": {
       "Description": "Maximum spot price to bid in USD (e.g.: 0.32).",
       "Default": "0.02",
       "Type": "Number"
+    },
+    "MasterInstanceType": {
+      "Description": "EC2 PV  instance type (m3.medium, etc).",
+      "Type": "String",
+      "Default": "m3.medium",
+      "AllowedValues": [
+        "m3.medium",
+        "m4.xlarge",
+        "r3.large"
+      ],
+      "ConstraintDescription": "Must be a valid EC2 PV instance type."
     },
     "InstanceType": {
       "Description": "EC2 PV instance type (m3.medium, etc). Note: m1.small is not supported.",
@@ -194,6 +197,68 @@
         ]
       }
     },
+    "MadcoreMasterInstance": {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "ImageId" : {
+          "Fn::FindInMap": [
+            "UbuntuXenialAMI",
+            {
+              "Ref": "AWS::Region"
+            },
+            "AMI"
+          ]
+        },
+        "IamInstanceProfile": {
+          "Ref": "MadcoreClusterInstanceProfile"
+        },
+        "SecurityGroups": [
+          {
+            "Ref": "MadcoreClusterSecurityGroup"
+          }
+        ],
+        "InstanceType": {
+          "Ref": "MasterInstanceType"
+        },
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sdk",
+            "Ebs": {
+              "VolumeSize": "20"
+            }
+          }
+        ],
+        "KeyName": {"Ref": "KeyName"},
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!/bin/bash -v\n",
+                "# Madcore Kubernetes Node Pre Configure\n",
+                "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
+                "sudo echo ENV=AWS >> /etc/environment\n",
+                "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
+                "# PRECONFIGURE madcore\n",
+                "sudo apt-get update\n",
+                "sudo apt-get install git -y\n",
+                "sudo mkdir -p /opt/madcore\n",
+                "sudo chown ubuntu:ubuntu /opt/madcore\n",
+                "git clone https://github.com/madcore-ai/core.git /opt/madcore\n",
+                "sudo chmod +x /opt/madcore/kubernetes/setup.sh\n",
+                "sudo \"/opt/madcore/kubernetes/setup.sh\"\n"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "MadcoreK8sMasterIP" : {
+      "Type" : "AWS::EC2::EIP",
+      "Properties" : {
+           "InstanceId" : { "Ref" : "MadcoreMasterInstance" }
+      }
+    },
     "MadcoreClusterAutoScalingLaunchConfiguration": {
       "Type": "AWS::AutoScaling::LaunchConfiguration",
       "Properties": {
@@ -239,7 +304,7 @@
                 "# Madcore Kubernetes Node Pre Configure\n",
                 "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
                 "sudo echo ENV=AWS >> /etc/environment\n",
-                "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
+                "sudo echo KUB_MASTER_IP=", {"Ref": "MadcoreK8sMasterIP"}, " >> /etc/environment\n",
                 "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
                 "# PRECONFIGURE madcore\n",
                 "sudo apt-get update\n",

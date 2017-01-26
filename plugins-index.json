@@ -418,6 +418,20 @@
                   "description": "Set Cluster DesiredCapacity to 0.",
                   "type": "integer_positive",
                   "prompt": false
+                },
+                {
+                  "name": "MaxSize",
+                  "value": 0,
+                  "description": "Set Cluster MaxSize to 0.",
+                  "type": "integer_positive",
+                  "prompt": false
+                },
+                {
+                  "name": "MinSize",
+                  "value": 0,
+                  "description": "Set Cluster MinSize to 0.",
+                  "type": "integer_positive",
+                  "prompt": false
                 }
               ]
             },
@@ -715,6 +729,20 @@
                   "name": "DesiredCapacity",
                   "value": 0,
                   "description": "Set Cluster DesiredCapacity to 0.",
+                  "type": "integer_positive",
+                  "prompt": false
+                },
+                {
+                  "name": "MaxSize",
+                  "value": 0,
+                  "description": "Set Cluster MaxSize to 0.",
+                  "type": "integer_positive",
+                  "prompt": false
+                },
+                {
+                  "name": "MinSize",
+                  "value": 0,
+                  "description": "Set Cluster MinSize to 0.",
                   "type": "integer_positive",
                   "prompt": false
                 }

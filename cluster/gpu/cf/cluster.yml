@@ -128,11 +128,15 @@ Resources:
             echo KUB_MASTER_IP=${MasterIP} >> /etc/environment
             echo S3_BUCKET=${S3BucketName} >> /etc/environment
             # PRECONFIGURE madcore
-            yum install git -y
             mkdir -p /opt/madcore
-            git clone https://github.com/madcore-ai/core.git /opt/madcore
-            chmod +x /opt/madcore/kubernetes/cluster/node-install.sh
-            /opt/madcore/kubernetes/cluster/node-install.sh
+            git clone https://github.com/madcore-ai/plugins.git /opt/madcore
+            # INSTALL dl4j prerequisites
+            # maven only, git and jre are pre-installed into Deep Learning AMI
+            wget -c http://apache-mirror.rbc.ru/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+            tar zxf apache-maven-3.3.9-bin.tar.gz
+            mv apache-maven-3.3.9 /usr/local
+            chown -R root.root /usr/local/apache-maven-3.3.9
+            ln -s /usr/local/apache-maven-3.3.9/bin/mvn /usr/local/bin/
   MadcoreClusterAutoScalingServerGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -156,4 +160,3 @@ Outputs:
     Value: !Ref MaxSize
   DesiredCapacity:
     Value: !Ref DesiredCapacity
-

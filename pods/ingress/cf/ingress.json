@@ -1,17 +1,12 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "K8S cluster",
+  "Description": "Spark cluster",
   "Parameters": {
     "VpcId": {
       "Type": "String",
       "AllowedPattern": "vpc-[a-f0-9]{8}",
       "ConstraintDescription": "Must be valid VPC identifier vpc-xxxxxxxx",
       "Description": "The ID of the MadCore Virtual Private Network."
-    },
-    "S3BucketName": {
-      "Type": "String",
-      "ConstraintDescription": "Must be valid S3 bucket name.",
-      "Description": "S3 bucket name."
     },
     "KeyName": {
       "Type": "String",
@@ -33,11 +28,6 @@
       "MaxLength": "15",
       "MinLength": "1"
     },
-    "SpotPrice": {
-      "Description": "Maximum spot price to bid in USD (e.g.: 0.32).",
-      "Default": "0.02",
-      "Type": "Number"
-    },
     "InstanceType": {
       "Description": "EC2 PV instance type (m3.medium, etc). Note: m1.small is not supported.",
       "Type": "String",
@@ -55,19 +45,6 @@
       "ConstraintDescription": "Must be valid security group identifier sg-xxxxxxxx",
       "Description": "Madcore-Cluster Public Subnet Zone A"
     },
-    "MinSize": {
-      "Type": "Number",
-      "Description": "Autoscale MinSize"
-    },
-    "MaxSize": {
-      "Type": "Number",
-      "Description": "Autoscale MaxSize"
-    },
-    "DesiredCapacity": {
-      "Type": "Number",
-      "Description": "Autoscale DesiredCapacity"
-    }
-  },
   "Mappings": {
     "UbuntuXenialAMI": {
       "us-west-1": {
@@ -172,17 +149,17 @@
         ]
       }
     },
-    "MadcoreClusterSecurityGroup": {
+    "MadcoreIngrassSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "Provides Madcore Cluster access",
+        "GroupDescription": "Provides Madcore Ingress plugin access",
         "VpcId": {
           "Ref": "VpcId"
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "SG-madcore-cluster"
+            "Value": "SG-madcore-cluster-ingress"
           }
         ],
         "SecurityGroupIngress": [
@@ -197,116 +174,70 @@
         ]
       }
     },
-    "MadcoreClusterAutoScalingLaunchConfiguration": {
-      "Type": "AWS::AutoScaling::LaunchConfiguration",
-      "Properties": {
-        "AssociatePublicIpAddress": true,
-        "ImageId": {
-          "Fn::FindInMap": [
-            "UbuntuXenialAMI",
-            {
-              "Ref": "AWS::Region"
-            },
-            "AMI"
-          ]
+  "MadcoreIngressInstance": {
+  "Type" : "AWS::EC2::Instance",
+  "Properties" : {
+    "ImageId" : {
+      "Fn::FindInMap": [
+        "UbuntuXenialAMI",
+        {
+          "Ref": "AWS::Region"
         },
-        "IamInstanceProfile": {
-          "Ref": "MadcoreClusterInstanceProfile"
-        },
-        "SecurityGroups": [
-          {
-            "Ref": "MadcoreClusterSecurityGroup"
-          }
-        ],
-        "InstanceType": {
-          "Ref": "InstanceType"
-        },
-        "SpotPrice": {
-          "Ref": "SpotPrice"
-        },
-        "BlockDeviceMappings": [
-          {
-            "DeviceName": "/dev/sdk",
-            "Ebs": {
-              "VolumeSize": "20"
-            }
-          }
-        ],
-        "KeyName": {"Ref": "KeyName"},
-        "UserData": {
-          "Fn::Base64": {
-            "Fn::Join": [
-              "",
-              [
-                "#!/bin/bash -v\n",
-                "# Madcore Kubernetes Node Pre Configure\n",
-                "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
-                "sudo echo ENV=AWS >> /etc/environment\n",
-                "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
-                "sudo echo KUB_CLUSTER_NAME=", "k8s", " >> /etc/environment\n",
-                "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
-                "# PRECONFIGURE madcore\n",
-                "sudo apt-get update\n",
-                "sudo apt-get install git -y\n",
-                "sudo mkdir -p /opt/madcore\n",
-                "sudo chown ubuntu:ubuntu /opt/madcore\n",
-                "git clone https://github.com/madcore-ai/core.git /opt/madcore\n",
-                "sudo chmod +x /opt/madcore/kubernetes/cluster/node-install.sh\n",
-                "sudo \"/opt/madcore/kubernetes/cluster/node-install.sh\"\n"
-              ]
-            ]
-          }
+        "AMI"
+      ]
+    },
+    "SecurityGroups": [
+      {
+        "Ref": "MadcoreIngressSecurityGroup"
+      }
+    ],
+    "InstanceType": {
+      "Ref": "InstanceType"
+    },
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sdk",
+        "Ebs": {
+          "VolumeSize": "20"
         }
       }
-    },
-    "MadcoreClusterAutoScalingServerGroup": {
-      "Type": "AWS::AutoScaling::AutoScalingGroup",
-      "Properties": {
-        "LaunchConfigurationName": {
-          "Ref": "MadcoreClusterAutoScalingLaunchConfiguration"
-        },
-        "MinSize": {"Ref": "MinSize"},
-        "MaxSize": {"Ref": "MaxSize"},
-        "DesiredCapacity": {"Ref": "DesiredCapacity"},
-        "VPCZoneIdentifier": [
-          {
-            "Ref": "PublicNetZoneA"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "MADCORE-K8S-Node",
-            "PropagateAtLaunch": "true"
-          },
-          {
-            "Key": "Cluster",
-            "Value": "MADCORE-K8S",
-            "PropagateAtLaunch": "true"
-          }
+    ],
+    "KeyName": {"Ref": "KeyName"},
+    "UserData": {
+      "Fn::Base64": {
+        "Fn::Join": [
+          "",
+          [
+            "#!/bin/bash -v\n",
+            "# Madcore Kubernetes Node Pre Configure\n",
+            "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
+            "sudo echo ENV=AWS >> /etc/environment\n",
+            "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
+            "sudo echo KUB_CLUSTER_NAME=", "k8s", " >> /etc/environment\n",
+            "# PRECONFIGURE madcore\n",
+            "sudo apt-get update\n",
+            "sudo apt-get install git -y\n",
+            "sudo mkdir -p /opt/madcore\n",
+            "sudo chown ubuntu:ubuntu /opt/madcore\n",
+            "git clone https://github.com/madcore-ai/core.git /opt/madcore\n",
+            "sudo chmod +x /opt/madcore/kubernetes/cluster/node-install.sh\n",
+            "sudo \"/opt/madcore/kubernetes/cluster/node-install.sh\"\n"
+          ]
         ]
       }
     }
-  },
+  }
+},
+"MadcoreIngressIP" : {
+  "Type" : "AWS::EC2::EIP",
+  "Properties" : {
+       "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
+  }
+},
   "Outputs": {
-    "MinSize": {
+    "IngressImageIP": {
       "Value": {
-        "Ref": "MinSize"
-      }
-    },
-    "MaxSize": {
-      "Value": {
-        "Ref": "MaxSize"
-      }
-    },
-    "DesiredCapacity": {
-      "Value": {
-        "Ref": "DesiredCapacity"
-      }
-    },
-    "AutoScalingGroupName": {
-      "Value": {
-        "Ref": "MadcoreClusterAutoScalingServerGroup"
+        "Ref": "MadcoreIngressIP"
       }
     }
   }

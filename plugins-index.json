@@ -59,7 +59,7 @@
             {
               "name": "slack_token",
               "value": null,
-              "description": "Slack API token.",
+              "description": "Slack API token: https://api.slack.com/docs/oauth-test-tokens",
               "type": "string"
             }
           ]
@@ -629,6 +629,12 @@
               "name": "spark_delete",
               "description": "Run jenkins delete job",
               "job_name": "delete"
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up SparkCluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         },

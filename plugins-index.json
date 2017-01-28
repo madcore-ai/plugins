@@ -59,7 +59,7 @@
             {
               "name": "slack_token",
               "value": null,
-              "description": "Slack API token.",
+              "description": "Slack API token: https://api.slack.com/docs/oauth-test-tokens",
               "type": "string"
             }
           ]
@@ -260,6 +260,10 @@
           "private": true
         },
         {
+          "name": "nodes.up",
+          "private": true
+        },
+        {
           "name": "deploy",
           "sequence": [
             {
@@ -360,6 +364,21 @@
                   "name": "MaxSize",
                   "value": "{{ K8S_CLUSTER_MaxSize|int + EXTEND_NODES|int }}",
                   "description": "Update Cluster MaxSize.",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_up",
+              "description": "Wait until cluster nodes UP.",
+              "job_name": "nodes.up",
+              "parameters": [
+                {
+                  "name": "nodes_ips",
+                  "value": "{{ K8S_CLUSTER_ASG_INSTANCE_IPS|join(',') }}",
+                  "description": "Wait until ASG instances UP.",
                   "type": "string",
                   "prompt": false
                 }
@@ -465,7 +484,8 @@
           "name": "app_name",
           "value": "spark",
           "description": "Plugin app name",
-          "type": "string"
+          "type": "string",
+          "prompt": false
         }
       ],
       "cloudformations": [
@@ -565,6 +585,10 @@
           "private": true
         },
         {
+          "name": "nodes.up",
+          "private": true
+        },
+        {
           "name": "deploy",
           "parameters": [
             {
@@ -605,6 +629,12 @@
               "name": "spark_delete",
               "description": "Run jenkins delete job",
               "job_name": "delete"
+            },
+            {
+              "type": "job",
+              "name": "nodes_cleanup",
+              "description": "Clean up SparkCluster nodes.",
+              "job_name": "cleanup"
             }
           ]
         },
@@ -673,6 +703,21 @@
                   "name": "MaxSize",
                   "value": "{{ SPARK_CLUSTER_MaxSize|int + EXTEND_NODES|int }}",
                   "description": "Update Cluster MaxSize.",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
+            },
+            {
+              "type": "job",
+              "name": "nodes_up",
+              "description": "Wait until cluster nodes UP.",
+              "job_name": "nodes.up",
+              "parameters": [
+                {
+                  "name": "nodes_ips",
+                  "value": "{{ SPARK_CLUSTER_ASG_INSTANCE_IPS|join(',') }}",
+                  "description": "Wait until ASG instances UP.",
                   "type": "string",
                   "prompt": false
                 }

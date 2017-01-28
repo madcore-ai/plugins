@@ -803,6 +803,134 @@
           ]
         }
       ]
-    }
+    },
+    {
+      "id": "Ingress",
+      "type": "cluster",
+      "image": "",
+      "description": "Kubernetes Ingress balancer",
+      "bullets": [;
+        "K8S Ingress"
+      ],
+      "text_active": "Active",
+      "text_buy": "$2.99",
+      "text_invactive": "Inactive",
+      "text_prerequesite": "Prerequisite missing",
+      "frame_color": "gold",
+      "cloudformations": [
+        {
+          "name": "k8s_ingress",
+          "stack_name": "MADCORE-K8sIngress",
+          "template_file": "cf/ingress.json",
+          "capabilities": [
+            "CAPABILITY_IAM"
+          ],
+          "parameters": [
+            {
+              "name": "VpcId",
+              "value": "{{ MADCORE_VPC_ID }}",
+              "description": "VpcId",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "PublicNetZoneA",
+              "value": "{{ MADCORE_PUBLIC_NET_ZONE_A }}",
+              "description": "PublicNetZoneA",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "SecurityGroupCIRD",
+              "value": "{{ (MADCORE_PRIVATE_IP.split('.')[0:3] + ['0'])|join('.') + '/24' }}",
+              "description": "Security Group CIRD",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "MasterIP",
+              "value": "{{ MADCORE_PRIVATE_IP }}",
+              "description": "IP of the master cluster node",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "KeyName",
+              "value": "{{ MADCORE_KEY_NAME }}",
+              "description": "AWS KeyName",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "InstanceType",
+              "value": "{{ MADCORE_INSTANCE_TYPE }}",
+              "description": "AWS EC2 instance type.",
+              "type": "string",
+              "allowed": [
+                "m3.medium",
+                "m4.xlarge",
+                "r3.large"
+              ]
+            }
+          ]
+        }
+      ],
+      "jobs": [
+        {
+          "name": "deploy",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "ingress_deploy",
+              "description": "Deploy cluster Ingress instance using cloudformation",
+              "job_name": "k8s_Ingress",
+              "action": "create"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_deploy",
+              "description": "Run jenkins deploy job",
+              "job_name": "deploy"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "Ingress_remove",
+              "description": "Remove cloudformation Ingress",
+              "job_name": "k8s_Ingress",
+              "action": "delete"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_delete",
+              "description": "Run jenkins delete job",
+              "job_name": "delete"
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "sequence": [
+            {
+              "type": "cloudformation",
+              "name": "Ingress_status",
+              "description": "Check Ingress cluster plugin status",
+              "job_name": "Ingress",
+              "action": "status"
+            },
+            {
+              "type": "job",
+              "name": "jenkins_status",
+              "description": "Run jenkins status job",
+              "job_name": "status"
+            }
+          ]
+        },
+          ]
+        }
   ]
 }

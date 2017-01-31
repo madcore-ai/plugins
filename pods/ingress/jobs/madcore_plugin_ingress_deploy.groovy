@@ -14,7 +14,7 @@ pipelineJob('madcore.plugin.ingress.deploy') {
                 stage('Ingress: cloud formation install') {
                 }
                 stage ('Initialize ingress node') {
-                  node_name = shellCommand ("ssh -i /home/ubuntu/id_rsa -i /home/ubuntu/.ssl/id_rsa -o StrictHostKeychecking=no ubuntu@${IngressInstanceIP} \"echo \$HOSTNAME\"")
+                  node_name = shellCommand ("ssh -i /home/ubuntu/id_rsa -i /home/ubuntu/.ssl/id_rsa -o StrictHostKeychecking=no ubuntu@${IngressInstanceIP} \"echo \\\$HOSTNAME\"")
                   sh "kubectl label node ${node_name} role=loadbalancer"
                 }
                 stage('Ingress: deploy pods') {

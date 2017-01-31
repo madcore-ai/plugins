@@ -809,7 +809,7 @@
       "type": "cluster",
       "image": "",
       "description": "Kubernetes Ingress balancer",
-      "bullets": [;
+      "bullets": [
         "K8S Ingress"
       ],
       "text_active": "Active",
@@ -929,7 +929,7 @@
               "job_name": "status"
             }
           ]
-        },
+        }
           ]
         }
   ]

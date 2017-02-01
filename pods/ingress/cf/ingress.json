@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Spark cluster",
+  "Description": "Ingess Instance",
   "Parameters": {
     "VpcId": {
       "Type": "String",
@@ -44,7 +44,8 @@
       "AllowedPattern": "subnet-[a-f0-9]{8}",
       "ConstraintDescription": "Must be valid security group identifier sg-xxxxxxxx",
       "Description": "Madcore-Cluster Public Subnet Zone A"
-    },
+    }
+  },
   "Mappings": {
     "UbuntuXenialAMI": {
       "us-west-1": {
@@ -56,11 +57,11 @@
       "eu-west-1": {
         "AMI": "ami-a4d44ed7"
       },
-      "eu-central-1" {
+      "eu-central-1": {
         "AMI": "ami-fe408091"
+        }
       }
-    }
-  },
+    },
   "Resources": {
     "MadcoreClusterRole": {
       "Type": "AWS::IAM::Role",
@@ -97,40 +98,6 @@
                   "Resource": [
                     "*"
                   ]
-                },
-                {
-                  "Effect": "Allow",
-                  "Action": [
-                    "s3:GetObject",
-                    "s3:GetObjectAcl",
-                    "s3:PutObject",
-                    "s3:PutObjectAcl"
-                  ],
-                  "Resource": [
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:aws:s3:::",
-                          {
-                            "Ref": "S3BucketName"
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:aws:s3:::",
-                          {
-                            "Ref": "S3BucketName"
-                          },
-                          "/*"
-                        ]
-                      ]
-                    }
-                  ]
                 }
               ]
             }
@@ -149,7 +116,7 @@
         ]
       }
     },
-    "MadcoreIngrassSecurityGroup": {
+    "MadcoreIngressSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
         "GroupDescription": "Provides Madcore Ingress plugin access",
@@ -233,6 +200,7 @@
   "Properties" : {
        "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
   }
+}
 },
   "Outputs": {
     "IngressInstanceIP": {

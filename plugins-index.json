@@ -850,7 +850,7 @@
       ]
     },
     {
-      "id": "Ingress",
+      "id": "ingress",
       "type": "cluster",
       "image": "",
       "description": "Kubernetes Ingress balancer",

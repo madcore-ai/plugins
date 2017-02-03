@@ -1,7 +1,4 @@
-pipelineJob('madcore.plugin.flasker-hub.status') {
-    parameters {
-	    stringParam('APP_NAME', 'flasker-hub', '')
-    }
+pipelineJob('madcore.plugin.ingress.status') {
 
     definition {
 	    cps {

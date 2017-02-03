@@ -181,6 +181,8 @@
             "sudo echo ENV=AWS >> /etc/environment\n",
             "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
             "sudo echo KUB_CLUSTER_NAME=", "k8s", " >> /etc/environment\n",
+            "aws s3 cp s3://",{"Ref": "S3BucketName"},"/backup/kubernetes /opt/backup/kubernetes",
+            "aws s3 cp s3://",{"Ref": "S3BucketName"},"/backup/ssh /opt/backup/ssh",
             "# PRECONFIGURE madcore\n",
             "sudo apt-get update\n",
             "sudo apt-get install git -y\n",

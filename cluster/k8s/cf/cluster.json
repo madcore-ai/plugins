@@ -245,6 +245,7 @@
                 "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
                 "sudo echo KUB_CLUSTER_NAME=", "k8s", " >> /etc/environment\n",
                 "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
+                "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli",
                 "aws s3 cp s3://",{"Ref": "S3BucketName"},"/backup/kubernetes /opt/backup/kubernetes",
                 "aws s3 cp s3://",{"Ref": "S3BucketName"},"/backup/ssh /opt/backup/ssh",
                 "# PRECONFIGURE madcore\n",

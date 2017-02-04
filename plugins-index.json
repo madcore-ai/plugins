@@ -250,6 +250,20 @@
               "value": 0,
               "description": "Cluster DesiredCapacity.",
               "type": "integer_positive"
+            },
+            {
+              "name": "BranchName",
+              "value": "{{ MADCORE_BRANCH }}",
+              "description": "Branch name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "CommitID",
+              "value": "{{ MADCORE_COMMIT }}",
+              "description": "Commit ID",
+              "type": "string",
+              "prompt": false
             }
           ]
         }
@@ -272,6 +286,21 @@
               "description": "Deploy cluster using cloudformation",
               "job_name": "k8s_cluster",
               "action": "create"
+            },
+            {
+              "type": "job",
+              "name": "nodes_up",
+              "description": "Wait until cluster nodes UP.",
+              "job_name": "nodes.up",
+              "parameters": [
+                {
+                  "name": "nodes_ips",
+                  "value": "{{ K8S_CLUSTER_ASG_INSTANCE_IPS|join(',') }}",
+                  "description": "Wait until ASG instances UP.",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
             },
             {
               "type": "job",
@@ -575,6 +604,20 @@
               "value": 0,
               "description": "Cluster DesiredCapacity.",
               "type": "integer_positive"
+            },
+            {
+              "name": "BranchName",
+              "value": "{{ MADCORE_BRANCH }}",
+              "description": "Branch name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "CommitID",
+              "value": "{{ MADCORE_COMMIT }}",
+              "description": "Commit ID",
+              "type": "string",
+              "prompt": false
             }
           ]
         }
@@ -916,6 +959,20 @@
                 "m4.xlarge",
                 "r3.large"
               ]
+            },
+            {
+              "name": "BranchName",
+              "value": "{{ MADCORE_BRANCH }}",
+              "description": "Branch name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "CommitID",
+              "value": "{{ MADCORE_COMMIT }}",
+              "description": "Commit ID",
+              "type": "string",
+              "prompt": false
             }
           ]
         }
@@ -975,7 +1032,7 @@
             }
           ]
         }
-          ]
-        }
+      ]
+    }
   ]
 }

@@ -66,6 +66,16 @@
     "DesiredCapacity": {
       "Type": "Number",
       "Description": "Autoscale DesiredCapacity"
+    },
+    "BranchName": {
+      "Type": "String",
+      "Default": "master",
+      "Description": "Cluster repo branch name"
+    },
+    "CommitID": {
+      "Type": "String",
+      "Default": "FETCH_HEAD",
+      "Description": "Cluster repo commit id"
     }
   },
   "Mappings": {
@@ -250,7 +260,13 @@
                 "sudo apt-get install git -y\n",
                 "sudo mkdir -p /opt/madcore\n",
                 "sudo chown ubuntu:ubuntu /opt/madcore\n",
-                "git clone https://github.com/madcore-ai/core.git /opt/madcore\n",
+                "git clone -b ", {"Ref": "BranchName"}, " https://github.com/madcore-ai/core.git /opt/madcore\n",
+                "pushd /opt/madcore\n",
+                "git fetch\n",
+                "git --no-pager log -50 --pretty=oneline\n",
+                "git reset --hard ", {"Ref": "CommitID"}, "\n",
+                "git --no-pager log -1\n",
+                "popd\n",
                 "sudo chmod +x /opt/madcore/kubernetes/cluster/node-install.sh\n",
                 "sudo \"/opt/madcore/kubernetes/cluster/node-install.sh\"\n"
               ]

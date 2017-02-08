@@ -204,7 +204,7 @@
         "AMI"
       ]
     },
-    "SecurityGroups": [
+    "SecurityGroupsIds": [
       {
         "Ref": "MadcoreIngressSecurityGroup"
       }

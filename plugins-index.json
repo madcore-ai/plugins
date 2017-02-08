@@ -908,7 +908,7 @@
       "cloudformations": [
         {
           "name": "k8s_ingress",
-          "stack_name": "MADCORE-K8sIngress",
+          "stack_name": "MADCORE-k8singress",
           "template_file": "cf/ingress.json",
           "capabilities": [
             "CAPABILITY_IAM"
@@ -985,14 +985,23 @@
               "type": "cloudformation",
               "name": "ingress_deploy",
               "description": "Deploy cluster Ingress instance using cloudformation",
-              "job_name": "k8s_Ingress",
+              "job_name": "k8s_ingress",
               "action": "create"
             },
             {
               "type": "job",
               "name": "jenkins_deploy",
               "description": "Run jenkins deploy job",
-              "job_name": "deploy"
+              "job_name": "deploy",
+              "parameters": [
+                {
+                  "name": "IngressInstanceIP",
+                  "value": "{{ IngressInstanceIP }}",
+                  "description": "private ingress instance ip address",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
             }
           ]
         },
@@ -1001,9 +1010,9 @@
           "sequence": [
             {
               "type": "cloudformation",
-              "name": "Ingress_remove",
+              "name": "ingress_remove",
               "description": "Remove cloudformation Ingress",
-              "job_name": "k8s_Ingress",
+              "job_name": "k8s_ingress",
               "action": "delete"
             },
             {
@@ -1019,9 +1028,9 @@
           "sequence": [
             {
               "type": "cloudformation",
-              "name": "Ingress_status",
+              "name": "ingress_status",
               "description": "Check Ingress cluster plugin status",
-              "job_name": "Ingress",
+              "job_name": "ingress",
               "action": "status"
             },
             {

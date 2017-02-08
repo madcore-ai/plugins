@@ -936,6 +936,13 @@
               "prompt": false
             },
             {
+              "name": "S3BucketName",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 bucket name",
+              "type": "string",
+              "prompt": false
+            },
+            {
               "name": "MasterIP",
               "value": "{{ MADCORE_PRIVATE_IP }}",
               "description": "IP of the master cluster node",

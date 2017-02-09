@@ -204,6 +204,9 @@
         "AMI"
       ]
     },
+    "IamInstanceProfile": {
+      "Ref": "MadcoreClusterInstanceProfile"
+    },
     "NetworkInterfaces" : [{
       "GroupSet"                 : [{ "Ref" : "MadcoreIngressSecurityGroup" }],
       "AssociatePublicIpAddress" : "true",

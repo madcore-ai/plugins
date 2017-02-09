@@ -5,7 +5,7 @@ pipelineJob('madcore.plugin.ingress.deploy') {
     definition {
 	    cps {
             sandbox()
-            //script("""
+            script("""
             node {
                 stage('Ingress: cloud formation install') {
                 }
@@ -13,7 +13,7 @@ pipelineJob('madcore.plugin.ingress.deploy') {
                     build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'cluster/ingress/kub')]
                 }
               }
-            //""".stripIndent())
+            """.stripIndent())
 	    }
     }
 }

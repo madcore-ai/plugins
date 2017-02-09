@@ -1003,7 +1003,7 @@
               "parameters": [
                 {
                   "name": "IngressInstanceIP",
-                  "value": "{{ K8S_INGRESS_IngressInstanceIP }}",
+                  "value": "{{ K8S_INGRESS_IngressPrivateIp }}",
                   "description": "private ingress instance ip address",
                   "type": "string",
                   "prompt": false

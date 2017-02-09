@@ -233,7 +233,7 @@
             "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
             "sudo echo ENV=AWS >> /etc/environment\n",
             "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
-            "sudo echo KUB_CLUSTER_NAME=", "ingress", " >> /etc/environment\n",
+            "sudo echo KUB_CLUSTER_NAME=", "role=loadbalancer", " >> /etc/environment\n",
             "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/kubernetes/ /opt/backup/kubernetes/ --region ",{"Ref": "AWS::Region"},"\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/ssh/ /opt/backup/ssh/ --region ",{"Ref": "AWS::Region"},"\n",

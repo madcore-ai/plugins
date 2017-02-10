@@ -914,6 +914,7 @@
       "description": "Elasticsearch Cluster",
       "bullets": [
         "Data Mining",
+        "Elastic Co"
       ],
       "text_active": "Active",
       "text_buy": "$2.99",
@@ -1255,7 +1256,7 @@
               "job_name": "cleanup"
             }
           ]
-        },
+        }
       ]
     },
     {

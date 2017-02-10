@@ -52,3 +52,18 @@ spec:
         args:
         - /nginx-ingress-controller
         - --default-backend-service=default/default-http-backend
+        volumeMounts:
+        - name: kubernetes-conf
+          mountPath: /root/.kube/config
+        - name: kubernetes-ssl
+          mountPath: /etc/kubernetes/ssl/
+      volumes:
+      - name: kubernetes-conf
+        hostPath:
+          path: /opt/kubernetes/ssl/kube.conf
+      - name: kubernetes-ssl
+        hostPath:
+          path: /opt/kubernetes/ssl/
+
+
+

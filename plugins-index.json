@@ -43,7 +43,7 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "blue"
-    }
+    },
     {
       "id": "slack",
       "type": "plugin",

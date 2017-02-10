@@ -23,6 +23,18 @@ products:
   text_invactive: Inactive
   text_prerequesite: Prerequisite missing
   frame_color: blue
+- id: madcore.cluster.elasticsearch
+  type: internal
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginkubernetes001.png
+  description: Madcore Elasticsearch cluster
+  bullets:
+  - Cluster
+  - Elasticsearch
+  text_active: Active
+  text_buy: Build
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: blue
 - id: slack
   type: plugin
   image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png

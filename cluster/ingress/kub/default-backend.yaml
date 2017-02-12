@@ -36,3 +36,16 @@ spec:
           requests:
             cpu: 10m
             memory: 20Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: default-http-backend
+  labels:
+    app: default-http-backend
+spec:
+  selector:
+    app: default-http-backend
+  ports:
+  - port: 80
+    targetPort: 8080

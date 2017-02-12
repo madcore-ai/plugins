@@ -36,14 +36,14 @@ spec:
           timeoutSeconds: 1
         # use downward API
         env:
-          - name: ubuntu
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: default
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
+           - name: POD_NAME
+             valueFrom:
+               fieldRef:
+                 fieldPath: metadata.name
+           - name: POD_NAMESPACE
+             valueFrom:
+               fieldRef:
+                 fieldPath: metadata.namespace
         ports:
         - containerPort: 80
           hostPort: 80
@@ -64,6 +64,3 @@ spec:
       - name: kubernetes-ssl
         hostPath:
           path: /opt/kubernetes/ssl/
-
-
-

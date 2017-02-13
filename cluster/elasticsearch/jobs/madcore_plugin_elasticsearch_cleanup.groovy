@@ -4,7 +4,7 @@ pipelineJob('madcore.plugin.elasticsearch.cleanup') {
             sandbox()
             script("""
             node {
-                stage('SparkCluster: nodes cleanup') {
+                stage('ElasticsearchCluster: nodes cleanup') {
                     build job: 'madcore.kubectl.cluster.nodes.cleanup', parameters: [string(name: 'NODE_LABEL', value: 'cluster=elasticsearch')]
                 }
                 }

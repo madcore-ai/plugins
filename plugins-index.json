@@ -982,6 +982,44 @@
               "prompt": false
             }
           ]
+        },
+        {
+          "name": "k8s_dns_ingress",
+          "stack_name": "MADCORE-k8singress_dns",
+          "template_file": "cf/dns_ingress.json",
+          "capabilities": [
+            "CAPABILITY_IAM"
+          ],
+          "parameters": [
+            {
+              "name": "DomainName",
+              "value": "{{ ????????? }}",
+              "description": "Domain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "SubDomainName",
+              "value": "{{ ?????????? }}",
+              "description": "Subdomain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "MadcoreDNSHostedZone",
+              "value": "{{ ??????????? }}",
+              "description": "Madcore Hosted Zone name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "IngressPublicIP",
+              "value": "{{ K8S_INGRESS_PublicIngressInstanceIP }}",
+              "description": "Ingress instance public IP",
+              "type": "string",
+              "prompt": false
+            }
+          ]
         }
       ],
       "jobs": [

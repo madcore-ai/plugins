@@ -59,6 +59,21 @@
       "Type": "String",
       "Default": "FETCH_HEAD",
       "Description": "Cluster repo commit id"
+    },
+    "DomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Domain name"
+    },
+    "SubDomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Subdomain name"
+    },
+    "MadcoreDNSHostedZone": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Madcore Hosted Zone name"
     }
   },
   "Mappings": {
@@ -264,6 +279,36 @@
   "Type" : "AWS::EC2::EIP",
   "Properties" : {
        "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
+  }
+},
+"MadcoreEC2RecordSet": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "EC2 instance type",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          "*",
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "A",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Ref": "MadcoreIngressIP"
+      }
+    ]
   }
 }
 },

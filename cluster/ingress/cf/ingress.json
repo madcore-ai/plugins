@@ -306,7 +306,10 @@
     "TTL": "300",
     "ResourceRecords": [
       {
-        "Ref": "MadcoreIngressIP"
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PrivateIp"
+        ]
       }
     ]
   }

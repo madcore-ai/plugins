@@ -993,21 +993,21 @@
           "parameters": [
             {
               "name": "DomainName",
-              "value": "{{ ????????? }}",
+              "value": "{{ MADCORE_DOMAIN }}",
               "description": "Domain name",
               "type": "string",
               "prompt": false
             },
             {
               "name": "SubDomainName",
-              "value": "{{ ?????????? }}",
+              "value": "ext.{{ MADCORE_SUB_DOMAIN }}",
               "description": "Subdomain name",
               "type": "string",
               "prompt": false
             },
             {
               "name": "MadcoreDNSHostedZone",
-              "value": "{{ ??????????? }}",
+              "value": "{{ MADCORE_HOSTED_ZONE_ID }}",
               "description": "Madcore Hosted Zone name",
               "type": "string",
               "prompt": false

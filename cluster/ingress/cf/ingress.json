@@ -287,7 +287,7 @@
     "HostedZoneId": {
       "Ref": "MadcoreDNSHostedZone"
     },
-    "Comment": "EC2 instance type",
+    "Comment": "DNS for ingress",
     "Name": {
       "Fn::Join": [
         ".",
@@ -308,7 +308,7 @@
       {
         "Fn::GetAtt": [
           "MadcoreIngressInstance",
-          "PrivateIp"
+          "PublicIp"
         ]
       }
     ]

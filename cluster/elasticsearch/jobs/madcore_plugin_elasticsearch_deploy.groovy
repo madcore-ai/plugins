@@ -12,7 +12,7 @@ pipelineJob('madcore.plugin.elasticsearch.deploy') {
                     build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'cluster/elasticsearch/kub')]
                 }
                 stage('Elasticsearch: wait for elasticsearch cluster to start') {
-                    build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'elasticsearch-master:9200'), string(name: 'SERVICE_NAMESPACE', value: 'elasticsearch-cluster')]
+                    build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'es-master:9200'), string(name: 'SERVICE_NAMESPACE', value: 'es-cluster')]
                 }
                 }
             """.stripIndent())

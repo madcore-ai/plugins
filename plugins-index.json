@@ -980,17 +980,7 @@
               "description": "Commit ID",
               "type": "string",
               "prompt": false
-            }
-          ]
-        },
-        {
-          "name": "k8s_dns_ingress",
-          "stack_name": "MADCORE-k8singress_dns",
-          "template_file": "cf/dns_ingress.json",
-          "capabilities": [
-            "CAPABILITY_IAM"
-          ],
-          "parameters": [
+            },
             {
               "name": "DomainName",
               "value": "{{ MADCORE_DOMAIN }}",
@@ -1009,13 +999,6 @@
               "name": "MadcoreDNSHostedZone",
               "value": "{{ MADCORE_HOSTED_ZONE_ID }}",
               "description": "Madcore Hosted Zone name",
-              "type": "string",
-              "prompt": false
-            },
-            {
-              "name": "IngressPublicIP",
-              "value": "{{ K8S_INGRESS_PublicIngressInstanceIP }}",
-              "description": "Ingress instance public IP",
               "type": "string",
               "prompt": false
             }

@@ -292,7 +292,6 @@
       "Fn::Join": [
         ".",
         [
-          "*",
           {
             "Ref": "SubDomainName"
           },
@@ -309,6 +308,46 @@
         "Fn::GetAtt": [
           "MadcoreIngressInstance",
           "PublicIp"
+        ]
+      }
+    ]
+  }
+},
+"MadcoreEC2RecordSet": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "DNS for ingress",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          "*",
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "CNAME",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Fn::Join": [
+          ".",
+          [
+            {
+              "Ref": "SubDomainName"
+            },
+            {
+              "Ref": "DomainName"
+            }
+          ]
         ]
       }
     ]

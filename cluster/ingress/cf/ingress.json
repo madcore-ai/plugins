@@ -313,7 +313,7 @@
     ]
   }
 },
-"MadcoreEC2RecordSet_wildcard": {
+"MadcoreEC2RecordSetWildcard": {
   "Type": "AWS::Route53::RecordSet",
   "Properties": {
     "HostedZoneId": {

@@ -59,6 +59,21 @@
       "Type": "String",
       "Default": "FETCH_HEAD",
       "Description": "Cluster repo commit id"
+    },
+    "DomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Domain name"
+    },
+    "SubDomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Subdomain name"
+    },
+    "MadcoreDNSHostedZone": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Madcore Hosted Zone name"
     }
   },
   "Mappings": {
@@ -265,6 +280,79 @@
   "Properties" : {
        "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
   }
+},
+"MadcoreEC2RecordSet": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "DNS for ingress",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "A",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PublicIp"
+        ]
+      }
+    ]
+  }
+},
+"MadcoreEC2RecordSetWildcard": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "wildcard DNS for ingress",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          "*",
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "CNAME",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Fn::Join": [
+          ".",
+          [
+            {
+              "Ref": "SubDomainName"
+            },
+            {
+              "Ref": "DomainName"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "DependsOn": "MadcoreEC2RecordSet"
 }
 },
   "Outputs": {

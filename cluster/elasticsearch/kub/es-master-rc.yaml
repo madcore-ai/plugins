@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: es-master
+  namespace: es
   labels:
     component: elasticsearch
     role: master
@@ -29,7 +30,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: "es-cluster"
         - name: NODE_MASTER
           value: "true"
         - name: NODE_DATA

@@ -1,17 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch
+  name: es-master
   namespace: es-cluster
-  labels:
-    component: elasticsearch
-    role: client
 spec:
-  type: LoadBalancer
-  selector:
-    component: elasticsearch
-    role: client
   ports:
-  - name: http
-    port: 9200
-    protocol: TCP
+    - port: 9300
+      targetPort: 9300
+      name: es
+    - port: 9200
+      targetPort: 9200
+      name: http
+  selector:
+    component: es-master

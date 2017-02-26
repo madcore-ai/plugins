@@ -1,16 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch-discovery
+  name: es-discovery
   namespace: es-cluster
-  labels:
-    component: elasticsearch
-    role: master
 spec:
   selector:
-    component: elasticsearch
-    role: master
+    component: es-discovery
   ports:
   - name: transport
     port: 9300
     protocol: TCP
+    targetPort: 9300

@@ -12,8 +12,9 @@ job('madcore.plugin.ingress.add.service') {
               stage('Render template') {
                 sh "python /opt/madcore/bin/render_ingress.py \"${HOSTNAME}\" \"${SERVICE_NAME}\" \"${SERVICE_PORT}\" "
               }
-              stage('Add rule to kubernetes')
+              stage('Add rule to kubernetes') {
                 sh "kubectl create -f /opt/ingress"
+              }
             }
           """.stripIndent())
     }

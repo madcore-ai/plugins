@@ -1,4 +1,4 @@
-job('madcore.plugin.ingress.add.service') {
+pipelineJob('madcore.plugin.ingress.add.service') {
   parameters {
     stringParam('SERVICE_NAME', '', 'service name for ingress trafic')
     stringParam('SERVICE_PORT', '', 'service port for ingress trafic')

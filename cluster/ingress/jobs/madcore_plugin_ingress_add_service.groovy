@@ -9,9 +9,6 @@ pipelineJob('madcore.plugin.ingress.add.service') {
           sandbox()
           script("""
           node {
-              HOSTNAME = params.HOSTNAME
-              SERVICE_NAME = params.SERVICE_NAME
-              SERVICE_PORT = params.SERVICE_PORT
               stage('Render template') {
                 sh "python /opt/madcore/bin/render_ingress.py '${HOSTNAME}' '${SERVICE_NAME}' '${SERVICE_PORT}' "
               }

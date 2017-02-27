@@ -52,7 +52,7 @@ spec:
           hostPort: 443
         args:
         - /nginx-ingress-controller
-        - --default-backend-service=default/default-http-backend
+        - --default-backend-service=nginx-ingress/default-http-backend
         volumeMounts:
         - name: kubernetes-conf
           mountPath: /root/.kube/config

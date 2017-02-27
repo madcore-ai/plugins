@@ -980,6 +980,27 @@
               "description": "Commit ID",
               "type": "string",
               "prompt": false
+            },
+            {
+              "name": "DomainName",
+              "value": "{{ MADCORE_DOMAIN }}",
+              "description": "Domain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "SubDomainName",
+              "value": "ext.{{ MADCORE_SUB_DOMAIN }}",
+              "description": "Subdomain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "MadcoreDNSHostedZone",
+              "value": "{{ MADCORE_HOSTED_ZONE_ID }}",
+              "description": "Madcore Hosted Zone name",
+              "type": "string",
+              "prompt": false
             }
           ]
         }

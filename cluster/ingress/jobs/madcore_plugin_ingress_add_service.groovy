@@ -10,7 +10,7 @@ pipelineJob('madcore.plugin.ingress.add.service') {
           script("""
           node {
               stage('Render template') {
-                sh "python /opt/madcore/bin/render_ingress.py '${HOSTNAME}' '${SERVICE_NAME}' '${SERVICE_PORT}' "
+                sh "python /opt/madcore/bin/render_ingress.py '\${HOSTNAME}' '\${SERVICE_NAME}' '\${SERVICE_PORT}' "
               }
               stage('Add rule to kubernetes') {
                 sh "kubectl create -f /opt/ingress"

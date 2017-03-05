@@ -375,7 +375,10 @@
   "Outputs": {
     "PublicIngressInstanceIP": {
       "Value": {
-        "Ref": "MadcoreIngressIP"
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PublicIp"
+        ]
       }
     },
    "IngressPrivateIp": {

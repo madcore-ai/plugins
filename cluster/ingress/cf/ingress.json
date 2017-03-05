@@ -280,7 +280,21 @@
 "MadcoreIngressIP" : {
   "Type" : "AWS::EC2::EIP",
   "Properties" : {
-       "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
+       "Domain": "vpc"
+  }
+},
+"MadCoreEIPAssoc": {
+  "Type": "AWS::EC2::EIPAssociation",
+  "Properties": {
+    "AllocationId": {
+      "Fn::GetAtt": [
+        "MadcoreIngressIP",
+        "AllocationId"
+      ]
+    },
+    "InstanceId": {
+      "Ref": "MadcoreIngressInstance"
+    }
   }
 },
 "MadcoreEC2RecordSet": {

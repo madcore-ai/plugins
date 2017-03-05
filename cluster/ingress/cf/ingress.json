@@ -327,7 +327,8 @@
         ]
       }
     ]
-  }
+  },
+  "DependsOn": "MadCoreEIPAssoc"
 },
 "MadcoreEC2RecordSetWildcard": {
   "Type": "AWS::Route53::RecordSet",

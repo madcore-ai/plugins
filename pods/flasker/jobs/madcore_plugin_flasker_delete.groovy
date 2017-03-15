@@ -15,7 +15,7 @@ pipelineJob('madcore.plugin.flasker.delete') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Kubernetes: delete') {
-                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'flasker/kub')]
+                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'pods/flasker/kub')]
                 }
               }
             """.stripIndent())

@@ -245,7 +245,7 @@
         "AMI"
       ]
     },
-    "SourceDestCheck": "false",
+    "SourceDestCheck": false,
     "IamInstanceProfile": {
       "Ref": "MadcoreClusterInstanceProfile"
     },

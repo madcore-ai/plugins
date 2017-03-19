@@ -164,7 +164,26 @@
                       ]
                     }
                   ]
-                }
+                },
+                {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:CreateRoute",
+                         "ec2:DeleteRoute",
+                         "ec2:ReplaceRoute"
+                     ],
+                     "Resource": [
+                         "*"
+                     ]
+               },
+               {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:DescribeRouteTables",
+                         "ec2:DescribeInstances"
+                     ],
+                     "Resource": "*"
+               }
               ]
             }
           }
@@ -205,7 +224,10 @@
             }
           },
           { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" :  "0.0.0.0/0"},
-          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "443", "CidrIp" :  "0.0.0.0/0"}
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "443", "CidrIp" :  "0.0.0.0/0"},
+          { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "icmp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  }
         ]
       }
     },

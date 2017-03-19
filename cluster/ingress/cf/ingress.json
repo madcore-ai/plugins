@@ -253,6 +253,7 @@
       "AssociatePublicIpAddress" : "true",
       "DeviceIndex"              : "0",
       "DeleteOnTermination"      : "true",
+      "SourceDestCheck"          : "false"
       "SubnetId"                 : { "Ref" : "PublicNetZoneA" }
     }],
     "InstanceType": {

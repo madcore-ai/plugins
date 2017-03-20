@@ -132,7 +132,7 @@
           "name": "deploy",
           "parameters": [
             {
-              "name": "S3BucketName",
+              "name": "S3BUCKETNAME",
               "value": "{{ MADCORE_S3_BUCKET }}",
               "description": "S3 Bucket Name for backup",
               "type": "string"

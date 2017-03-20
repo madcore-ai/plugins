@@ -2,7 +2,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
     parameters {
       stringParam('APP_NAME', 'flasker-hub', '')
       stringParam('PORT', '9019', '')
-      stringParam('S3BucketName', '', 'S3 bucket name for backup')
+      stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
     }
 
     definition {
@@ -20,7 +20,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
                   build job: 'madcore.ssl.csr.generate'
                 }
                 stage ('Update certificate and haproxy') {
-                  build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]
+                  build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BUCKETNAME)]
                 }
               }
             """.stripIndent())

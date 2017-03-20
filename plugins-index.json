@@ -135,7 +135,8 @@
               "name": "S3BUCKETNAME",
               "value": "{{ MADCORE_S3_BUCKET }}",
               "description": "S3 Bucket Name for backup",
-              "type": "string"
+              "type": "string",
+              "prompt": false
             }
           ]
         }
@@ -170,7 +171,8 @@
               "name": "S3BucketName",
               "value": "{{ MADCORE_S3_BUCKET }}",
               "description": "S3 Bucket Name for backup",
-              "type": "string"
+              "type": "string",
+              "prompt": false
             }
           ]
         }

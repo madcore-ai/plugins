@@ -1,0 +1,23 @@
+- id: flasker
+  type: plugin
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  description: Flasker
+  bullets:
+  - Flasker
+  text_active: Active
+  text_buy: "$2.99"
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  jobs:
+  - name: deploy
+    parameters:
+    - name: app_name
+      value: flasker
+      description: Plugin app name
+      type: string
+    - name: S3BUCKETNAME
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 Bucket Name for backup
+      type: string
+      prompt: false

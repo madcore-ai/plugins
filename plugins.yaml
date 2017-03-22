@@ -1,0 +1,733 @@
+products:
+- bullets:
+  - Core
+  description: Starter madcore cluster
+  frame_color: blue
+  id: madcore.core
+  image: https://wiki.madcore.ai/_media/app/iconproductcore001.png
+  text_active: Active
+  text_buy: Build
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: internal
+- bullets:
+  - Cluster
+  - Spark
+  description: Madcore spark cluster
+  frame_color: blue
+  id: madcore.cluster.spark
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginkubernetes001.png
+  text_active: Active
+  text_buy: Build
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: internal
+- bullets:
+  - Slack API
+  - Sync channels to S3
+  - Post messages to Slack
+  description: Slack API
+  frame_color: gold
+  id: slack
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  jobs:
+  - name: deploy
+    parameters:
+    - description: 'Slack API token: https://api.slack.com/docs/oauth-test-tokens'
+      name: slack_token
+      type: string
+      value: null
+  - name: pull
+    parameters:
+    - description: In case that you want to sync all the channels, set this.
+      name: all_channels
+      type: bool
+      value: null
+    - description: List of slack channels(comma separated) to pull from.
+      name: channels
+      type: string
+      value: null
+    - description: S3 bucket name to sync data to.
+      name: s3_bucket
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+  - name: push
+    parameters:
+    - description: Slack channel name to post message to.
+      name: channel
+      type: string
+      value: null
+    - description: Slack text message to post.
+      name: message
+      type: string
+      value: null
+  parameters:
+  - description: Plugin app name
+    name: app_name
+    type: string
+    value: slack
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: plugin
+- bullets:
+  - Flasker
+  description: Flasker
+  frame_color: gold
+  id: flasker
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  jobs:
+  - name: deploy
+    parameters:
+    - description: Plugin app name
+      name: app_name
+      type: string
+      value: flasker
+    - description: S3 Bucket Name for backup
+      name: S3BUCKETNAME
+      prompt: false
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: plugin
+- bullets:
+  - Flasker-hub
+  description: Flasker-hub
+  frame_color: gold
+  id: flasker-hub
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  jobs:
+  - name: deploy
+    parameters:
+    - description: Plugin app name
+      name: app_name
+      type: string
+      value: flasker-hub
+    - description: S3 Bucket Name for backup
+      name: S3BucketName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: plugin
+- bullets:
+  - K8S Cluster
+  cloudformations:
+  - capabilities:
+    - CAPABILITY_IAM
+    name: k8s_cluster
+    parameters:
+    - description: VpcId
+      name: VpcId
+      prompt: false
+      type: string
+      value: '{{ MADCORE_VPC_ID }}'
+    - description: PublicNetZoneA
+      name: PublicNetZoneA
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PUBLIC_NET_ZONE_A }}'
+    - description: Security Group CIRD
+      name: SecurityGroupCIRD
+      prompt: false
+      type: string
+      value: '{{ (MADCORE_PRIVATE_IP.split(''.'')[0:3] + [''0''])|join(''.'') + ''/24''
+        }}'
+    - description: IP of the master cluster node
+      name: MasterIP
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PRIVATE_IP }}'
+    - description: S3 bucket name
+      name: S3BucketName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+    - description: AWS KeyName
+      name: KeyName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_KEY_NAME }}'
+    - allowed:
+      - m3.medium
+      - m4.xlarge
+      - r3.large
+      description: AWS EC2 instance type.
+      name: InstanceType
+      type: string
+      value: '{{ MADCORE_INSTANCE_TYPE }}'
+    - cache: false
+      default_label: '{{ InstanceType|spot_price(verbose=True) }}'
+      description: AWS EC2 instance spot price.
+      name: SpotPrice
+      type: string
+      value: '{{ InstanceType|spot_price }}'
+    - description: Cluster MinSize.
+      name: MinSize
+      type: integer_positive
+      value: 0
+    - description: Cluster MaxSize.
+      name: MaxSize
+      type: integer_positive
+      value: 0
+    - description: Cluster DesiredCapacity.
+      name: DesiredCapacity
+      type: integer_positive
+      value: 0
+    - description: Branch name
+      name: BranchName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_BRANCH }}'
+    - description: Commit ID
+      name: CommitID
+      prompt: false
+      type: string
+      value: '{{ MADCORE_COMMIT }}'
+    stack_name: MADCORE-K8sCluster
+    template_file: cf/cluster.json
+  description: Kubernetes Cluster
+  frame_color: gold
+  id: k8s
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  jobs:
+  - name: cleanup
+    private: true
+  - name: nodes.up
+    private: true
+  - name: deploy
+    sequence:
+    - action: create
+      description: Deploy cluster using cloudformation
+      job_name: k8s_cluster
+      name: cluster_deploy
+      type: cloudformation
+    - description: Wait until cluster nodes UP.
+      job_name: nodes.up
+      name: nodes_up
+      parameters:
+      - description: Wait until ASG instances UP.
+        name: nodes_ips
+        prompt: false
+        type: string
+        value: '{{ K8S_CLUSTER_ASG_INSTANCE_IPS|join('','') }}'
+      type: job
+    - description: Run jenkins deploy job
+      job_name: deploy
+      name: jenkins_deploy
+      type: job
+  - name: delete
+    sequence:
+    - action: delete
+      description: Remove cloudformation cluster
+      job_name: k8s_cluster
+      name: cluster_remove
+      type: cloudformation
+    - description: Run jenkins delete job
+      job_name: delete
+      name: jenkins_delete
+      type: job
+  - name: status
+    sequence:
+    - action: status
+      description: Check cloudformation cluster status
+      job_name: k8s_cluster
+      name: cluster_status
+      type: cloudformation
+    - description: Run jenkins status job
+      job_name: status
+      name: jenkins_status
+      type: job
+  - name: extend
+    parameters:
+    - description: Extend cluster by X nodes.
+      name: nodes
+      type: integer_gt_zero
+      value: null
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings
+      job_name: k8s_cluster
+      name: cluster_status
+      parameters:
+      - allowed:
+        - m3.medium
+        - m4.xlarge
+        - r3.large
+        description: AWS EC2 instance type.
+        name: InstanceType
+        type: string
+        value: '{{ MADCORE_INSTANCE_TYPE }}'
+      - default_label: '{{ InstanceType|spot_price(verbose=True) }}'
+        description: AWS EC2 instance spot price.
+        name: SpotPrice
+        type: string
+        value: '{{ InstanceType|spot_price }}'
+      - description: Update Cluster DesiredCapacity.
+        name: DesiredCapacity
+        prompt: false
+        type: string
+        value: '{{ K8S_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}'
+      - description: Update Cluster MaxSize.
+        name: MaxSize
+        prompt: false
+        type: string
+        value: '{{ K8S_CLUSTER_MaxSize|int + EXTEND_NODES|int }}'
+      type: cloudformation
+    - description: Wait until cluster nodes UP.
+      job_name: nodes.up
+      name: nodes_up
+      parameters:
+      - description: Wait until ASG instances UP.
+        name: nodes_ips
+        prompt: false
+        type: string
+        value: '{{ K8S_CLUSTER_ASG_INSTANCE_IPS|join('','') }}'
+      type: job
+  - name: contract
+    parameters:
+    - description: Contract cluster by X nodes.
+      name: nodes
+      type: integer_gt_zero
+      value: null
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings
+      job_name: k8s_cluster
+      name: cluster_status
+      parameters:
+      - description: Update Cluster DesiredCapacity and remove X nodes.
+        name: DesiredCapacity
+        prompt: false
+        type: string
+        value: '{{ K8S_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}'
+      type: cloudformation
+    - description: Clean up cluster nodes.
+      job_name: cleanup
+      name: nodes_cleanup
+      type: job
+  - name: zero
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings
+      job_name: k8s_cluster
+      name: cluster_status
+      parameters:
+      - description: Set Cluster DesiredCapacity to 0.
+        name: DesiredCapacity
+        prompt: false
+        type: integer_positive
+        value: 0
+      - description: Set Cluster MaxSize to 0.
+        name: MaxSize
+        prompt: false
+        type: integer_positive
+        value: 0
+      - description: Set Cluster MinSize to 0.
+        name: MinSize
+        prompt: false
+        type: integer_positive
+        value: 0
+      type: cloudformation
+    - description: Clean up cluster nodes.
+      job_name: cleanup
+      name: nodes_cleanup
+      type: job
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: cluster
+- bullets:
+  - Machine Learning
+  - Data Mining
+  - Apache Foundation
+  cloudformations:
+  - capabilities:
+    - CAPABILITY_IAM
+    name: spark_cluster
+    parameters:
+    - description: VpcId
+      name: VpcId
+      prompt: false
+      type: string
+      value: '{{ MADCORE_VPC_ID }}'
+    - description: PublicNetZoneA
+      name: PublicNetZoneA
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PUBLIC_NET_ZONE_A }}'
+    - description: Security Group CIRD
+      name: SecurityGroupCIRD
+      prompt: false
+      type: string
+      value: '{{ (MADCORE_PRIVATE_IP.split(''.'')[0:3] + [''0''])|join(''.'') + ''/24''
+        }}'
+    - description: IP of the master cluster node
+      name: MasterIP
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PRIVATE_IP }}'
+    - description: S3 bucket name
+      name: S3BucketName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+    - description: AWS KeyName
+      name: KeyName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_KEY_NAME }}'
+    - allowed:
+      - m3.medium
+      - m4.xlarge
+      - r3.large
+      description: AWS EC2 instance type.
+      name: InstanceType
+      type: string
+      value: '{{ MADCORE_INSTANCE_TYPE }}'
+    - cache: false
+      default_label: '{{ InstanceType|spot_price(verbose=True) }}'
+      description: AWS EC2 instance spot price.
+      name: SpotPrice
+      type: string
+      value: '{{ InstanceType|spot_price }}'
+    - description: Cluster MinSize.
+      name: MinSize
+      type: integer_positive
+      value: 0
+    - description: Cluster MaxSize.
+      name: MaxSize
+      type: integer_positive
+      value: 0
+    - description: Cluster DesiredCapacity.
+      name: DesiredCapacity
+      type: integer_positive
+      value: 0
+    - description: Branch name
+      name: BranchName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_BRANCH }}'
+    - description: Commit ID
+      name: CommitID
+      prompt: false
+      type: string
+      value: '{{ MADCORE_COMMIT }}'
+    stack_name: MADCORE-SparkCluster
+    template_file: cf/cluster.json
+  description: Spark Cluster
+  frame_color: gold
+  id: spark
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  jobs:
+  - name: cleanup
+    private: true
+  - name: nodes.up
+    private: true
+  - name: deploy
+    parameters:
+    - description: Plugin app name
+      name: app_name
+      type: string
+      value: spark
+    sequence:
+    - description: Spark jenkins deploy job.
+      job_name: deploy
+      name: spark_deploy
+      type: job
+    - action: create
+      description: Deploy cluster using cloudformation
+      job_name: spark_cluster
+      name: cluster_deploy
+      type: cloudformation
+  - name: delete
+    sequence:
+    - action: delete
+      description: Remove cloudformation cluster
+      job_name: spark_cluster
+      name: cluster_remove
+      type: cloudformation
+    - description: Run jenkins delete job
+      job_name: delete
+      name: spark_delete
+      type: job
+    - description: Clean up SparkCluster nodes.
+      job_name: cleanup
+      name: nodes_cleanup
+      type: job
+  - name: status
+    sequence:
+    - action: status
+      description: Check cloudformation cluster status
+      job_name: spark_cluster
+      name: cluster_status
+      type: cloudformation
+    - description: Run jenkins status job
+      job_name: status
+      name: jenkins_status
+      type: job
+  - name: extend
+    parameters:
+    - description: Extend cluster by X nodes.
+      name: nodes
+      type: integer_gt_zero
+      value: null
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings.
+      job_name: spark_cluster
+      name: cluster_status
+      parameters:
+      - allowed:
+        - m3.medium
+        - m4.xlarge
+        - r3.large
+        description: AWS EC2 instance type.
+        name: InstanceType
+        type: string
+        value: '{{ MADCORE_INSTANCE_TYPE }}'
+      - default_label: '{{ InstanceType|spot_price(verbose=True) }}'
+        description: AWS EC2 instance spot price.
+        name: SpotPrice
+        type: string
+        value: '{{ InstanceType|spot_price }}'
+      - description: Update Cluster DesiredCapacity.
+        name: DesiredCapacity
+        prompt: false
+        type: string
+        value: '{{ SPARK_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}'
+      - description: Update Cluster MaxSize.
+        name: MaxSize
+        prompt: false
+        type: string
+        value: '{{ SPARK_CLUSTER_MaxSize|int + EXTEND_NODES|int }}'
+      type: cloudformation
+    - description: Wait until cluster nodes UP.
+      job_name: nodes.up
+      name: nodes_up
+      parameters:
+      - description: Wait until ASG instances UP.
+        name: nodes_ips
+        prompt: false
+        type: string
+        value: '{{ SPARK_CLUSTER_ASG_INSTANCE_IPS|join('','') }}'
+      type: job
+  - name: contract
+    parameters:
+    - description: Contract cluster by X nodes.
+      name: nodes
+      type: integer_gt_zero
+      value: null
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings
+      job_name: spark_cluster
+      name: cluster_status
+      parameters:
+      - description: Update Cluster DesiredCapacity and remove X nodes.
+        name: DesiredCapacity
+        prompt: false
+        type: string
+        value: '{{ SPARK_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}'
+      type: cloudformation
+    - description: Clean up cluster nodes.
+      job_name: cleanup
+      name: nodes_cleanup
+      type: job
+  - name: zero
+    sequence:
+    - action: update
+      description: Update cloudformation cluster settings
+      job_name: spark_cluster
+      name: cluster_status
+      parameters:
+      - description: Set Cluster DesiredCapacity to 0.
+        name: DesiredCapacity
+        prompt: false
+        type: integer_positive
+        value: 0
+      - description: Set Cluster MaxSize to 0.
+        name: MaxSize
+        prompt: false
+        type: integer_positive
+        value: 0
+      - description: Set Cluster MinSize to 0.
+        name: MinSize
+        prompt: false
+        type: integer_positive
+        value: 0
+      type: cloudformation
+    - description: Clean up cluster nodes.
+      job_name: cleanup
+      name: nodes_cleanup
+      type: job
+  - name: submit.jar
+    parameters:
+    - description: 'Define the class name to use from example. Class name should be
+        relative to: org.apache.spark.examples'
+      name: class
+      type: string
+      value: graphx.SynthBenchmark
+    - description: Input parameters for the example
+      name: app_args
+      type: string
+      value: -app=pagerank -niters=11
+    - description: Define extra args for spark
+      name: spark_args
+      type: string
+      value: --executor-memory 1G
+  - name: submit.py
+    parameters:
+    - description: Define the py files from examples.
+      name: py_file
+      type: string
+      value: pi.py
+    - description: Input parameters for the example script.
+      name: app_args
+      type: string
+      value: '10'
+    - description: Define extra args for spark
+      name: spark_args
+      type: string
+      value: --executor-memory 1G
+  parameters:
+  - description: Plugin app name
+    name: app_name
+    prompt: false
+    type: string
+    value: spark
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: cluster
+- bullets:
+  - K8S Ingress
+  cloudformations:
+  - capabilities:
+    - CAPABILITY_IAM
+    name: k8s_ingress
+    parameters:
+    - description: VpcId
+      name: VpcId
+      prompt: false
+      type: string
+      value: '{{ MADCORE_VPC_ID }}'
+    - description: PublicNetZoneA
+      name: PublicNetZoneA
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PUBLIC_NET_ZONE_A }}'
+    - description: Security Group CIRD
+      name: SecurityGroupCIRD
+      prompt: false
+      type: string
+      value: '{{ (MADCORE_PRIVATE_IP.split(''.'')[0:3] + [''0''])|join(''.'') + ''/24''
+        }}'
+    - description: S3 bucket name
+      name: S3BucketName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_S3_BUCKET }}'
+    - description: IP of the master cluster node
+      name: MasterIP
+      prompt: false
+      type: string
+      value: '{{ MADCORE_PRIVATE_IP }}'
+    - description: AWS KeyName
+      name: KeyName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_KEY_NAME }}'
+    - allowed:
+      - m3.medium
+      - m4.xlarge
+      - r3.large
+      description: AWS EC2 instance type.
+      name: InstanceType
+      type: string
+      value: '{{ MADCORE_INSTANCE_TYPE }}'
+    - description: Branch name
+      name: BranchName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_BRANCH }}'
+    - description: Commit ID
+      name: CommitID
+      prompt: false
+      type: string
+      value: '{{ MADCORE_COMMIT }}'
+    - description: Domain name
+      name: DomainName
+      prompt: false
+      type: string
+      value: '{{ MADCORE_DOMAIN }}'
+    - description: Subdomain name
+      name: SubDomainName
+      prompt: false
+      type: string
+      value: ext.{{ MADCORE_SUB_DOMAIN }}
+    - description: Madcore Hosted Zone name
+      name: MadcoreDNSHostedZone
+      prompt: false
+      type: string
+      value: '{{ MADCORE_HOSTED_ZONE_ID }}'
+    stack_name: MADCORE-k8singress
+    template_file: cf/ingress.json
+  description: Kubernetes Ingress balancer
+  frame_color: gold
+  id: ingress
+  image: ''
+  jobs:
+  - name: deploy
+    sequence:
+    - action: create
+      description: Deploy cluster Ingress instance using cloudformation
+      job_name: k8s_ingress
+      name: ingress_deploy
+      type: cloudformation
+    - description: Run jenkins deploy job
+      job_name: deploy
+      name: jenkins_deploy
+      parameters:
+      - description: private ingress instance ip address
+        name: IngressInstanceIP
+        prompt: false
+        type: string
+        value: '{{ K8S_INGRESS_IngressPrivateIp }}'
+      type: job
+  - name: delete
+    sequence:
+    - action: delete
+      description: Remove cloudformation Ingress
+      job_name: k8s_ingress
+      name: ingress_remove
+      type: cloudformation
+    - description: Run jenkins delete job
+      job_name: delete
+      name: jenkins_delete
+      type: job
+  - name: status
+    sequence:
+    - action: status
+      description: Check Ingress cluster plugin status
+      job_name: ingress
+      name: ingress_status
+      type: cloudformation
+    - description: Run jenkins status job
+      job_name: status
+      name: jenkins_status
+      type: job
+  text_active: Active
+  text_buy: $2.99
+  text_invactive: Inactive
+  text_prerequesite: Prerequisite missing
+  type: cluster

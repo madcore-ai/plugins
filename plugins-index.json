@@ -119,18 +119,16 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
-      "parameters": [
-        {
-          "name": "app_name",
-          "value": "flasker",
-          "description": "Plugin app name",
-          "type": "string"
-        }
-      ],
       "jobs": [
         {
           "name": "deploy",
           "parameters": [
+        {
+              "name": "app_name",
+              "value": "flasker",
+              "description": "Plugin app name",
+              "type": "string"
+            },
             {
               "name": "S3BUCKETNAME",
               "value": "{{ MADCORE_S3_BUCKET }}",

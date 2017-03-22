@@ -25,7 +25,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
                 }
                 stage ('add to ingress controller') {
                   if (params.PUBLIC == "true") {
-                    build job: 'madcore.plugin.ingress.add.service', parameters: [tring(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'flasker-hub-service'), string(name: 'SERVICE_PORT', value: '9019'), string(name: 'SERVICE_NAMESPACE', value: 'flasker-hub-plugin') ]
+                    build job: 'madcore.plugin.ingress.add.service', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'flasker-hub-service'), string(name: 'SERVICE_PORT', value: '9019'), string(name: 'SERVICE_NAMESPACE', value: 'flasker-hub-plugin') ]
                   }
                   else {println "not need add to ingress controller"}
                 }

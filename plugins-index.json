@@ -164,6 +164,12 @@
               "type": "string"
             },
             {
+              "name": "PUBLIC",
+              "value": "false",
+              "description": "External ingress controller",
+              "type": "string"
+            },
+            {
               "name": "S3BucketName",
               "value": "{{ MADCORE_S3_BUCKET }}",
               "description": "S3 Bucket Name for backup",

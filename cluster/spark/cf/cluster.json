@@ -164,7 +164,27 @@
                       ]
                     }
                   ]
-                }
+                },
+                {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:CreateRoute",
+                         "ec2:DeleteRoute",
+                         "ec2:ReplaceRoute",
+                         "ec2:ModifyInstanceAttribute"
+                     ],
+                     "Resource": [
+                         "*"
+                     ]
+               },
+               {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:DescribeRouteTables",
+                         "ec2:DescribeInstances"
+                     ],
+                     "Resource": "*"
+               }
               ]
             }
           }
@@ -203,7 +223,15 @@
             "CidrIp": {
               "Ref": "SecurityGroupCIRD"
             }
-          }
+          },
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" :  "0.0.0.0/0"},
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "443", "CidrIp" :  "0.0.0.0/0"},
+          { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "icmp", "FromPort" : "-1", "ToPort" : "-1", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "172.16.0.0/16"  },
+          { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "172.16.0.0/16"  },
+          { "IpProtocol" : "icmp", "FromPort" : "-1", "ToPort" : "-1", "CidrIp" :  "172.16.0.0/16"  }
         ]
       }
     },
@@ -255,6 +283,10 @@
                 "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
                 "sudo echo KUB_CLUSTER_NAME=", "spark", " >> /etc/environment\n",
                 "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
+                "sudo echo AWS_REGION=", {"Ref": "AWS::Region"}, " >> /etc/environment\n",
+                "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli\n",
+                "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/kubernetes/ /opt/backup/kubernetes/ --region ",{"Ref": "AWS::Region"},"\n",
+                "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/ssh/ /opt/backup/ssh/ --region ",{"Ref": "AWS::Region"},"\n",
                 "# PRECONFIGURE madcore\n",
                 "sudo apt-get update\n",
                 "sudo apt-get install git -y\n",

@@ -5,6 +5,7 @@ pipelineJob('madcore.plugin.flasker.deploy') {
       stringParam('APP_NAME', 'flasker', '')
       stringParam('PORT', '9019', '')
       stringParam('DOCKERFILE_PATH', 'flasker', 'Specify path to docker file relative to root repo.')
+      stringParam('S3BucketName', '', 'S3 bucket name for backup')
     }
 
     definition {
@@ -31,7 +32,7 @@ pipelineJob('madcore.plugin.flasker.deploy') {
                   build job: 'madcore.ssl.csr.generate'
                 }
                 stage ('Update certificate and haproxy') {
-                  build job: 'madcore.ssl.letsencrypt.getandinstall'
+                  build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]
                 }
               }
             """.stripIndent())

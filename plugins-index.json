@@ -134,12 +134,24 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
-      "parameters": [
+      "jobs": [
         {
-          "name": "app_name",
-          "value": "flasker",
-          "description": "Plugin app name",
-          "type": "string"
+          "name": "deploy",
+          "parameters": [
+        {
+              "name": "app_name",
+              "value": "flasker",
+              "description": "Plugin app name",
+              "type": "string"
+            },
+            {
+              "name": "S3BUCKETNAME",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 Bucket Name for backup",
+              "type": "string",
+              "prompt": false
+            }
+          ]
         }
       ]
     },
@@ -156,12 +168,24 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
-      "parameters": [
+      "jobs": [
         {
-          "name": "app_name",
-          "value": "flasker-hub",
-          "description": "Plugin app name",
-          "type": "string"
+          "name": "deploy",
+          "parameters": [
+            {
+              "name": "app_name",
+              "value": "flasker-hub",
+              "description": "Plugin app name",
+              "type": "string"
+            },
+            {
+              "name": "S3BucketName",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 Bucket Name for backup",
+              "type": "string",
+              "prompt": false
+            }
+          ]
         }
       ]
     },
@@ -1275,7 +1299,7 @@
       "cloudformations": [
         {
           "name": "k8s_ingress",
-          "stack_name": "MADCORE-K8sIngress",
+          "stack_name": "MADCORE-k8singress",
           "template_file": "cf/ingress.json",
           "capabilities": [
             "CAPABILITY_IAM"
@@ -1299,6 +1323,13 @@
               "name": "SecurityGroupCIRD",
               "value": "{{ (MADCORE_PRIVATE_IP.split('.')[0:3] + ['0'])|join('.') + '/24' }}",
               "description": "Security Group CIRD",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "S3BucketName",
+              "value": "{{ MADCORE_S3_BUCKET }}",
+              "description": "S3 bucket name",
               "type": "string",
               "prompt": false
             },
@@ -1340,6 +1371,27 @@
               "description": "Commit ID",
               "type": "string",
               "prompt": false
+            },
+            {
+              "name": "DomainName",
+              "value": "{{ MADCORE_DOMAIN }}",
+              "description": "Domain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "SubDomainName",
+              "value": "ext.{{ MADCORE_SUB_DOMAIN }}",
+              "description": "Subdomain name",
+              "type": "string",
+              "prompt": false
+            },
+            {
+              "name": "MadcoreDNSHostedZone",
+              "value": "{{ MADCORE_HOSTED_ZONE_ID }}",
+              "description": "Madcore Hosted Zone name",
+              "type": "string",
+              "prompt": false
             }
           ]
         }
@@ -1352,14 +1404,23 @@
               "type": "cloudformation",
               "name": "ingress_deploy",
               "description": "Deploy cluster Ingress instance using cloudformation",
-              "job_name": "k8s_Ingress",
+              "job_name": "k8s_ingress",
               "action": "create"
             },
             {
               "type": "job",
               "name": "jenkins_deploy",
               "description": "Run jenkins deploy job",
-              "job_name": "deploy"
+              "job_name": "deploy",
+              "parameters": [
+                {
+                  "name": "IngressInstanceIP",
+                  "value": "{{ K8S_INGRESS_IngressPrivateIp }}",
+                  "description": "private ingress instance ip address",
+                  "type": "string",
+                  "prompt": false
+                }
+              ]
             }
           ]
         },
@@ -1368,9 +1429,9 @@
           "sequence": [
             {
               "type": "cloudformation",
-              "name": "Ingress_remove",
+              "name": "ingress_remove",
               "description": "Remove cloudformation Ingress",
-              "job_name": "k8s_Ingress",
+              "job_name": "k8s_ingress",
               "action": "delete"
             },
             {
@@ -1386,9 +1447,9 @@
           "sequence": [
             {
               "type": "cloudformation",
-              "name": "Ingress_status",
+              "name": "ingress_status",
               "description": "Check Ingress cluster plugin status",
-              "job_name": "Ingress",
+              "job_name": "ingress",
               "action": "status"
             },
             {

@@ -59,6 +59,21 @@
       "Type": "String",
       "Default": "FETCH_HEAD",
       "Description": "Cluster repo commit id"
+    },
+    "DomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Domain name"
+    },
+    "SubDomainName": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Subdomain name"
+    },
+    "MadcoreDNSHostedZone": {
+      "Type": "String",
+      "AllowedPattern": ".+",
+      "Description": "Madcore Hosted Zone name"
     }
   },
   "Mappings": {
@@ -149,7 +164,27 @@
                       ]
                     }
                   ]
-                }
+                },
+                {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:CreateRoute",
+                         "ec2:DeleteRoute",
+                         "ec2:ReplaceRoute",
+                         "ec2:ModifyInstanceAttribute"
+                     ],
+                     "Resource": [
+                         "*"
+                     ]
+               },
+               {
+                     "Effect": "Allow",
+                     "Action": [
+                         "ec2:DescribeRouteTables",
+                         "ec2:DescribeInstances"
+                     ],
+                     "Resource": "*"
+               }
               ]
             }
           }
@@ -188,7 +223,15 @@
             "CidrIp": {
               "Ref": "SecurityGroupCIRD"
             }
-          }
+          },
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" :  "0.0.0.0/0"},
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "443", "CidrIp" :  "0.0.0.0/0"},
+          { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "icmp", "FromPort" : "-1", "ToPort" : "-1", "CidrIp" :  "10.99.101.0/24"  },
+          { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "172.16.0.0/16"  },
+          { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "CidrIp" :  "172.16.0.0/16"  },
+          { "IpProtocol" : "icmp", "FromPort" : "-1", "ToPort" : "-1", "CidrIp" :  "172.16.0.0/16"  }
         ]
       }
     },
@@ -204,11 +247,17 @@
         "AMI"
       ]
     },
-    "SecurityGroups": [
-      {
-        "Ref": "MadcoreIngressSecurityGroup"
-      }
-    ],
+    "SourceDestCheck": false,
+    "IamInstanceProfile": {
+      "Ref": "MadcoreClusterInstanceProfile"
+    },
+    "NetworkInterfaces" : [{
+      "GroupSet"                 : [{ "Ref" : "MadcoreIngressSecurityGroup" }],
+      "AssociatePublicIpAddress" : "true",
+      "DeviceIndex"              : "0",
+      "DeleteOnTermination"      : "true",
+      "SubnetId"                 : { "Ref" : "PublicNetZoneA" }
+    }],
     "InstanceType": {
       "Ref": "InstanceType"
     },
@@ -231,7 +280,8 @@
             "# Maintained by Madcore Ltd (humans@madcore.ai)\n",
             "sudo echo ENV=AWS >> /etc/environment\n",
             "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
-            "sudo echo KUB_CLUSTER_NAME=", "ingress", " >> /etc/environment\n",
+            "sudo echo KUB_CLUSTER_NAME=", "role=loadbalancer", " >> /etc/environment\n",
+            "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
             "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/kubernetes/ /opt/backup/kubernetes/ --region ",{"Ref": "AWS::Region"},"\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/ssh/ /opt/backup/ssh/ --region ",{"Ref": "AWS::Region"},"\n",
@@ -258,14 +308,113 @@
 "MadcoreIngressIP" : {
   "Type" : "AWS::EC2::EIP",
   "Properties" : {
-       "InstanceId" : { "Ref" : "MadcoreIngressInstance" }
+       "Domain": "vpc"
   }
+},
+"MadCoreEIPAssoc": {
+  "Type": "AWS::EC2::EIPAssociation",
+  "Properties": {
+    "AllocationId": {
+      "Fn::GetAtt": [
+        "MadcoreIngressIP",
+        "AllocationId"
+      ]
+    },
+    "InstanceId": {
+      "Ref": "MadcoreIngressInstance"
+    }
+  }
+},
+"MadcoreEC2RecordSet": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "DNS for ingress",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "A",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PublicIp"
+        ]
+      }
+    ]
+  },
+  "DependsOn": "MadCoreEIPAssoc"
+},
+"MadcoreEC2RecordSetWildcard": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneId": {
+      "Ref": "MadcoreDNSHostedZone"
+    },
+    "Comment": "wildcard DNS for ingress",
+    "Name": {
+      "Fn::Join": [
+        ".",
+        [
+          "*",
+          {
+            "Ref": "SubDomainName"
+          },
+          {
+            "Ref": "DomainName"
+          }
+        ]
+      ]
+    },
+    "Type": "CNAME",
+    "TTL": "300",
+    "ResourceRecords": [
+      {
+        "Fn::Join": [
+          ".",
+          [
+            {
+              "Ref": "SubDomainName"
+            },
+            {
+              "Ref": "DomainName"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "DependsOn": "MadcoreEC2RecordSet"
 }
 },
   "Outputs": {
-    "IngressInstanceIP": {
+    "PublicIngressInstanceIP": {
       "Value": {
-        "Ref": "MadcoreIngressIP"
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PublicIp"
+        ]
+      }
+    },
+   "IngressPrivateIp": {
+      "Value": {
+        "Fn::GetAtt": [
+          "MadcoreIngressInstance",
+          "PrivateIp"
+        ]
       }
     }
   }

@@ -3,7 +3,8 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
       stringParam('APP_NAME', 'flasker-hub', '')
       stringParam('PORT', '9019', '')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
-      booleanParam('MADCORE_PLUGIN_FLAG', '', 'Madcore plugin flags')
+      booleanParam('MADCORE_PLUGIN_FLAG', false, 'ingress flag ')
+
     }
 
     definition {

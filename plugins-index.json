@@ -164,9 +164,9 @@
               "type": "string"
             },
             {
-              "name": "PUBLIC",
-              "value": "false",
-              "description": "External ingress controller",
+              "name": "MADCORE_PLUGIN_FLAG",
+              "value": "{{ MADCORE_PLUGIN_FLAG }}",
+              "description": "Madcore flags for plugin",
               "type": "string"
             },
             {

@@ -167,7 +167,8 @@
               "name": "MADCORE_PLUGIN_FLAG",
               "value": "{{ MADCORE_PLUGIN_FLAG }}",
               "description": "Madcore flags for plugin",
-              "type": "string"
+              "type": "string",
+              "prompt": false
             },
             {
               "name": "S3BucketName",

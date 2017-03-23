@@ -162,6 +162,9 @@
           "type": "string"
         }],
       "jobs": [
+        {
+        "name": "deploy",
+        "parameters": [
             {
               "name": "MADCORE_PLUGIN_FLAG",
               "value": "{{ MADCORE_PLUGIN_FLAG }}",
@@ -177,6 +180,8 @@
               "prompt": false
             }
           ]
+        }
+      ]
     },
     {
       "id": "k8s",

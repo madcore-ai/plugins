@@ -167,7 +167,7 @@
               "name": "MADCORE_PLUGIN_FLAG",
               "value": "{{ MADCORE_PLUGIN_FLAG }}",
               "description": "Madcore flags for plugin",
-              "type": "string",
+              "type": "bool",
               "prompt": false
             },
             {

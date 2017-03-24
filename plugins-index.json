@@ -134,16 +134,17 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
+      "parameters": [
+      {
+          "name": "app_name",
+          "value": "flasker",
+          "description": "Plugin app name",
+          "type": "string"
+      }],
       "jobs": [
         {
           "name": "deploy",
           "parameters": [
-        {
-              "name": "app_name",
-              "value": "flasker",
-              "description": "Plugin app name",
-              "type": "string"
-            },
             {
               "name": "S3BUCKETNAME",
               "value": "{{ MADCORE_S3_BUCKET }}",
@@ -168,15 +169,23 @@
       "text_invactive": "Inactive",
       "text_prerequesite": "Prerequisite missing",
       "frame_color": "gold",
+      "parameters": [
+        {
+          "name": "app_name",
+          "value": "flasker-hub",
+          "description": "Plugin app name",
+          "type": "string"
+        }],
       "jobs": [
         {
-          "name": "deploy",
-          "parameters": [
+        "name": "deploy",
+        "parameters": [
             {
-              "name": "app_name",
-              "value": "flasker-hub",
-              "description": "Plugin app name",
-              "type": "string"
+              "name": "MADCORE_INGRESS_FLAG",
+              "value": "{{ MADCORE_INGRESS_FLAG }}",
+              "description": "Madcore ingres flags for plugin",
+              "type": "bool",
+              "prompt": false
             },
             {
               "name": "S3BucketName",

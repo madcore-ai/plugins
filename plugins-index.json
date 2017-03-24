@@ -166,9 +166,9 @@
         "name": "deploy",
         "parameters": [
             {
-              "name": "MADCORE_PLUGIN_FLAG",
-              "value": "{{ MADCORE_PLUGIN_FLAG }}",
-              "description": "Madcore flags for plugin",
+              "name": "MADCORE_INGRESS_FLAG",
+              "value": "{{ MADCORE_INGRESS_FLAG }}",
+              "description": "Madcore ingres flags for plugin",
               "type": "bool",
               "prompt": false
             },

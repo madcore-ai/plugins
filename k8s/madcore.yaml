@@ -6,7 +6,7 @@
   - K8S Cluster
   text_active: Active
   text_buy: "$2.99"
-  text_invactive: Inactive
+  text_inactive: Inactive
   text_prerequesite: Prerequisite missing
   frame_color: gold
   cloudformations:
@@ -133,7 +133,7 @@
   - name: extend
     parameters:
     - name: nodes
-      value: 
+      value: null
       description: Extend cluster by X nodes.
       type: integer_gt_zero
     sequence:
@@ -179,7 +179,7 @@
   - name: contract
     parameters:
     - name: nodes
-      value: 
+      value: null
       description: Contract cluster by X nodes.
       type: integer_gt_zero
     sequence:

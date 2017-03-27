@@ -6,7 +6,7 @@
   - K8S Ingress
   text_active: Active
   text_buy: "$2.99"
-  text_invactive: Inactive
+  text_inactive: Inactive
   text_prerequesite: Prerequisite missing
   frame_color: gold
   cloudformations:

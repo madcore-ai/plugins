@@ -9,16 +9,16 @@
   text_inactive: Inactive
   text_prerequesite: Prerequisite missing
   frame_color: gold
-  jobs:
-  - name: deploy
-    parameters:
+  parameters:
     - name: app_name
       value: flasker-hub
       description: Plugin app name
       type: string
+  jobs:
+  - name: deploy
+    parameters:
     - name: S3BucketName
       value: "{{ MADCORE_S3_BUCKET }}"
       description: S3 Bucket Name for backup
       type: string
       prompt: false
-

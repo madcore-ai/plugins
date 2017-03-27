@@ -11,7 +11,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
             script("""
             node {
                 stage ('Kubernetes: create') {
-                  build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'pods/flasker-hub/kub')]
+                  build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'flasker-hub/kub')]
                 }
                 stage ('Update app base') {
                   build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'APP_PORT', value: params.PORT)]

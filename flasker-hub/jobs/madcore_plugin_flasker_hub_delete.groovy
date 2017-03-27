@@ -9,7 +9,7 @@ pipelineJob('madcore.plugin.flasker-hub.delete') {
             script("""
             node {
                 stage ('Kubernetes: delete') {
-                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'pods/flasker-hub/kub')]
+                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'flasker-hub/kub')]
                 }
               }
             """.stripIndent())

@@ -13,7 +13,7 @@ pipelineJob('madcore.plugin.ingress.deploy') {
                   sh "python /opt/madcore/bin/render_ingress_configmap.py"
                 }
                 stage('Ingress: deploy pods') {
-                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'cluster/ingress/kub')]
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'ingress/kub')]
                 }
               }
             """.stripIndent())

@@ -9,7 +9,7 @@ pipelineJob('madcore.plugin.ingress.delete') {
             script("""
             node {
                 stage('Kubernetes: delete') {
-                    build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'cluster/ingress/kub')]
+                    build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'ingress/kub')]
                 }
                 }
             """.stripIndent())

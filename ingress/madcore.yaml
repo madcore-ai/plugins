@@ -1,0 +1,122 @@
+- id: ingress
+  type: cluster
+  image: ''
+  description: Kubernetes Ingress balancer
+  bullets:
+  - K8S Ingress
+  text_active: Active
+  text_buy: "$2.99"
+  text_inactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  cloudformations:
+  - name: k8s_ingress
+    stack_name: MADCORE-k8singress
+    template_file: cf/ingress.json
+    capabilities:
+    - CAPABILITY_IAM
+    parameters:
+    - name: VpcId
+      value: "{{ MADCORE_VPC_ID }}"
+      description: VpcId
+      type: string
+      prompt: false
+    - name: PublicNetZoneA
+      value: "{{ MADCORE_PUBLIC_NET_ZONE_A }}"
+      description: PublicNetZoneA
+      type: string
+      prompt: false
+    - name: SecurityGroupCIRD
+      value: "{{ (MADCORE_PRIVATE_IP.split('.')[0:3] + ['0'])|join('.') + '/24' }}"
+      description: Security Group CIRD
+      type: string
+      prompt: false
+    - name: S3BucketName
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 bucket name
+      type: string
+      prompt: false
+    - name: MasterIP
+      value: "{{ MADCORE_PRIVATE_IP }}"
+      description: IP of the master cluster node
+      type: string
+      prompt: false
+    - name: KeyName
+      value: "{{ MADCORE_KEY_NAME }}"
+      description: AWS KeyName
+      type: string
+      prompt: false
+    - name: InstanceType
+      value: "{{ MADCORE_INSTANCE_TYPE }}"
+      description: AWS EC2 instance type.
+      type: string
+      allowed:
+      - m3.medium
+      - m4.xlarge
+      - r3.large
+    - name: BranchName
+      value: "{{ MADCORE_BRANCH }}"
+      description: Branch name
+      type: string
+      prompt: false
+    - name: CommitID
+      value: "{{ MADCORE_COMMIT }}"
+      description: Commit ID
+      type: string
+      prompt: false
+    - name: DomainName
+      value: "{{ MADCORE_DOMAIN }}"
+      description: Domain name
+      type: string
+      prompt: false
+    - name: SubDomainName
+      value: ext.{{ MADCORE_SUB_DOMAIN }}
+      description: Subdomain name
+      type: string
+      prompt: false
+    - name: MadcoreDNSHostedZone
+      value: "{{ MADCORE_HOSTED_ZONE_ID }}"
+      description: Madcore Hosted Zone name
+      type: string
+      prompt: false
+  jobs:
+  - name: deploy
+    sequence:
+    - type: cloudformation
+      name: ingress_deploy
+      description: Deploy cluster Ingress instance using cloudformation
+      job_name: k8s_ingress
+      action: create
+    - type: job
+      name: jenkins_deploy
+      description: Run jenkins deploy job
+      job_name: deploy
+      parameters:
+      - name: IngressInstanceIP
+        value: "{{ K8S_INGRESS_IngressPrivateIp }}"
+        description: private ingress instance ip address
+        type: string
+        prompt: false
+  - name: delete
+    sequence:
+    - type: cloudformation
+      name: ingress_remove
+      description: Remove cloudformation Ingress
+      job_name: k8s_ingress
+      action: delete
+    - type: job
+      name: jenkins_delete
+      description: Run jenkins delete job
+      job_name: delete
+  - name: status
+    sequence:
+    - type: cloudformation
+      name: ingress_status
+      description: Check Ingress cluster plugin status
+      job_name: ingress
+      action: status
+    - type: job
+      name: jenkins_status
+      description: Run jenkins status job
+      job_name: status
+

@@ -17,6 +17,11 @@
   jobs:
   - name: deploy
     parameters:
+    - name: MADCORE_INGRESS_FLAG
+      value: "{{ MADCORE_INGRESS_FLAG }}"
+      description: Madcore ingres flags for plugin
+      type: bool
+      prompt: false
     - name: S3BucketName
       value: "{{ MADCORE_S3_BUCKET }}"
       description: S3 Bucket Name for backup

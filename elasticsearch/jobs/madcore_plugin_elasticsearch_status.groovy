@@ -9,7 +9,7 @@ pipelineJob('madcore.plugin.elasticsearch.status') {
             script("""
             node {
                 stage('ElasticsearchCluster kubernetes: status') {
-                    build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'cluster/elasticsearch/kub')]
+                    build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'elasticsearch/kub')]
                 }
                 stage('ElasticsearchCluster nodes: status') {
                     build job: 'madcore.kubectl.cluster.nodes.status', parameters: [string(name: 'NODE_LABEL', value: 'cluster=elasticsearch')]

@@ -9,7 +9,7 @@ pipelineJob('madcore.plugin.elasticsearch.delete') {
             script("""
             node {
                 stage('Kubernetes: delete') {
-                    build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'cluster/elasticsearch/kub')]
+                    build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'elasticsearch/kub')]
                 }
                 stage('Elasticsearch: wait for elasticsearch cluster to stop') {
                     build job: 'madcore.kubectl.wait.service.down', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'es-master:9200'), string(name: 'SERVICE_NAMESPACE', value: 'es-cluster')]

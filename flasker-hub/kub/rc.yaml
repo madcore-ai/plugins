@@ -14,7 +14,6 @@ spec:
       labels:
         name: flasker-hub
     spec:
-      hostNetwork: true
       containers:
       - name: flasker-hub
         image: madcore/flasker:latest

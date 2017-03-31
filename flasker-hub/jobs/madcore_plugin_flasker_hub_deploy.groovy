@@ -1,9 +1,11 @@
 pipelineJob('madcore.plugin.flasker-hub.deploy') {
     parameters {
       stringParam('APP_NAME', 'flasker-hub', '')
-      stringParam('PORT', '9019', '')
+      stringParam('SERVICE_PORT', '9019', '')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
       booleanParam('MADCORE_INGRESS_FLAG', false, 'ingress flag ')
+      stringParam('APP_NAMESPACE', 'flasker-hub-plugin', 'Plugin namespase')
+      stringParam('APP_SERVICE_NAME', 'flasker-hub-service', 'Plugin service name')
 
     }
 
@@ -16,7 +18,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
                   build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'flasker-hub/kub')]
                 }
                 stage ('Update app base') {
-                  build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'APP_PORT', value: params.PORT)]
+                  build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'APP_NAMESPACE', value: params.APP_NAMESPACE), string(name: 'APP_SERVICE_NAME', value: params.APP_SERVICE_NAME) ]
                 }
                 stage ('Update CSR') {
                   build job: 'madcore.ssl.csr.generate'
@@ -26,7 +28,7 @@ pipelineJob('madcore.plugin.flasker-hub.deploy') {
                 }
                 stage ('add to ingress controller') {
                   if (params.MADCORE_INGRESS_FLAG == true) {
-                    build job: 'madcore.plugin.ingress.add.service', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'flasker-hub-service'), string(name: 'SERVICE_PORT', value: '9019'), string(name: 'SERVICE_NAMESPACE', value: 'flasker-hub-plugin') ]
+                    build job: 'madcore.plugin.ingress.add.service', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: params.APP_SERVICE_NAME), string(name: 'SERVICE_PORT', value: '9019'), string(name: 'SERVICE_NAMESPACE', value: params.APP_NAMESPACE ) ]
                   }
                   else {println "not need add to ingress controller"}
                 }

@@ -17,6 +17,6 @@ spec:
       hostNetwork: true
       containers:
       - name: flasker
-        image: localhost:5000/flasker:image
+        image: core.madcore:5000/flasker:image
       imagePullSecrets:
       - name: myregistrykey

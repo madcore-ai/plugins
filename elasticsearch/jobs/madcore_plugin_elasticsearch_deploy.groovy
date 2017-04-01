@@ -30,7 +30,7 @@ pipelineJob('madcore.plugin.elasticsearch.deploy') {
                     build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'elasticsearch/kub/es-data-rc.yaml')]
                 }
                 stage('Elasticsearch: wait for elasticsearch cluster to start') {
-                    build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'elasticsearch:9200'), string(name: 'SERVICE_NAMESPACE', value: 'es-cluster')]
+                    build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'elasticsearch-main:9200'), string(name: 'SERVICE_NAMESPACE', value: 'es-cluster')]
                 }
                 stage('Update HAproxy') {
                     build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]

@@ -1,5 +1,5 @@
 kind: ReplicationController
-apiVersion: v1      hostNetwork: true
+apiVersion: v1
 metadata:
   name: spark-master-controller
   namespace: spark-cluster

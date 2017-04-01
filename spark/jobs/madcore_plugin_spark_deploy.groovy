@@ -9,8 +9,26 @@ pipelineJob('madcore.plugin.spark.deploy') {
             sandbox()
             script("""
             node {
-                stage('Spark: install') {
-                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub')]
+                stage('Spark: create services') {
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub/services')]
+                }
+                stage('Spark: create master') {
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub/spark-master-controller.yaml')]
+                }
+                stage('Spark: wait for master') {
+                    build job: 'madcore.kubectl.wait.pod.up', parameters: [string(name: 'POD_NAME', value: 'spark-master-controller')]
+                }
+                stage('Spark: create workers') {
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub/spark-worker-controller.yaml')]
+                }
+                stage('Spark: wait for workers') {
+                    build job: 'madcore.kubectl.wait.pod.up', parameters: [string(name: 'POD_NAME', value: 'spark-master-controller')]
+                }
+                stage('Spark: create proxy') {
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub/spark-ui-proxy-controller.yaml')]
+                }
+                stage('Spark: create zeppelin') {
+                    build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'spark/kub/zeppelin-controller.yaml')]
                 }
                 stage('Spark: wait for spark cluster to start') {
                     build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'spark-master:8080'), string(name: 'SERVICE_NAMESPACE', value: 'spark-cluster')]

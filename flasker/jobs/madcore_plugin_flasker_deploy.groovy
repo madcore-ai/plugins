@@ -44,7 +44,6 @@ pipelineJob('madcore.plugin.flasker.deploy') {
                   else {println "not need add to ingress controller"}
                 }
               }
-              }
             """.stripIndent())
 	    }
     }

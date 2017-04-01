@@ -12,7 +12,6 @@ spec:
       labels:
         component: spark-ui-proxy
     spec:
-      hostNetwork: true
       containers:
         - name: spark-ui-proxy
           image: ursuad/spark-ui-proxy

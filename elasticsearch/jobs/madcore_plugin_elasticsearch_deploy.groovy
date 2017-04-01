@@ -1,6 +1,7 @@
 pipelineJob('madcore.plugin.elasticsearch.deploy') {
     parameters {
 	    stringParam('APP_NAME', 'elasticsearch', '')
+      stringParam('S3BucketName', '', 'S3 bucket name for backup')
     }
 
     definition {
@@ -31,7 +32,10 @@ pipelineJob('madcore.plugin.elasticsearch.deploy') {
                 stage('Elasticsearch: wait for elasticsearch cluster to start') {
                     build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'elasticsearch:9200'), string(name: 'SERVICE_NAMESPACE', value: 'es-cluster')]
                 }
+                stage('Update HAproxy') {
+                    build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]
                 }
+              }
             """.stripIndent())
 	    }
     }

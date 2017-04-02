@@ -101,6 +101,11 @@
       value: spark
       description: Plugin app name
       type: string
+    - name: S3BUCKETNAME
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 Bucket Name for backup
+      type: string
+      prompt: false
     sequence:
     - type: job
       name: spark_deploy
@@ -140,7 +145,7 @@
   - name: extend
     parameters:
     - name: nodes
-      value: 
+      value:
       description: Extend cluster by X nodes.
       type: integer_gt_zero
     sequence:
@@ -186,7 +191,7 @@
   - name: contract
     parameters:
     - name: nodes
-      value: 
+      value:
       description: Contract cluster by X nodes.
       type: integer_gt_zero
     sequence:
@@ -261,4 +266,3 @@
       value: "--executor-memory 1G"
       description: Define extra args for spark
       type: string
-

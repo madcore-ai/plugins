@@ -285,6 +285,7 @@
             "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/kubernetes/ /opt/backup/kubernetes/ --region ",{"Ref": "AWS::Region"},"\n",
             "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/ssh/ /opt/backup/ssh/ --region ",{"Ref": "AWS::Region"},"\n",
+            "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/docker_ssl/ /opt/backup/docker_ssl/ --region ",{"Ref": "AWS::Region"},"\n",
             "# PRECONFIGURE madcore\n",
             "sudo apt-get update\n",
             "sudo apt-get install git -y\n",

@@ -1,7 +1,7 @@
 pipelineJob('madcore.plugin.spark.deploy') {
     parameters {
 	    stringParam('APP_NAME', 'spark', '')
-      stringParam('S3BucketName', '', 'S3 bucket name for backup')
+      stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
     }
 
     definition {
@@ -35,7 +35,7 @@ pipelineJob('madcore.plugin.spark.deploy') {
                     build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'zeppelin'), string(name: 'SERVICE_NAMESPACE', value: 'spark-cluster')]
                 }
                 stage('Update HAproxy') {
-                    build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]
+                    build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BUCKETNAME)]
                 }
                 }
             """.stripIndent())

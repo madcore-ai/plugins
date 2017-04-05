@@ -25,6 +25,9 @@ pipelineJob('madcore.plugin.flasker.deploy') {
                 stage ('Docker: registry status') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
+                stage ('Generate rc yaml') {
+                  build job: 'madcore.plugin.flasker.render_template', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
+                }
                 stage ('Kubernetes: create') {
                   build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'flasker/kub')]
                 }

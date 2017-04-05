@@ -1,4 +1,4 @@
-Job('madcore.plugin.flasker.render_template') {
+Job('madcore.plugin.flasker.render.template') {
     parameters {
       stringParam('APP_NAME', 'flasker', '')
     }

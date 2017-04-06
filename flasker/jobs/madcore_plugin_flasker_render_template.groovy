@@ -10,10 +10,10 @@ pipelineJob('madcore.plugin.flasker.render.template') {
               script("""
               node {
                 stage ('rendering rc template') {
-                  sh 'cat /opt/madcore/plugins/flasker/templates/rc.yaml.template | sed -e "s/\${APP_NAME}/\$APP_NAME/g" > /opt/madcore/plugins/flasker/kub/rc.yaml'
+                  sh 'cat /opt/madcore/plugins/flasker/templates/rc.yaml.template | sed -e "s/\${APP_NAME}/\$APP_NAME/g" > /opt/plugins/flasker/kub/rc.yaml'
                 }
                 stage ('rendering svc template') {
-                  sh 'cat /opt/madcore/plugins/flasker/templates/svc.yaml.template | sed -e "s/\${APP_NAME}/\$APP_NAME/g" > /opt/madcore/plugins/flasker/kub/svc.yaml'
+                  sh 'cat /opt/madcore/plugins/flasker/templates/svc.yaml.template | sed -e "s/\${APP_NAME}/\$APP_NAME/g" > /opt/plugins/flasker/kub/svc.yaml'
                 }
               }
               """.stripIndent())

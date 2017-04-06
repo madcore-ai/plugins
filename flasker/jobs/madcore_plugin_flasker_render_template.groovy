@@ -3,7 +3,7 @@ pipelineJob('madcore.plugin.flasker.render.template') {
       stringParam('APP_NAME', 'flasker', '')
     }
 
-    stages {
+    steps {
       stage ('rendering rc template') {
         sh 'cat /opt/madcore/plugins/flasker/templates/rc.yaml.template | sed -e "s/\${APP_NAME}/\$APP_NAME/g" > /opt/madcore/plugins/flasker/kub/rc.yaml'
       }

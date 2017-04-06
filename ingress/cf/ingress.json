@@ -303,7 +303,22 @@
           ]
         ]
       }
-    }
+    },
+    "Tags": [
+      {
+        "Key": "Name",
+        "Value": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AWS::StackName"
+              }
+            ]
+          ]
+        }
+      }
+    ],
   }
 },
 "MadcoreIngressIP" : {

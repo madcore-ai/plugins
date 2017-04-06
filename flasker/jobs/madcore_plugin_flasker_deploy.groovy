@@ -5,7 +5,7 @@ pipelineJob('madcore.plugin.flasker.deploy') {
       stringParam('APP_NAME', 'flasker', '')
       stringParam('SERVICE_PORT', '9019', '')
       stringParam('DOCKERFILE_PATH', 'flasker', 'Specify path to docker file relative to root repo.')
-      stringParam('S3BucketName', '', 'S3 bucket name for backup')
+      stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
       stringParam('APP_NAMESPACE', 'flasker-plugin', 'Plugin namespase')
       stringParam('APP_SERVICE_NAME', 'flasker-service', 'Plugin service name')
       booleanParam('MADCORE_INGRESS_FLAG', false, 'ingress flag ')
@@ -25,24 +25,25 @@ pipelineJob('madcore.plugin.flasker.deploy') {
                 stage ('Docker: registry status') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
-                stage ('Generate  yaml') {
+                stage ('Generate rc yaml') {
                   build job: 'madcore.plugin.flasker.render.template', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Kubernetes: create') {
                   build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'flasker/kub')]
                 }
                 stage ('Update app base') {
-                  build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'APP_NAMESPACE', value: params.APP_NAMESPACE), string(name: 'APP_SERVICE_NAME', value: params.APP_SERVICE_NAME) ]
+                  APP_SERVICE_NAME = params.APP_NAME + "-service"
+                  build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'APP_NAMESPACE', value: params.APP_NAMESPACE), string(name: 'APP_SERVICE_NAME', value: APP_SERVICE_NAME) ]
                 }
                 stage ('Update CSR') {
                   build job: 'madcore.ssl.csr.generate'
                 }
                 stage ('Update certificate and haproxy') {
-                  build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BucketName)]
+                  build job: 'madcore.ssl.letsencrypt.getandinstall', parameters: [string(name: 'S3BucketName', value: params.S3BUCKETNAME)]
                 }
                 stage ('add to ingress controller') {
                   if (params.MADCORE_INGRESS_FLAG == true) {
-                    build job: 'madcore.plugin.ingress.add.service', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: params.APP_SERVICE_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'SERVICE_NAMESPACE', value: params.APP_NAMESPACE) ]
+                    build job: 'madcore.plugin.ingress.add.service', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: APP_SERVICE_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'SERVICE_NAMESPACE', value: params.APP_NAMESPACE) ]
                   }
                   else {println "not need add to ingress controller"}
                 }

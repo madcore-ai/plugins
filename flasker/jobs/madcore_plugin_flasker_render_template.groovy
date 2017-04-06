@@ -1,4 +1,4 @@
-piplineJob('madcore.plugin.flasker.render_template') {
+pipelineJob('madcore.plugin.flasker.render_template') {
     parameters {
       stringParam('APP_NAME', 'flasker', '')
     }

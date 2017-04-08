@@ -1,1 +1,0 @@
-Madcore Charts Plugins

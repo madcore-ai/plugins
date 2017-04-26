@@ -1,7 +1,7 @@
-- id: spark
+- id: GPU
   type: cluster
   image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
-  description: Spark Cluster
+  description: GPU Cluster
   bullets:
   - Machine Learning
   - Data Mining
@@ -13,13 +13,13 @@
   frame_color: gold
   parameters:
   - name: app_name
-    value: spark
+    value: GPU
     description: Plugin app name
     type: string
     prompt: false
   cloudformations:
-  - name: spark_cluster
-    stack_name: MADCORE-SparkCluster
+  - name: GPU_cluster
+    stack_name: MADCORE-GPUCluster
     template_file: cf/cluster.json
     capabilities:
     - CAPABILITY_IAM
@@ -59,9 +59,9 @@
       description: AWS EC2 instance type.
       type: string
       allowed:
-      - m3.medium
-      - m4.xlarge
-      - r3.large
+      - p2.xlarge
+      - p2.8xlarge
+      - p2.16xlarge
     - name: SpotPrice
       value: "{{ InstanceType|spot_price }}"
       default_label: "{{ InstanceType|spot_price(verbose=True) }}"
@@ -98,7 +98,7 @@
   - name: deploy
     parameters:
     - name: app_name
-      value: spark
+      value: GPU
       description: Plugin app name
       type: string
     - name: S3BUCKETNAME
@@ -108,35 +108,35 @@
       prompt: false
     sequence:
     - type: job
-      name: spark_deploy
-      description: Spark jenkins deploy job.
+      name: GPU_deploy
+      description: GPU jenkins deploy job.
       job_name: deploy
     - type: cloudformation
       name: cluster_deploy
       description: Deploy cluster using cloudformation
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: create
   - name: delete
     sequence:
     - type: cloudformation
       name: cluster_remove
       description: Remove cloudformation cluster
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: delete
     - type: job
-      name: spark_delete
+      name: GPU_delete
       description: Run jenkins delete job
       job_name: delete
     - type: job
       name: nodes_cleanup
-      description: Clean up SparkCluster nodes.
+      description: Clean up GPUCluster nodes.
       job_name: cleanup
   - name: status
     sequence:
     - type: cloudformation
       name: cluster_status
       description: Check cloudformation cluster status
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: status
     - type: job
       name: jenkins_status
@@ -152,7 +152,7 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings.
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: update
       parameters:
       - name: InstanceType
@@ -160,21 +160,21 @@
         description: AWS EC2 instance type.
         type: string
         allowed:
-        - m3.medium
-        - m4.xlarge
-        - r3.large
+        - p2.xlarge
+        - p2.8xlarge
+        - p2.16xlarge
       - name: SpotPrice
         value: "{{ InstanceType|spot_price }}"
         default_label: "{{ InstanceType|spot_price(verbose=True) }}"
         description: AWS EC2 instance spot price.
         type: string
       - name: DesiredCapacity
-        value: "{{ SPARK_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}"
+        value: "{{ GPU_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}"
         description: Update Cluster DesiredCapacity.
         type: string
         prompt: false
       - name: MaxSize
-        value: "{{ SPARK_CLUSTER_MaxSize|int + EXTEND_NODES|int }}"
+        value: "{{ GPU_CLUSTER_MaxSize|int + EXTEND_NODES|int }}"
         description: Update Cluster MaxSize.
         type: string
         prompt: false
@@ -184,7 +184,7 @@
       job_name: nodes.up
       parameters:
       - name: nodes_ips
-        value: "{{ SPARK_CLUSTER_ASG_INSTANCE_IPS|join(',') }}"
+        value: "{{ GPU_CLUSTER_ASG_INSTANCE_IPS|join(',') }}"
         description: Wait until ASG instances UP.
         type: string
         prompt: false
@@ -198,11 +198,11 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: update
       parameters:
       - name: DesiredCapacity
-        value: "{{ SPARK_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}"
+        value: "{{ GPU_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}"
         description: Update Cluster DesiredCapacity and remove X nodes.
         type: string
         prompt: false
@@ -215,7 +215,7 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings
-      job_name: spark_cluster
+      job_name: GPU_cluster
       action: update
       parameters:
       - name: DesiredCapacity
@@ -237,32 +237,3 @@
       name: nodes_cleanup
       description: Clean up cluster nodes.
       job_name: cleanup
-  - name: submit.jar
-    parameters:
-    - name: class
-      value: graphx.SynthBenchmark
-      description: 'Define the class name to use from example. Class name should be
-        relative to: org.apache.spark.examples'
-      type: string
-    - name: app_args
-      value: "-app=pagerank -niters=11"
-      description: Input parameters for the example
-      type: string
-    - name: spark_args
-      value: "--executor-memory 1G"
-      description: Define extra args for spark
-      type: string
-  - name: submit.py
-    parameters:
-    - name: py_file
-      value: pi.py
-      description: Define the py files from examples.
-      type: string
-    - name: app_args
-      value: '10'
-      description: Input parameters for the example script.
-      type: string
-    - name: spark_args
-      value: "--executor-memory 1G"
-      description: Define extra args for spark
-      type: string

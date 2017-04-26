@@ -3,6 +3,8 @@ apiVersion: v1
 metadata:
   name: gpu-pod
 spec:
+  nodeSelector:
+    role: GPU
   containers:
   - name: gpu-container-1
     securityContext:

@@ -41,13 +41,12 @@
     "InstanceType": {
       "Description": "EC2 PV instance type (m3.medium, etc). Note: m1.small is not supported.",
       "Type": "String",
-      "Default": "m3.medium",
+      "Default": "p2.xlarge",
       "AllowedValues": [
         "p2.xlarge",
         "p2.8xlarge",
         "p2.16xlarge"
-      ],
-      "ConstraintDescription": "Must be a valid EC2 GPU instance type."
+      ]
     },
     "PublicNetZoneA": {
       "Type": "String",

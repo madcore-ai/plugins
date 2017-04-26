@@ -79,16 +79,16 @@
   "Mappings": {
     "UbuntuXenialAMI": {
       "us-west-1": {
-        "AMI": "ami-b20542d2"
+        "AMI": "ami-4b694d2b"
       },
       "us-east-1": {
-        "AMI": "ami-ddf13fb0"
+        "AMI": "ami-61e27177"
       },
       "eu-west-1": {
-        "AMI": "ami-a4d44ed7"
+        "AMI": "ami-2955524f"
       },
       "eu-central-1": {
-        "AMI": "ami-fe408091"
+        "AMI": "ami-81ac71ee"
       }
     }
   },
@@ -282,14 +282,13 @@
                 "sudo echo KUB_CLUSTER_NAME=", "role=GPU", " >> /etc/environment\n",
                 "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
                 "sudo echo AWS_REGION=", {"Ref": "AWS::Region"}, " >> /etc/environment\n",
-                "sudo echo EXTENDED_PARAMRTERS=", "--feature-gates=\"Accelerators=true\"", " >> /etc/environment\n",
-                "sudo apt update -y && sudo apt install -y python python-pip && sudo pip install awscli\n",
+                "sudo yum update -y && sudo yum install -y python python-pip && sudo pip install awscli\n",
                 "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/kubernetes/ /opt/backup/kubernetes/ --region ",{"Ref": "AWS::Region"},"\n",
                 "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/ssh/ /opt/backup/ssh/ --region ",{"Ref": "AWS::Region"},"\n",
                 "aws s3 sync s3://",{"Ref": "S3BucketName"},"/backup/docker_ssl/ /opt/backup/docker_ssl/ --region ",{"Ref": "AWS::Region"},"\n",
                 "# PRECONFIGURE madcore\n",
-                "sudo apt-get update\n",
-                "sudo apt-get install git -y\n",
+                "sudo yum update\n",
+                "sudo yum install git -y\n",
                 "sudo mkdir -p /opt/madcore\n",
                 "sudo chown ubuntu:ubuntu /opt/madcore\n",
                 "git clone -b ", {"Ref": "BranchName"}, " https://github.com/madcore-ai/core.git /opt/madcore\n",
@@ -299,8 +298,8 @@
                 "git reset --hard ", {"Ref": "CommitID"}, "\n",
                 "git --no-pager log -1\n",
                 "popd\n",
-                "sudo chmod +x /opt/madcore/kubernetes/cluster/node-install.sh\n",
-                "sudo \"/opt/madcore/kubernetes/cluster/node-install.sh\"\n"
+                "sudo chmod +x /opt/madcore/kubernetes/GPU/node-install.sh\n",
+                "sudo \"/opt/madcore/kubernetes/GPU/node-install.sh\"\n"
               ]
             ]
           }

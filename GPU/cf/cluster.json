@@ -239,7 +239,7 @@
         "AssociatePublicIpAddress": true,
         "ImageId": {
           "Fn::FindInMap": [
-            "UbuntuGPUAMI",
+            "UbuntuXenialAMI",
             {
               "Ref": "AWS::Region"
             },

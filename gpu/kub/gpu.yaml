@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: gpu-pod
+spec:
+  containers:
+  - name: gpu-container-1
+    securityContext:
+      privileged: true
+    resources:
+      limits:
+        alpha.kubernetes.io/nvidia-gpu: 1
+    volumeMounts:
+    - mountPath: /usr/local/nvidia/bin
+      name: bin
+    - mountPath: /usr/lib/nvidia
+      name: lib
+  volumes:
+  - hostPath:
+      path: /usr/lib/nvidia-367/bin
+    name: bin
+  - hostPath:
+      path: /usr/lib/nvidia-367
+    name: lib

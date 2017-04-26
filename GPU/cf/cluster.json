@@ -77,18 +77,18 @@
     }
   },
   "Mappings": {
-    "UbuntuGPUAMI": {
+    "UbuntuXenialAMI": {
       "us-west-1": {
-        "AMI": "ami-d5ce80b5"
+        "AMI": "ami-b20542d2"
       },
       "us-east-1": {
-        "AMI": "ami-81266096"
+        "AMI": "ami-ddf13fb0"
       },
       "eu-west-1": {
-        "AMI": "ami-ea93d499"
+        "AMI": "ami-a4d44ed7"
       },
       "eu-central-1": {
-        "AMI": "ami-4518e42a"
+        "AMI": "ami-fe408091"
       }
     }
   },

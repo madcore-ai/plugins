@@ -41,11 +41,10 @@
     "InstanceType": {
       "Description": "EC2 PV instance type (m3.medium, etc). Note: m1.small is not supported.",
       "Type": "String",
-      "Default": "p2.xlarge",
+      "Default": "g2.2xlarge ",
       "AllowedValues": [
-        "p2.xlarge",
-        "p2.8xlarge",
-        "p2.16xlarge"
+        "g2.2xlarge ",
+        "g2.8xlarge"
       ]
     },
     "PublicNetZoneA": {

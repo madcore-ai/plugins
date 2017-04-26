@@ -59,9 +59,8 @@
       description: AWS EC2 instance type.
       type: string
       allowed:
-      - p2.xlarge
-      - p2.8xlarge
-      - p2.16xlarge
+      - g2.2xlarge
+      - g2.8xlarge
     - name: SpotPrice
       value: "{{ InstanceType|spot_price }}"
       default_label: "{{ InstanceType|spot_price(verbose=True) }}"
@@ -160,9 +159,8 @@
         description: AWS EC2 instance type.
         type: string
         allowed:
-        - p2.xlarge
-        - p2.8xlarge
-        - p2.16xlarge
+        - g2.2xlarge
+        - g2.8xlarge
       - name: SpotPrice
         value: "{{ InstanceType|spot_price }}"
         default_label: "{{ InstanceType|spot_price(verbose=True) }}"

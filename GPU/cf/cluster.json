@@ -262,7 +262,7 @@
         },
         "BlockDeviceMappings": [
           {
-            "DeviceName": "/dev/sdk",
+            "DeviceName": "/dev/sda1",
             "Ebs": {
               "VolumeSize": "40"
             }

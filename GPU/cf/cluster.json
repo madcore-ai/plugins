@@ -264,7 +264,7 @@
           {
             "DeviceName": "/dev/sdk",
             "Ebs": {
-              "VolumeSize": "20"
+              "VolumeSize": "40"
             }
           }
         ],

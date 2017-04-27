@@ -7,6 +7,7 @@ spec:
     role: GPU
   containers:
   - name: gpu-container-1
+    image: deeplearning4j/dl4j-devkit:latest
     securityContext:
       privileged: true
     resources:

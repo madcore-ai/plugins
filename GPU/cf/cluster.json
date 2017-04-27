@@ -79,16 +79,16 @@
   "Mappings": {
     "UbuntuXenialAMI": {
       "us-west-1": {
-        "AMI": "ami-4b694d2b"
+        "AMI": "ami-b20542d2"
       },
       "us-east-1": {
-        "AMI": "ami-61e27177"
+        "AMI": "ami-ddf13fb0"
       },
       "eu-west-1": {
-        "AMI": "ami-2955524f"
+        "AMI": "ami-a4d44ed7"
       },
       "eu-central-1": {
-        "AMI": "ami-81ac71ee"
+        "AMI": "ami-fe408091"
       }
     }
   },
@@ -280,6 +280,7 @@
                 "sudo echo ENV=AWS >> /etc/environment\n",
                 "sudo echo KUB_MASTER_IP=", {"Ref": "MasterIP"}, " >> /etc/environment\n",
                 "sudo echo KUB_CLUSTER_NAME=", "role=GPU", " >> /etc/environment\n",
+                "sudo echo EXTENDED_PARAMRTERS=", "--feature-gates=\"Accelerators=true\"", " >> /etc/environment\n",
                 "sudo echo S3_BUCKET=", {"Ref": "S3BucketName"}, " >> /etc/environment\n",
                 "sudo echo AWS_REGION=", {"Ref": "AWS::Region"}, " >> /etc/environment\n",
                 "sudo yum update -y && sudo yum install -y python python-pip && sudo pip install awscli\n",
@@ -298,8 +299,8 @@
                 "git reset --hard ", {"Ref": "CommitID"}, "\n",
                 "git --no-pager log -1\n",
                 "popd\n",
-                "sudo chmod +x /opt/madcore/kubernetes/GPU/node-install.sh\n",
-                "sudo \"/opt/madcore/kubernetes/GPU/node-install.sh\"\n"
+                "sudo chmod +x /opt/madcore/kubernetes/cluster/gpu_node-install.sh\n",
+                "sudo \"/opt/madcore/kubernetes/cluster/gpu_node-install.sh\"\n"
               ]
             ]
           }

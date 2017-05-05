@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mailinput-plugin
-  labels:
-    name: mailinput-plugin

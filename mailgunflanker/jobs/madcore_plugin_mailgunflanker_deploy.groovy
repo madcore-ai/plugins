@@ -1,7 +1,7 @@
 pipelineJob('madcore.plugin.mailgunflanker.deploy') {
     parameters {
       stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
-      stringParam('REPO_BRANCH', 'master', '')
+      stringParam('REPO_BRANCH', 'mailgun-flanker', '')
       stringParam('APP_NAME', 'mailgunflanker', '')
       stringParam('DOCKERFILE_PATH', 'mailgunflanker', 'Specify path to docker file relative to root repo.')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')

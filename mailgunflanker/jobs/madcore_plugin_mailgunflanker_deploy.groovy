@@ -1,6 +1,6 @@
 pipelineJob('madcore.plugin.mailgunflanker.deploy') {
     parameters {
-      stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
+      stringParam('REPO_URL', 'https://github.com/phplaboratory/madcore-plugins-containers', '')
       stringParam('REPO_BRANCH', 'mailgun-flanker', '')
       stringParam('APP_NAME', 'mailgunflanker', '')
       stringParam('DOCKERFILE_PATH', 'mailgunflanker', 'Specify path to docker file relative to root repo.')

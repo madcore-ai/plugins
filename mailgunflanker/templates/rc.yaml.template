@@ -4,7 +4,7 @@ metadata:
   labels:
     name: {APP_NAME_TMPL}
   name: {APP_NAME_TMPL}
-  namespace: mailgun-flanker-plugin
+  namespace: mailgunflanker-plugin
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
         name: {APP_NAME_TMPL}
     spec:
       containers:
-      - name: mailgun-flanker
+      - name: mailgunflanker
         image: core.madcore:5000/{APP_NAME_TMPL}:image
       imagePullSecrets:
       - name: myregistrykey

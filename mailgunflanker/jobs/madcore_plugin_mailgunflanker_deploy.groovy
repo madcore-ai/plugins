@@ -1,11 +1,11 @@
-pipelineJob('madcore.plugin.mailgun-flanker.deploy') {
+pipelineJob('madcore.plugin.mailgunflanker.deploy') {
     parameters {
       stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
       stringParam('REPO_BRANCH', 'master', '')
-      stringParam('APP_NAME', 'mailgun-flanker', '')
-      stringParam('DOCKERFILE_PATH', 'mailgun-flanker', 'Specify path to docker file relative to root repo.')
+      stringParam('APP_NAME', 'mailgunflanker', '')
+      stringParam('DOCKERFILE_PATH', 'mailgunflanker', 'Specify path to docker file relative to root repo.')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
-      stringParam('APP_NAMESPACE', 'mailgun-flanker-plugin', 'Plugin namespase')
+      stringParam('APP_NAMESPACE', 'mailgunflanker-plugin', 'Plugin namespase')
 
     }
 
@@ -27,7 +27,7 @@ pipelineJob('madcore.plugin.mailgun-flanker.deploy') {
                   build job: 'madcore.plugin.mailgun-flanker.render.template', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Kubernetes: create') {
-                  build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'mailgun-flanker/kub')]
+                  build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'mailgunflanker/kub')]
                 }
               }
             """.stripIndent())

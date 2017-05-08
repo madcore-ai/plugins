@@ -1,6 +1,6 @@
-pipelineJob('madcore.plugin.mailgun-flanker.status') {
+pipelineJob('madcore.plugin.mailgunflanker.status') {
     parameters {
-	    stringParam('APP_NAME', 'mailgun-flanker', '')
+	    stringParam('APP_NAME', 'mailgunflanker', '')
     }
 
     definition {
@@ -12,7 +12,7 @@ pipelineJob('madcore.plugin.mailgun-flanker.status') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Kubernetes: status') {
-                  build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'mailgun-flanker/kub')]
+                  build job: 'madcore.kubectl.describe', parameters: [string(name: 'FILENAME', value: 'mailgunflanker/kub')]
                 }
               }
             """.stripIndent())

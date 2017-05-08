@@ -1,6 +1,6 @@
-pipelineJob('madcore.plugin.mailgun-flanker.delete') {
+pipelineJob('madcore.plugin.mailgunflanker.delete') {
     parameters {
-	    stringParam('APP_NAME', 'mailgun-flanker', '')
+	    stringParam('APP_NAME', 'mailgunflanker', '')
     }
 
     definition {
@@ -15,7 +15,7 @@ pipelineJob('madcore.plugin.mailgun-flanker.delete') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Kubernetes: delete') {
-                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'mailgun-flanker/kub')]
+                  build job: 'madcore.kubectl.delete', parameters: [string(name: 'FILENAME', value: 'mailgunflanker/kub')]
                 }
               }
             """.stripIndent())

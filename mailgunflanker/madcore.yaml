@@ -1,6 +1,6 @@
-- id: mailgun-flanker
+- id: mailgunflanker
   type: plugin
-  image: https://wiki.madcore.ai/_media/app/iconproduct-plugin-mailgun-flanker-001.png
+  image: https://wiki.madcore.ai/_media/app/iconproduct-plugin-mailgunflanker-001.png
   description: Process emails with mailgun/flanker and push to ElasticSearch
   bullets:
   - MailgunFlanker
@@ -11,7 +11,7 @@
   frame_color: gold
   parameters:
     - name: app_name
-      value: mailgun-flanker
+      value: mailgunflanker
       description: Plugin app name
       type: string
   jobs:

@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mailgun-flanker-plugin
-  labels:
-    name: mailgun-flanker-plugin

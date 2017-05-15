@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: neo4j-discovery
-  namespace: es-cluster
+  namespace: neo4j-cluster
   labels:
     component: neo4j
     role: master

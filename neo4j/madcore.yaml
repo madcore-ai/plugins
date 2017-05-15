@@ -4,7 +4,7 @@ image: "https://wiki.madcore.ai/_media/app/iconproductpluginneo4j001.png"
 description: "Neo4j Cluster"
 bullets:
 - "Data Mining"
-- "Elastic Co"
+- "Neo4j"
 text_active: Active
 text_buy: "$2.99"
 text_inactive: Inactive

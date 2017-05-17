@@ -17,5 +17,8 @@ spec:
       containers:
       - name: mailgunflanker
         image: core.madcore:5000/{APP_NAME_TMPL}:image
+        env:
+        - name: ELASTICSEARCH
+          value: {ELASTICSEARCH_URL_TMPL}
       imagePullSecrets:
       - name: myregistrykey

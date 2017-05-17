@@ -6,6 +6,7 @@ pipelineJob('madcore.plugin.mailgunflanker.deploy') {
       stringParam('DOCKERFILE_PATH', 'mailgunflanker', 'Specify path to docker file relative to root repo.')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
       stringParam('APP_NAMESPACE', 'mailgunflanker-plugin', 'Plugin namespase')
+      stringParam('ELASTICSEARCH_URL', 'http://elasticsearch:9200', 'Elasticsearch endpoint')
 
     }
 
@@ -24,7 +25,7 @@ pipelineJob('madcore.plugin.mailgunflanker.deploy') {
                   build job: 'madcore.docker.registry.status', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
                 }
                 stage ('Generate rc yaml') {
-                  build job: 'madcore.plugin.mailgunflanker.render.template', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]
+                  build job: 'madcore.plugin.mailgunflanker.render.template', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'ELASTICSEARCH_URL', value: params.ELASTICSEARCH_URL)]
                 }
                 stage ('Kubernetes: create') {
                   build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'mailgunflanker/kub')]

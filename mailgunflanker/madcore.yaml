@@ -3,7 +3,7 @@
   image: https://wiki.madcore.ai/_media/app/iconproduct-plugin-mailgunflanker-001.png
   description: Process emails with mailgun/flanker and push to ElasticSearch
   bullets:
-  - MailgunFlanker
+    - MailgunFlanker
   text_active: Active
   text_buy: "$2.99"
   text_inactive: Inactive
@@ -14,12 +14,11 @@
       value: mailgunflanker
       description: Plugin app name
       type: string
-
   jobs:
-  - name: deploy
-    parameters:
-    - name: S3BUCKETNAME
-      value: "{{ MADCORE_S3_BUCKET }}"
-      description: S3 Bucket Name for backup
-      type: string
-      prompt: false
+    - name: deploy
+      parameters:
+        - name: S3BUCKETNAME
+          value: "{{ MADCORE_S3_BUCKET }}"
+          description: S3 Bucket Name for backup
+          type: string
+          prompt: false

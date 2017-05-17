@@ -14,10 +14,6 @@
       value: mailgunflanker
       description: Plugin app name
       type: string
-    - name: elasticsearch_url
-      value: "http://elasticsearch:9200"
-      description: Elasticsearch endpoint
-      type: string
 
   jobs:
   - name: deploy

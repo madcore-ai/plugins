@@ -3,7 +3,6 @@ pipelineJob('madcore.plugin.kafka.deploy') {
       stringParam('CHART', 'kafka/helm', '')
       stringParam('RELEASE_NAME', 'kafka', '')
       stringParam('NAMESPACE', 'kafka', '')
-      stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
     }
 
     definition {

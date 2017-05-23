@@ -20,9 +20,6 @@ pipelineJob('madcore.plugin.neo4j.deploy') {
                 stage('Neo4j: create core') {
                     build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'neo4j/kub/neo4j-core.yaml')]
                 }
-                stage('Neo4j: wait for core') {
-                    build job: 'madcore.kubectl.wait.pod.up', parameters: [string(name: 'POD_NAME', value: 'neo4j-core')]
-                }
                 stage('Neo4j: wait for neo4j cluster to start') {
                     build job: 'madcore.kubectl.wait.service.up', parameters: [string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'SERVICE_NAME', value: 'neo4j-main:7474'), string(name: 'SERVICE_NAMESPACE', value: 'neo4j-cluster')]
                 }

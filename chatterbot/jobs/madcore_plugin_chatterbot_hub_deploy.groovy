@@ -4,8 +4,8 @@ pipelineJob('madcore.plugin.chatterbot.deploy') {
       stringParam('SERVICE_PORT', '9019', '')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
       booleanParam('MADCORE_INGRESS_FLAG', false, 'ingress flag ')
-      stringParam('APP_NAMESPACE', 'chatterbot', 'Plugin namespase')
-      stringParam('APP_SERVICE_NAME', 'chatterbot', 'Plugin service name')
+      stringParam('APP_NAMESPACE', 'chatterbot-plugin', 'Plugin namespase')
+      stringParam('APP_SERVICE_NAME', 'chatterbot-service', 'Plugin service name')
 
     }
 

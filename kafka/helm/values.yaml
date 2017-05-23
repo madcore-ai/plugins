@@ -17,4 +17,4 @@ zookeeper:
   StorageClass: "madcore-nfs"
   Storage: "5Gi"
   Memory: "512Mi"
-  Cpu: "1"
+  Cpu: "300m"

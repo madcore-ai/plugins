@@ -2,6 +2,7 @@ apiVersion: "apps/v1beta1"
 kind: StatefulSet
 metadata:
   name: neo4j-core
+  namespace: neo4j-cluster
 spec:
   serviceName: neo4j
   replicas: 3

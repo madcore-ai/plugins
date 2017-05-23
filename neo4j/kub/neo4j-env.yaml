@@ -5,6 +5,7 @@ metadata:
   labels:
     app: neo4j
   name: neo4j
+  namespace: neo4j-cluster
 spec:
   clusterIP: None
   ports:

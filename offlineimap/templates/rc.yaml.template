@@ -18,7 +18,25 @@ spec:
       - name: mailgunflanker
         image: core.madcore:5000/{APP_NAME_TMPL}:image
         env:
-        - name: ELASTICSEARCH
-          value: {ELASTICSEARCH_URL_TMPL}
+        - name: REMOTE_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: username
+        - name: OAUTH2_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: oauth2_client_id
+        - name: OAUTH2_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: oauth2_client_secret
+        - name: OAUTH2_REFRESH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: oauth2_refresh_token
       imagePullSecrets:
       - name: myregistrykey

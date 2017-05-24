@@ -1,6 +1,7 @@
 pipelineJob('madcore.plugin.neo4j.deploy') {
     parameters {
 	    stringParam('APP_NAME', 'neo4j', '')
+      stringParam('NODES_IPS', '', 'Comma separated list of IPs.')
     }
 
     definition {
@@ -9,6 +10,9 @@ pipelineJob('madcore.plugin.neo4j.deploy') {
             script("""
             node {
                 stage('Neo4j: cloud formation install') {
+                }
+                stage ('Wait nodes for neo4j') {
+                    build job: 'madcore.kubectl.cluster.wait.nodes.up', parameters: [string(name: 'NODES_LABEL', value: 'cluster=neo4j'), string(name: 'NODES_IPS', value: params.NODES_IPS)]
                 }
                 stage('Neo4j: create services') {
                     build job: 'madcore.kubectl.create', parameters: [string(name: 'FILENAME', value: 'neo4j/kub/services')]

@@ -94,6 +94,11 @@ jobs:
     value: neo4j
     description: "Plugin app name"
     type: string
+  - name: nodes_ips
+    value: "{{ NEO4J_CLUSTER_ASG_INSTANCE_IPS|join(',') }}"
+    description: "Wait until ASG instances UP."
+    type: string
+    prompt: false
   sequence:
   - type: cloudformation
     name: cluster_deploy

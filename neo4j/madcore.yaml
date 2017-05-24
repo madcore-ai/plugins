@@ -10,12 +10,6 @@ text_buy: "$2.99"
 text_inactive: Inactive
 text_prerequesite: "Prerequisite missing"
 frame_color: gold
-parameters:
-- name: app_name
-  value: neo4j
-  description: "Plugin app name"
-  type: string
-  prompt: false
 cloudformations:
 - name: neo4j_cluster
   stack_name: "MADCORE-Neo4jCluster"
@@ -100,21 +94,16 @@ jobs:
     value: neo4j
     description: "Plugin app name"
     type: string
-  - name: S3BUCKETNAME
-    value: "{{ MADCORE_S3_BUCKET }}"
-    description: S3 Bucket Name for backup
-    type: string
-    prompt: false
   sequence:
-  - type: job
-    name: neo4j_deploy
-    description: "Neo4j jenkins deploy job."
-    job_name: deploy
   - type: cloudformation
     name: cluster_deploy
     description: "Deploy cluster using cloudformation"
     job_name: neo4j_cluster
     action: create
+  - type: job
+    name: neo4j_deploy
+    description: "Neo4j jenkins deploy job."
+    job_name: deploy
 - name: delete
   sequence:
   - type: cloudformation

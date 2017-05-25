@@ -14,6 +14,9 @@ pipelineJob('madcore.plugin.neo4j.status') {
                 stage('Neo4jCluster nodes: status') {
                     build job: 'madcore.kubectl.cluster.nodes.status', parameters: [string(name: 'NODE_LABEL', value: 'cluster=neo4j')]
                 }
+                stage('Neo4j cluster status') {
+                    build job: 'madcore.plugin.neo4j.selftest'
+                }
                 }
             """.stripIndent())
 	    }

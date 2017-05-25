@@ -12,6 +12,8 @@ spec:
         app: neo4j
         role: core
     spec:
+      nodeSelector:
+        cluster: neo4j
       containers:
       - name: neo4j
         image: "neo4j:3.1.0-enterprise"

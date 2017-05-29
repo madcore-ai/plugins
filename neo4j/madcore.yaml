@@ -125,6 +125,11 @@ jobs:
     description: "Clean up Neo4jCluster nodes."
     job_name: cleanup
 - name: status
+  parameters:
+  - name: app_name
+    value: neo4j
+    description: "Plugin app name"
+    type: string
   sequence:
   - type: cloudformation
     name: cluster_status

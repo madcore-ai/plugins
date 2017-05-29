@@ -1,5 +1,7 @@
 job('madcore.plugin.neo4j.selftest') {
-
+  parameters {
+    stringParam('APP_NAME', 'neo4j', '')
+  }
     steps {
         def command = """#!/bin/bash
 

@@ -17,7 +17,7 @@ pipelineJob('madcore.plugin.neo4j.status') {
                 stage('Neo4j cluster status') {
                     build job: 'madcore.plugin.neo4j.selftest'
                 }
-                }
+              }
             """.stripIndent())
 	    }
     }

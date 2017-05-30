@@ -7,8 +7,6 @@ metadata:
   namespace: mailgunflanker-plugin
 spec:
   replicas: 1
-  selector:
-    name: {APP_NAME_TMPL}
   template:
     metadata:
       labels:

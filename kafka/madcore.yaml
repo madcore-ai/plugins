@@ -21,35 +21,15 @@
       value: kafka
       description: Plugin name
       type: string
-    sequence:
-    - type: job
-      name: kafka_deploy
-      description: kafka jenkins deploy job.
-      job_name: deploy
-    - type: cloudformation
-      name: cluster_deploy
-      description: Deploy cluster using cloudformation
-      job_name: kafka_cluster
-      action: create
   - name: delete
     parameters:
     - name: RELEASE_NAME
       value: kafka
       description: Plugin name
       type: string
-    sequence:
-    - type: job
-      name: kafka_delete
-      description: Run jenkins delete job
-      job_name: delete
   - name: status
     parameters:
     - name: RELEASE_NAME
       value: kafka
       description: Plugin name
       type: string
-    sequence:
-    - type: job
-      name: jenkins_status
-      description: Run jenkins status job
-      job_name: status

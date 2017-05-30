@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: offlineimap
-        image: core.madcore:5000/{APP_NAME_TMPL}:image
+        image: {DOCKER_IMAGE_TMPL}
         env:
         - name: REMOTE_USER
           valueFrom:

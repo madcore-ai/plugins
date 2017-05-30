@@ -4,7 +4,7 @@ metadata:
   labels:
     name: {APP_NAME_TMPL}
   name: {APP_NAME_TMPL}
-  namespace: mailgunflanker-plugin
+  namespace: offlineimap-plugin
 spec:
   template:
     metadata:
@@ -12,7 +12,7 @@ spec:
         name: {APP_NAME_TMPL}
     spec:
       containers:
-      - name: mailgunflanker
+      - name: offlineimap
         image: core.madcore:5000/{APP_NAME_TMPL}:image
         env:
         - name: REMOTE_USER
@@ -35,6 +35,6 @@ spec:
             secretKeyRef:
               name: {SECRET_TMPL}
               key: oauth2_refresh_token
-      RestartPolicy: OnFailure
+      restartPolicy: OnFailure
       imagePullSecrets:
       - name: myregistrykey

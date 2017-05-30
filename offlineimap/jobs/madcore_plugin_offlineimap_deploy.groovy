@@ -3,7 +3,7 @@ pipelineJob('madcore.plugin.offlineimap.deploy') {
       stringParam('APP_NAME', 'offlineimap', '')
       stringParam('APP_NAMESPACE', 'offlineimap-plugin', 'Plugin namespase')
       stringParam('ACCOUNT', 'mysecret', '')
-      stringParam('DOCKER_IMAGE', 'madcore/offlineimap', '')
+      stringParam('DOCKER_IMAGE', 'madcore\\/offlineimap', '')
 
 
     }

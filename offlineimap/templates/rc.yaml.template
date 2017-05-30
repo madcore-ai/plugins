@@ -35,5 +35,6 @@ spec:
             secretKeyRef:
               name: {SECRET_TMPL}
               key: oauth2_refresh_token
+      RestartPolicy: OnFailure
       imagePullSecrets:
       - name: myregistrykey

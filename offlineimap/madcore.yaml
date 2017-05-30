@@ -14,23 +14,10 @@
       value: offlineimap
       description: Plugin app name
       type: string
-    - name: remote_user
-      value: coxodox@gmail.com
-      description: Email account
+    - name: account
+      value: mysecret
+      description: IMAP account
       type: string
-    - name: OAUTH2_CLIENT_ID
-      value: 846427981560-l7a2oeb1m29moj183l9g0ruq0vlbbuic.apps.googleusercontent.com
-      description: OAUTH2_CLIENT_ID
-      type: string
-    - name: OAUTH2_CLIENT_SECRET
-      value: YjYdktcPwa-RBomNZvkuuTMx
-      description: OAUTH2_CLIENT_SECRET
-      type: string
-    - name: OAUTH2_REFRESH_TOKEN
-      value: 1/yR5OP7m9DnSY6oN7wvVhOYXQNSp9k9cYkjupdcyWLsjkWA7wEA-rykT_11sJkyyX
-      description: OAUTH2_REFRESH_TOKEN
-      type: string
-
   jobs:
     - name: deploy
       parameters:

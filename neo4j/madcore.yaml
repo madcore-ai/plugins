@@ -99,6 +99,11 @@ jobs:
     description: "Wait until ASG instances UP."
     type: string
     prompt: false
+  - name: S3BucketName
+    value: "{{ MADCORE_S3_BUCKET }}"
+    description: S3 Bucket Name for backup
+    type: string
+    prompt: false
   sequence:
   - type: cloudformation
     name: cluster_deploy

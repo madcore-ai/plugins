@@ -21,6 +21,11 @@
       value: kafka
       description: Plugin name
       type: string
+    - name: S3BucketName
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 Bucket Name for backup
+      type: string
+      prompt: false
   - name: delete
     parameters:
     - name: RELEASE_NAME

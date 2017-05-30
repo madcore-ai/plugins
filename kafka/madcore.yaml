@@ -10,7 +10,7 @@
   text_prerequesite: Prerequisite missing
   frame_color: gold
   parameters:
-    - name: app_name
+    - name: RELEASE_NAME
       value: kafka
       description: Plugin name
       type: string

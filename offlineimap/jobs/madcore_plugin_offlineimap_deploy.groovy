@@ -1,7 +1,7 @@
 pipelineJob('madcore.plugin.offlineimap.deploy') {
     parameters {
       stringParam('REPO_URL', 'https://github.com/madcore-ai/containers', '')
-      stringParam('REPO_BRANCH', 'docker', '')
+      stringParam('REPO_BRANCH', 'issue-119-offlineimap', '')
       stringParam('APP_NAME', 'offlineimap', '')
       stringParam('DOCKERFILE_PATH', 'offlineimap', 'Specify path to docker file relative to root repo.')
       stringParam('APP_NAMESPACE', 'offlineimap-plugin', 'Plugin namespase')
@@ -22,7 +22,7 @@ pipelineJob('madcore.plugin.offlineimap.deploy') {
             script("""
             node {
                 stage ('Docker: build container') {
-                  build job: 'madcore.docker.image.build', parameters: [string(name: 'REPO_URL', value: params.REPO_URL), string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'DOCKERFILE_PATH', value: params.DOCKERFILE_PATH)]
+                  build job: 'madcore.docker.image.build', parameters: [string(name: 'REPO_URL', value: params.REPO_URL), string(name: 'APP_NAME', value: params.APP_NAME), string(name: 'DOCKERFILE_PATH', value: params.DOCKERFILE_PATH),string(name: 'REPO_BRANCH', value: params.REPO_BRANCH)]
                 }
                 stage ('Docker: registry publish') {
                   build job: 'madcore.docker.registry.publish', parameters: [string(name: 'APP_NAME', value: params.APP_NAME)]

@@ -14,15 +14,10 @@
       value: offlineimap
       description: Plugin app name
       type: string
-    - name: account
-      value: mysecret
-      description: IMAP account
-      type: string
   jobs:
     - name: deploy
       parameters:
-        - name: S3BUCKETNAME
-          value: "{{ MADCORE_S3_BUCKET }}"
-          description: S3 Bucket Name for backup
+        - name: account
+          value: mysecret
+          description: IMAP account
           type: string
-          prompt: false

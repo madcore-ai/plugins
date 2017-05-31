@@ -3,7 +3,7 @@ pipelineJob('madcore.plugin.kafka.deploy') {
       stringParam('CHART', 'kafka/helm', '')
       stringParam('RELEASE_NAME', 'kafka', '')
       stringParam('NAMESPACE', 'kafka', '')
-      stringParam('SERVICE_PORT', '2181', '')
+      stringParam('SERVICE_PORT', '9092', '')
       stringParam('S3BUCKETNAME', '', 'S3 bucket name for backup')
     }
 
@@ -16,7 +16,7 @@ pipelineJob('madcore.plugin.kafka.deploy') {
                   build job: 'madcore.helm.install', parameters: [string(name: 'CHART', value: params.CHART), string(name: 'RELEASE_NAME', value: params.RELEASE_NAME), string(name: 'NAMESPACE', value: params.NAMESPACE)]
                 }
                 stage ('Update app base') {
-                  APP_SERVICE_NAME = params.RELEASE_NAME + "zookeeper" + "-zk"
+                  APP_SERVICE_NAME = params.RELEASE_NAME + "broker" + "-kf"
                   build job: 'madcore.redis.app.update', parameters: [string(name: 'APP_NAME', value: params.RELEASE_NAME), string(name: 'SERVICE_PORT', value: params.SERVICE_PORT), string(name: 'APP_NAMESPACE', value: params.NAMESPACE), string(name: 'APP_SERVICE_NAME', value: APP_SERVICE_NAME) ]
                 }
                 stage ('Update CSR') {

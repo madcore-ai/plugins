@@ -44,8 +44,10 @@ metadata:
   annotations:
     "helm.sh/created": {{.Release.Time.Seconds | quote }}
 spec:
+  type: NodePort
   ports:
   - port: 9092
+    nodePort: 30000
   selector:
     component: "{{.Release.Name}}-{{.Values.Component}}"
     app: kafka

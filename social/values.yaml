@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: madcore/plugins
-  tag: stable
+  repository: madcore/social
+  tag: latest
   pullPolicy: IfNotPresent
 service:
   name: social

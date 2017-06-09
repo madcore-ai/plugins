@@ -6,7 +6,7 @@ metadata:
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
-  serviceName: "{{ printf "%s-sn-%s" .Release.Name .Values.Name | trunc 63 }}"
+  serviceName: {{ template "fullname" . }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
@@ -17,6 +17,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        restartPolicy: Never
         resources:
 {{ toYaml .Values.resources | indent 12 }}
         volumeMounts:

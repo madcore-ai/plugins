@@ -2,10 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
+namespace: social
 image:
   repository: madcore/credcollect
   tag: latest
-  pullPolicy: IfNotPresent
+  imagePullPolicy: Always
 service:
   name: social
   type: ClusterIP

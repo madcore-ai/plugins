@@ -6,7 +6,7 @@ namespace: offlineimap
 image:
   repository: madcore/offlineimap
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 service:
   name: offlineimap
   type: ClusterIP

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gsec
+type: Opaque
+data:
+  REMOTE_USER: {{ REMOTE_USER }}
+  PATH_BASE: {{ PATH_BASE }}
+  PATH_DATA: {{ PATH_DATE }}
+  PATH_APP: {{ PATH_APP }}
+  CLIENT_ID: {{ CLIENT_ID }}
+  CLIENT_SECRET: {{ CLIENT_SECRET }}
+  REFRESH_TOKEN: {{ REFRESH_TOKEN }}

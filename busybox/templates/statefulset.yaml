@@ -16,8 +16,9 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        restartPolicy: Never
+        command: ["sh", "-c", "ls /opt/gsec; sleep 6000"]
+#        imagePullPolicy: {{ .Values.image.pullPolicy }}
+#        restartPolicy: Always
         resources:
 {{ toYaml .Values.resources | indent 12 }}
         env:
@@ -25,10 +26,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: gsec
-              key: REMOTE_USER
+              key: RemoteUser
         volumeMounts:
         - name: datadir
           mountPath: "{{ .Values.storage.DataDirectory }}"
+        - name: gsec
+          readOnly: true
+          mountPath: /opt/gsec
+      volumes:
+        - name: gsec
+          secret:
+            secretName: gsec
   volumeClaimTemplates:
   - metadata:
       name: datadir

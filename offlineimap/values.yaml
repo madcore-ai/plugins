@@ -22,4 +22,12 @@ resources:
 storage:
   StorageClass: "madcore-nfs"
   Size: "5Gi"
-  DataDirectory: "/opt/offlineimap/data"
+  DataDirectory: "/opt/offlineimap"
+sec:
+  RemoteUser: 
+  PathData: 
+  PathBase: 
+  PathApp: 
+  ClientId: 
+  ClientSecret: 
+  RefreshToken: 

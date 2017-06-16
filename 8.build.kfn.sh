@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER=3
+VER=4
 
 helm delete my-kfn --purge
 kubectl delete pods,svc,statefulsets,pvc --all --namespace=social

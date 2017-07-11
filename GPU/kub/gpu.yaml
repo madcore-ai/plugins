@@ -20,8 +20,8 @@ spec:
       name: lib
   volumes:
   - hostPath:
-      path: /usr/lib/nvidia-367/bin
+      path: /usr/lib/nvidia-375/bin
     name: bin
   - hostPath:
-      path: /usr/lib/nvidia-367
+      path: /usr/lib/nvidia-375
     name: lib

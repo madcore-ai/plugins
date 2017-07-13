@@ -1,7 +1,7 @@
-- id: GPU
+- id: gpu
   type: cluster
   image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
-  description: GPU Cluster
+  description: gpu Cluster
   bullets:
   - Machine Learning
   - Data Mining
@@ -13,13 +13,13 @@
   frame_color: gold
   parameters:
   - name: app_name
-    value: GPU
+    value: gpu
     description: Plugin app name
     type: string
     prompt: false
   cloudformations:
-  - name: GPU_cluster
-    stack_name: MADCORE-GPUCluster
+  - name: gpu_cluster
+    stack_name: MADCORE-gpuCluster
     template_file: cf/cluster.json
     capabilities:
     - CAPABILITY_IAM
@@ -97,7 +97,7 @@
   - name: deploy
     parameters:
     - name: app_name
-      value: GPU
+      value: gpu
       description: Plugin app name
       type: string
     - name: S3BUCKETNAME
@@ -107,35 +107,35 @@
       prompt: false
     sequence:
     - type: job
-      name: GPU_deploy
-      description: GPU jenkins deploy job.
+      name: gpu_deploy
+      description: gpu jenkins deploy job.
       job_name: deploy
     - type: cloudformation
       name: cluster_deploy
       description: Deploy cluster using cloudformation
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: create
   - name: delete
     sequence:
     - type: cloudformation
       name: cluster_remove
       description: Remove cloudformation cluster
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: delete
     - type: job
-      name: GPU_delete
+      name: gpu_delete
       description: Run jenkins delete job
       job_name: delete
     - type: job
       name: nodes_cleanup
-      description: Clean up GPUCluster nodes.
+      description: Clean up gpuCluster nodes.
       job_name: cleanup
   - name: status
     sequence:
     - type: cloudformation
       name: cluster_status
       description: Check cloudformation cluster status
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: status
     - type: job
       name: jenkins_status
@@ -151,7 +151,7 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings.
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: update
       parameters:
       - name: InstanceType
@@ -167,12 +167,12 @@
         description: AWS EC2 instance spot price.
         type: string
       - name: DesiredCapacity
-        value: "{{ GPU_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}"
+        value: "{{ gpu_CLUSTER_DesiredCapacity|int + EXTEND_NODES|int }}"
         description: Update Cluster DesiredCapacity.
         type: string
         prompt: false
       - name: MaxSize
-        value: "{{ GPU_CLUSTER_MaxSize|int + EXTEND_NODES|int }}"
+        value: "{{ gpu_CLUSTER_MaxSize|int + EXTEND_NODES|int }}"
         description: Update Cluster MaxSize.
         type: string
         prompt: false
@@ -182,7 +182,7 @@
       job_name: nodes.up
       parameters:
       - name: nodes_ips
-        value: "{{ GPU_CLUSTER_ASG_INSTANCE_IPS|join(',') }}"
+        value: "{{ gpu_CLUSTER_ASG_INSTANCE_IPS|join(',') }}"
         description: Wait until ASG instances UP.
         type: string
         prompt: false
@@ -196,11 +196,11 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: update
       parameters:
       - name: DesiredCapacity
-        value: "{{ GPU_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}"
+        value: "{{ gpu_CLUSTER_DesiredCapacity|int - CONTRACT_NODES|int }}"
         description: Update Cluster DesiredCapacity and remove X nodes.
         type: string
         prompt: false
@@ -213,7 +213,7 @@
     - type: cloudformation
       name: cluster_status
       description: Update cloudformation cluster settings
-      job_name: GPU_cluster
+      job_name: gpu_cluster
       action: update
       parameters:
       - name: DesiredCapacity

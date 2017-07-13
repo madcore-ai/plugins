@@ -4,7 +4,7 @@ metadata:
   name: gpu-pod
 spec:
   nodeSelector:
-    role: GPU
+    role: gpu
   containers:
   - name: gpu-container-1
     image: deeplearning4j/dl4j-devkit:latest

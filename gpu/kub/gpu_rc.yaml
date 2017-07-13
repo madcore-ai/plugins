@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: deeplearning4j
+  name: deeplearning4j
+spec:
+  replicas: 1
+  selector:
+    name: flasker-hub
+  template:
+    metadata:
+      labels:
+        name: flasker-hub
+    spec:
+      nodeSelector:
+        role: gpu
+      containers:
+      - name: deeplearning4j-1
+        image: deeplearning4j/dl4j-devkit:latest
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            alpha.kubernetes.io/nvidia-gpu: 1
+        volumeMounts:
+        - mountPath: /usr/local/nvidia/bin
+          name: bin
+        - mountPath: /usr/lib/nvidia
+          name: lib
+      volumes:
+      - hostPath:
+          path: /usr/lib/nvidia-375/bin
+        name: bin
+      - hostPath:
+          path: /usr/lib/nvidia-375
+        name: lib

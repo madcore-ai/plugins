@@ -2,22 +2,22 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: deeplearning4j
-  name: deeplearning4j
+    name: deeplearning4j-examples
+  name: deeplearning4j-examples
 spec:
   replicas: 1
   selector:
-    name: flasker-hub
+    name: deeplearning4j-examples
   template:
     metadata:
       labels:
-        name: flasker-hub
+        name: deeplearning4j-examples
     spec:
       nodeSelector:
         role: gpu
       containers:
-      - name: deeplearning4j-1
-        image: deeplearning4j/dl4j-devkit:latest
+      - name: deeplearning4j-examples
+        image: madcore/deeplearning4j:latest
         securityContext:
           privileged: true
         resources:

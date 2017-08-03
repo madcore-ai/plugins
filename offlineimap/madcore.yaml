@@ -1,0 +1,23 @@
+- id: offlineimap
+  type: plugin
+  image: https://wiki.madcore.ai/_media/app/iconproduct-plugin-offlineimap-001.png
+  description: Copy emails from IMAP server to local folder
+  bullets:
+    - OfflineIMAP
+  text_active: Active
+  text_buy: "$2.99"
+  text_inactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  parameters:
+    - name: app_name
+      value: offlineimap
+      description: Plugin app name
+      type: string
+  jobs:
+    - name: deploy
+      parameters:
+        - name: account
+          value: mysecret
+          description: IMAP account
+          type: string

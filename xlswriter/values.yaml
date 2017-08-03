@@ -1,0 +1,34 @@
+# Default values for offlineimap.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+namespace: social
+image:
+  repository: madcore/xw
+  tag: latest
+  pullPolicy: Always
+  entrypoint: "ls /opt/xlswriter; sleep 6000"
+service:
+  name: xlswriter
+  type: ClusterIP
+  externalPort: 9019
+  internalPort: 9019
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+storage:
+  StorageClass: "madcore-nfs"
+  Size: "1Gi"
+  DataDirectory: "/opt/xlswriter"
+sec:
+  RemoteUser: 
+  PathBase: 
+  PathData: 
+  PathApp: 
+  ClientId: 
+  ClientSecret: 
+  RefreshToken: 

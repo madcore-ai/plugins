@@ -10,6 +10,6 @@ pushd ~/git_madcore/plugins/busybox
 popd
 helm install --name my-busybox local/busybox --wait --debug
 #kubectl get pods,svc,statefulsets,pvc -o wide --namespace=busybox
-#kubectl --namespace=busybox exec -it my-busybox-busybox-0 -- /bin/bash
 #kubectl describe statefulset my-busybox-busybox --namespace=busybox
 kubectl describe pod my-busybox-busybox-0 --namespace=busybox
+kubectl --namespace=busybox exec -it my-busybox-busybox-0 -- /bin/sh

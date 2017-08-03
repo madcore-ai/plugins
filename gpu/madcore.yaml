@@ -106,15 +106,15 @@
       type: string
       prompt: false
     sequence:
-    - type: job
-      name: gpu_deploy
-      description: gpu jenkins deploy job.
-      job_name: deploy
     - type: cloudformation
       name: cluster_deploy
       description: Deploy cluster using cloudformation
       job_name: gpu_cluster
       action: create
+    - type: job
+      name: gpu_deploy
+      description: gpu jenkins deploy job.
+      job_name: deploy
   - name: delete
     sequence:
     - type: cloudformation

@@ -1,0 +1,3 @@
+## Install
+
+* Madcore Social Plugin

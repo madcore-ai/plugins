@@ -1,0 +1,50 @@
+- id: slack
+  type: plugin
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  description: Slack API
+  bullets:
+  - Slack API
+  - Sync channels to S3
+  - Post messages to Slack
+  text_active: Active
+  text_buy: "$2.99"
+  text_inactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  parameters:
+  - name: app_name
+    value: slack
+    description: Plugin app name
+    type: string
+  jobs:
+  - name: deploy
+    parameters:
+    - name: slack_token
+      value: 
+      description: 'Slack API token: https://api.slack.com/docs/oauth-test-tokens'
+      type: string
+  - name: pull
+    parameters:
+    - name: all_channels
+      value: 
+      description: In case that you want to sync all the channels, set this.
+      type: bool
+    - name: channels
+      value: 
+      description: List of slack channels(comma separated) to pull from.
+      type: string
+    - name: s3_bucket
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 bucket name to sync data to.
+      type: string
+  - name: push
+    parameters:
+    - name: channel
+      value: 
+      description: Slack channel name to post message to.
+      type: string
+    - name: message
+      value: 
+      description: Slack text message to post.
+      type: string
+

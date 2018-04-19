@@ -1,0 +1,79 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: "{{ .Values.namespace }}"
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  serviceName: {{ template "fullname" . }}
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#        command: ["/bin/bash", "-c", "ls -al; sleep 6000"]
+#        imagePullPolicy: {{ .Values.image.pullPolicy }}
+#        restartPolicy: Never
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+        env:
+        - name: REMOTE_USER
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: RemoteUser
+        - name: PATH_BASE
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: PathBase
+        - name: PATH_DATA
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: PathData
+        - name: PATH_APP
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: PathApp
+        - name: CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: ClientId
+        - name: CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: ClientSecret
+        - name: REFRESH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: gsec
+              key: RefreshToken
+        volumeMounts:
+        - name: datadir
+          mountPath: "{{ .Values.storage.DataDirectory }}"
+        - name: gsec
+          readOnly: true
+          mountPath: /opt/gsec
+      volumes:
+        - name: gsec
+          secret:
+            secretName: gsec
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "{{ .Values.storage.StorageClass }}"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.storage.Size }}

@@ -1,0 +1,1830 @@
+[
+    {
+        "id": "instanceselect",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "hello world",
+        "assets": [
+            {
+                "format": "wav",
+                "url": "https://wiki.madcore.ai/_media/app/instanceselect.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/instanceselect.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "log",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "hello world",
+        "assets": [
+            {
+                "format": "wav",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla2"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "click",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "hello world",
+        "assets": [
+            {
+                "format": "wav",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "click2",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "hello world",
+        "assets": [
+            {
+                "format": "wav",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/click.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "sf-ck-ambience-drone-low-01",
+        "isbg": 1,
+        "loop": true,
+        "volume": 1,
+        "text": "BG Playing",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/sf-ck-ambience-drone-low-01.ogg",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/sf-ck-ambience-drone-low-01.mp3",
+                "md5": "bleble"
+            }
+        ]
+    },    
+    {
+        "id": "account_login_access_start",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Starting Login Procedure, this can take a while",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_login_access_complete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Login Complete, changing scene.",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_login_access_usernotverified",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "User not verified, code sent to your email",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_login_access_invalidlogin",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Invalid Login, Try Again",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },   
+    {
+        "id": "account_registration_email_confirm",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Please Check your email to verify your account.",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_email_accountconfirm",
+        "isbg": 1,
+        "loop": false,
+        "volume": 1,
+        "text": "Confirming if a account with this email exists",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_team_choose",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Please choose your team and desired domain",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_login_bitbucketfail",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Bitbucket username or password wrong",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+     {
+        "id": "account_registration_verify_success",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Success, Please Login",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_verify_failed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Invalid Token, Try Again",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_verify_confirmscreen",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Confirmation Screen. Press verify to proceed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_account_detected",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Account detected, insert your password",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_account_new",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "New Account, create your password",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_bitbucket_info",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Input your bitbucket info to proceed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_error_shortpassword",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Password must have at least 6 characters",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "account_registration_error_invalidcode",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Invalid Code, Try Again",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },    
+    {
+        "id": "internet_info_connection_no",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "No Internet Connection",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_post_completed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Post Sent",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_connection_getting",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Trying to Connect",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_post_failed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Post Failed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_ip_getting",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Getting your IP",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_ip_show",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Your IP - ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_post_timeout",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Post Time Out, Cancelling",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "internet_info_get_soundfile",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Retrieving Sound File",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_login_message_welcome",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Hello, Preferences Loaded and Ready",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_login_files_readytouse",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Ready to Use Now",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_login_action_completed",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Login Completed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_button_slide_in",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "button opened",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_button_slide_out",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "button closed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_menu_slide_in",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "menu opened",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_menu_slide_out",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "menu closed",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_aws_key",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Please enter the Aws Key field",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_connection_name",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Please enter the Name field",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_set_secretkey",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Please enter the Secret Key field",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_connection_added",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "New Connection Added",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_core_notready",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core is not Ready",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_invalid_path",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "The Path is Invalid",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_autoupdate_security",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Updating Follow Me Ip",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_invalid_password",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Your password is too short or invalid",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_info_wrong_password",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Your password is wrong, please retry",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_object_instance_deselected",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Deselected",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_object_theme_updated",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Theme Updated!",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "ui_object_theme_updating",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Theme Update in Progress",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },    
+    {
+        "id": "core_info_schedule_update",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Job: Update Schedule: ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_schedule_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Job: Delete Schedule: ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_instance_update",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Job: Update Instance: ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_instance_turnon",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Turning On Instance",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_instance_turnoff",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Turning Off Instance",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_dns_creating",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "DNS Start Process",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "core_info_jenkins_ready",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core - Jenkins Ready",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "schedule_info_schedule_added",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Added To Schedule",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "schedule_info_schedule_alreadyadded",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Instance already has a Schedule",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "schedule_info_schedule_nameinvalid",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Schedule name can't be NULL or New Schedule!",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "schedule_info_schedule_samename",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "There is a Schedule with this name already.",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_network_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on Network",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_network_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on Network / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_network_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checking if Stack Network is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_network_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on Network",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on FollowMe",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on FollowMe / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack FollowMe is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_followme_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on FollowMe",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on Core",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on Core / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack Core is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_core_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on Core",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on S3",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on S3 / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack S3 is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_s3_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on S3",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on DNS",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on DNS / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack DNS is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_dns_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on DNS",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_create",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Create Stack on Cluster",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_describe",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Describe Stack on Cluster / secs",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_checkdelete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Checkinf if Stack Cluster is Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_stack_cluster_delete",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Delete Stack on Cluster",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_standard_message",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "AWS :",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_connection_anim_message",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Connecting to Aws",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_core_loaded",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Loaded",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_core_notloaded",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Not Loaded ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_initial_checktrue",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Loaded ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_initial_checkfalse",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Core Unavailable",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_product_checked",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Stack Checked ",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_product_confirmdeleted",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Stack Deleted",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_keypair_no",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "No Key, Selected a Key in Preferences or Create One in AWS",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_product_purchased",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Product Purchased, Thank You.",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_login_start",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Logging you, wait a moment",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_madcore_abort",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Aborting Core Deploy, Please Try Again.",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    },
+    {
+        "id": "aws_info_dns_start",
+        "isbg": 0,
+        "loop": false,
+        "volume": 1,
+        "text": "Starting DNS Checkup Procedure, this can take a while",
+        "assets": [
+            {
+                "format": "ogg",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "blabla"
+            },
+            {
+                "format": "mp3",
+                "url": "https://wiki.madcore.ai/_media/app/log.wav",
+                "md5": "bleble"
+            }
+        ]
+    }
+
+
+
+]         
+           

@@ -1,1 +1,0 @@
-Madcore Docker-Compose Plugins

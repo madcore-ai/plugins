@@ -1,0 +1,15 @@
+apiVersion: v1
+description: Madcore Social
+  commit log.
+home: https://madcore.ai/
+icon: https://madcore.ai/images/logo.png
+keywords:
+- madcore
+- social
+maintainers:
+- email: polfilm@gmail.com
+  name: Peter Styk
+name: madcore-social
+sources:
+- https://github.com/madcore-ai/plugins/tree/development/social
+version: 0.0.1

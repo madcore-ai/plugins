@@ -1,0 +1,16 @@
+- id: social
+  type: plugin
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  description: Social
+  bullets:
+  - Social
+  text_active: Active
+  text_buy: "$2.99"
+  text_inactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  parameters:
+    - name: RELEASE_NAME
+      value: social
+      description: Plugin name
+      type: string

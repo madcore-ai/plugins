@@ -1,0 +1,29 @@
+- id: chatterbot
+  type: plugin
+  image: https://wiki.madcore.ai/_media/app/iconproductpluginslack001.png
+  description: Chatterbot
+  bullets:
+  - Chatterbot
+  text_active: Active
+  text_buy: "$2.99"
+  text_inactive: Inactive
+  text_prerequesite: Prerequisite missing
+  frame_color: gold
+  parameters:
+    - name: app_name
+      value: chatterbot
+      description: Plugin app name
+      type: string
+  jobs:
+  - name: deploy
+    parameters:
+    - name: MADCORE_INGRESS_FLAG
+      value: "{{ MADCORE_INGRESS_FLAG }}"
+      description: Madcore ingres flags for plugin
+      type: bool
+      prompt: false
+    - name: S3BucketName
+      value: "{{ MADCORE_S3_BUCKET }}"
+      description: S3 Bucket Name for backup
+      type: string
+      prompt: false

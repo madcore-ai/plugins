@@ -1,0 +1,33 @@
+# Default values for offlineimap.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+namespace: busybox
+image:
+  repository: busybox
+  tag: latest
+  pullPolicy: Always
+service:
+  name: buxybox
+  type: ClusterIP
+  externalPort: 9019
+  internalPort: 9019
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+storage:
+  StorageClass: "madcore-nfs"
+  Size: "1Gi"
+  DataDirectory: "/opt/busybox/data"
+sec:
+  RemoteUser: 
+  PathBase: 
+  PathData: 
+  PathApp: 
+  ClientId: 
+  ClientSecret: 
+  RefreshToken: 

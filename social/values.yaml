@@ -1,0 +1,22 @@
+# Default values for social.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+namespace: social
+image:
+  repository: madcore/credcollect
+  tag: latest
+  imagePullPolicy: Always
+service:
+  name: social
+  type: ClusterIP
+  externalPort: 9019
+  internalPort: 9019
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
